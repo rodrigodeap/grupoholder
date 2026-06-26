@@ -1,87 +1,56 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Holder & Co · Inteligência Tributária</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></script>
-  <style>
-    * { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-    body { background-color: #0b0e12; color: #e5e9f0; }
-    .glass-nav { background: rgba(11, 14, 18, 0.7); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(52, 152, 219, 0.15); }
-    .btn-primary { background: linear-gradient(145deg, #1a2a3a, #0f1e2e); border: 1px solid #2a6b8f; color: #d4eaf7; transition: all 0.3s; }
-    .btn-primary:hover { border-color: #4aa8d4; box-shadow: 0 0 30px rgba(0, 180, 240, 0.3); transform: scale(1.02); color: #fff; }
-    .card-solution { background: rgba(18, 24, 28, 0.7); border: 1px solid rgba(52, 152, 219, 0.1); border-radius: 24px; transition: 0.4s; }
-    .card-solution:hover { transform: translateY(-8px); border-color: #2a7a9f; box-shadow: 0 20px 40px -12px rgba(0, 150, 220, 0.25); }
-    
-    /* ANIMAÇÃO DE FLUTUAÇÃO INFINITA (ESCUDO) */
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
+<!-- ===== HERO SECTION COM IMAGEM REFINADA ===== -->
+<section id="inicio" class="min-h-screen flex items-center relative overflow-hidden hero-texture pt-28 pb-16 px-6 md:px-12">
+  <!-- Background overlay -->
+  <div class="absolute inset-0 opacity-20 pointer-events-none" style="background: url('image_11.png') center/cover no-repeat; mix-blend-mode: overlay;"></div>
+  
+  <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-5 gap-12 items-center relative z-10">
+    <!-- Coluna Esquerda - Conteúdo -->
+    <div class="lg:col-span-3 space-y-8" data-aos="fade-up" data-aos-duration="1000">
+      <div class="inline-block bg-blue-900/30 border border-blue-700/30 rounded-full px-4 py-1.5 text-xs font-semibold text-blue-300 tracking-widest uppercase">Estratégia de alto impacto</div>
+      <h1 class="text-4xl md:text-6xl font-extrabold leading-[1.15] tracking-tight">
+        <span class="text-white">O lucro que a sua empresa gera </span><br>
+        <span class="bg-gradient-to-r from-blue-300 to-blue-500 bg-clip-text text-transparent">está sendo corroído na base.</span>
+      </h1>
+      <p class="text-base md:text-xl text-gray-300 max-w-2xl font-light leading-relaxed">
+        Inteligência Tributária e Engenharia de Ativos para empresas no Lucro Real. Injetamos caixa direto na sua operação, sem mágica, com fundamentação técnica e segurança jurídica.
+      </p>
+      <div class="flex flex-wrap gap-4 pt-2">
+        <a href="#contato" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold shadow-2xl shadow-blue-900/30">Agendar Reunião de Diretoria</a>
+      </div>
+    </div>
+
+    <!-- Coluna Direita - Imagem Estratégica com Flutuação -->
+    <div class="lg:col-span-2 flex justify-center lg:justify-end" data-aos="fade-left" data-aos-duration="1100">
+      <img 
+        src="https://via.placeholder.com/600x600/0a0f16/3b82f6?text=Corrosão+do+Lucro+%26+Blindagem+Tributária" 
+        alt="Corrosão do lucro e blindagem tributária - Holder & Co" 
+        class="w-full max-w-md mx-auto rounded-3xl shadow-2xl shadow-blue-500/20 floating-image transition-transform duration-500 hover:scale-105 hover:shadow-blue-500/40"
+        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22600%22 viewBox=%220 0 600 600%22%3E%3Crect width=%22600%22 height=%22600%22 fill=%22%230a0f16%22/%3E%3Ctext x=%22300%22 y=%22300%22 text-anchor=%22middle%22 dominant-baseline=%22central%22 fill=%22%233b82f6%22 font-size=%2232%22 font-family=%22Inter,sans-serif%22 font-weight=%22600%22%3ECorrosão do Lucro%3C/text%3E%3Ctext x=%22300%22 y=%22345%22 text-anchor=%22middle%22 dominant-baseline=%22central%22 fill=%22%233b82f6%22 font-size=%2224%22 font-family=%22Inter,sans-serif%22 font-weight=%22400%22%3EBlindagem Tributária%3C/text%3E%3C/svg%3E'"
+      >
+    </div>
+  </div>
+</section>
+
+<!-- CSS adicional para animação de flutuação premium -->
+<style>
+  /* ===== ANIMAÇÃO DE FLUTUAÇÃO PREMIUM ===== */
+  @keyframes floatPremium {
+    0%, 100% {
+      transform: translateY(0px) scale(1);
     }
-    .animate-float { animation: float 5s ease-in-out infinite; }
-    
-    /* BLEND MODE PARA A IMAGEM DO ESCUDO */
-    .hero-image {
-      mix-blend-mode: screen;
-      -webkit-mix-blend-mode: screen;
-      transition: all 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.1);
+    50% {
+      transform: translateY(-16px) scale(1.01);
     }
-    .hero-image:hover { transform: scale(1.05); filter: drop-shadow(0 0 30px rgba(59, 130, 246, 0.6)); }
-    
-    .input-glass { background: rgba(18, 24, 28, 0.6); border: 1px solid rgba(52, 152, 219, 0.2); color: #e5e9f0; }
-    .input-glass:focus { border-color: #2a7a9f; outline: none; }
-  </style>
-</head>
-<body>
-
-  <nav class="glass-nav fixed top-0 left-0 w-full z-50 px-6 py-4 flex items-center justify-between">
-    <span class="text-2xl font-bold text-blue-400">Holder & Co</span>
-    <div class="hidden lg:flex gap-8 text-sm text-gray-300">
-      <a href="#inicio">Início</a>
-      <a href="#abordagem">Estratégia</a>
-      <a href="#solucoes">Soluções</a>
-      <a href="#diretoria">Diretoria</a>
-    </div>
-    <a href="#contato" class="btn-primary px-5 py-2.5 rounded-full text-sm font-semibold">Falar com Especialista</a>
-  </nav>
-
-  <section id="inicio" class="min-h-screen flex items-center pt-28 px-6">
-    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-      <div class="space-y-8" data-aos="fade-up">
-        <h1 class="text-5xl md:text-6xl font-extrabold leading-tight">O lucro que a sua empresa gera <span class="text-blue-500">está sendo corroído na base.</span></h1>
-        <p class="text-xl text-gray-300 font-light">Inteligência Tributária e Engenharia de Ativos para empresas no Lucro Real.</p>
-        <a href="#contato" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold inline-block">Agendar Reunião de Diretoria</a>
-      </div>
-      <div class="flex justify-center" data-aos="fade-left">
-        <img src="image_hero.png" alt="Escudo Inteligência Tributária" class="hero-image animate-float w-full max-w-lg">
-      </div>
-    </div>
-  </section>
-
-  <section id="abordagem" class="py-24 px-6 bg-[#0c1015]">
-    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-8">
-      <div class="card-solution p-10">
-        <h3 class="text-2xl font-bold mb-4 text-white">Departamento Fiscal</h3>
-        <p class="text-gray-300">Transforme a conformidade em estratégia de caixa. Entregamos a fundamentação para que o seu departamento apresente resultados milionários à diretoria.</p>
-      </div>
-      <div class="card-solution p-10">
-        <h3 class="text-2xl font-bold mb-4 text-white">Departamento Comercial</h3>
-        <p class="text-gray-300">Margem de lucro é a sua melhor arma. Nossa reestruturação reduz custos operacionais, dando fôlego para precificação agressiva e metas batidas.</p>
-      </div>
-    </div>
-  </section>
-
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 800, once: true });
-    document.getElementById('btnWhats').addEventListener('click', function() {
-        // Lógica de envio WhatsApp integrada no código enviado anteriormente
-    });
-  </script>
-</body>
-</html>
+  }
+  
+  .floating-image {
+    animation: floatPremium 5s ease-in-out infinite;
+    will-change: transform;
+    transition: all 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.1);
+  }
+  
+  /* Efeito de brilho sutil no hover (já aplicado via Tailwind) */
+  .floating-image:hover {
+    animation-play-state: paused;
+  }
+</style>
