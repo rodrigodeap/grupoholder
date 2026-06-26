@@ -4,18 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Holder & Co · Inteligência Tributária</title>
-  <!-- Tailwind via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts (Inter) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-  <!-- AOS (animações scroll) -->
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-  <!-- GSAP (para animações extras e smooth scroll) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <!-- Font Awesome para ícones -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     * { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
@@ -58,19 +53,15 @@
     .card-solution::before {
       content: '';
       position: absolute;
-      top: -1px;
-      left: -1px;
-      right: -1px;
-      bottom: -1px;
+      top: -1px; left: -1px; right: -1px; bottom: -1px;
       border-radius: 24px;
       background: linear-gradient(135deg, rgba(42, 107, 143, 0.2), transparent, rgba(74, 168, 212, 0.1));
       z-index: -1;
       opacity: 0;
       transition: opacity 0.5s ease;
     }
-    .card-solution:hover::before {
-      opacity: 1;
-    }
+    .card-solution:hover::before { opacity: 1; }
+    
     .section-divider {
       background: linear-gradient(90deg, transparent, #2a6b8f, #4aa8d4, #2a6b8f, transparent);
       height: 1px;
@@ -128,17 +119,12 @@
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: #0b0e12; }
     ::-webkit-scrollbar-thumb { background: #2a6b8f; border-radius: 8px; }
-    /* AOS override */
     [data-aos] { pointer-events: none; }
     [data-aos].aos-animate { pointer-events: auto; }
-    /* cores azul elegante para textos e gradientes */
+    
     .text-azul { color: #4aa8d4; }
     .border-azul { border-color: #2a6b8f; }
     .bg-azul-dark { background: rgba(26, 58, 74, 0.3); }
-    .from-azul { --tw-gradient-from: #2a6b8f; --tw-gradient-to: #1a4a6b; }
-    .to-azul { --tw-gradient-to: #4aa8d4; }
-    .bg-gradient-azul { background: linear-gradient(145deg, #1a3a4a, #0f2a3a); }
-    /* imagens decorativas */
     .deco-image {
       border-radius: 20px;
       border: 1px solid rgba(52, 152, 219, 0.1);
@@ -150,7 +136,6 @@
       border-color: #2a7a9f;
       box-shadow: 0 20px 40px -12px rgba(0, 150, 220, 0.2);
     }
-    /* Indicador de online piscante */
     .online-indicator {
       display: inline-flex;
       align-items: center;
@@ -165,43 +150,25 @@
       letter-spacing: 0.3px;
     }
     .pulse-dot {
-      width: 8px;
-      height: 8px;
+      width: 8px; height: 8px;
       background: #22c55e;
       border-radius: 50%;
       animation: pulse-green 1.5s ease-in-out infinite;
       box-shadow: 0 0 8px rgba(34, 197, 94, 0.4);
     }
     @keyframes pulse-green {
-      0%, 100% {
-        opacity: 1;
-        transform: scale(1);
-      }
-      50% {
-        opacity: 0.4;
-        transform: scale(0.7);
-      }
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.7); }
     }
-    /* Efeito de brilho no botão WhatsApp */
-    .btn-whatsapp .fa-whatsapp {
-      transition: transform 0.3s ease;
-    }
-    .btn-whatsapp:hover .fa-whatsapp {
-      transform: scale(1.15) rotate(-5deg);
-    }
+    .btn-whatsapp .fa-whatsapp { transition: transform 0.3s ease; }
+    .btn-whatsapp:hover .fa-whatsapp { transform: scale(1.15) rotate(-5deg); }
 
     /* ===== ANIMAÇÃO DE FLUTUAÇÃO INFINITA ===== */
     @keyframes float {
-      0%, 100% {
-        transform: translateY(0px);
-      }
-      50% {
-        transform: translateY(-20px);
-      }
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
     }
-    .animate-float {
-      animation: float 5s ease-in-out infinite;
-    }
+    .animate-float { animation: float 5s ease-in-out infinite; }
 
     /* ===== HERO IMAGE ===== */
     .hero-image {
@@ -209,7 +176,6 @@
       transition: all 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.1);
       max-width: 100%;
       height: auto;
-      /* Blend mode para fundo escuro se fundir com o background da página */
       mix-blend-mode: screen;
       -webkit-mix-blend-mode: screen;
     }
@@ -221,7 +187,6 @@
 </head>
 <body>
 
-  <!-- ===== MENU FIXO ===== -->
   <nav class="glass-nav fixed top-0 left-0 w-full z-50 px-6 md:px-12 py-3 flex items-center justify-between transition-all duration-300">
     <div class="flex items-center gap-2">
       <span class="text-2xl font-bold tracking-tight bg-gradient-to-r from-blue-300 to-blue-500 bg-clip-text text-transparent">Inteligência Tributária</span>
@@ -237,13 +202,9 @@
     </div>
   </nav>
 
-  <!-- ===== HERO SECTION COM IMAGEM INTEGRADA ===== -->
   <section id="inicio" class="min-h-screen flex items-center relative overflow-hidden hero-texture pt-28 pb-16 px-6 md:px-12">
-    <!-- Background overlay com blend mode -->
     <div class="absolute inset-0 opacity-20 pointer-events-none" style="background: url('image_11.png') center/cover no-repeat; mix-blend-mode: overlay;"></div>
-    
     <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-5 gap-12 items-center relative z-10">
-      <!-- Coluna Esquerda - Conteúdo -->
       <div class="lg:col-span-3 space-y-8" data-aos="fade-up" data-aos-duration="1000">
         <div class="inline-block bg-blue-900/30 border border-blue-700/30 rounded-full px-4 py-1.5 text-xs font-semibold text-blue-300 tracking-widest uppercase">Estratégia de alto impacto</div>
         <h1 class="text-4xl md:text-6xl font-extrabold leading-[1.15] tracking-tight">
@@ -257,8 +218,6 @@
           <a href="#contato" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold shadow-2xl shadow-blue-900/30">Agendar Reunião de Diretoria</a>
         </div>
       </div>
-
-      <!-- Coluna Direita - Imagem com Blend Mode + Flutuação + Hover -->
       <div class="lg:col-span-2 flex justify-center lg:justify-end" data-aos="fade-left" data-aos-duration="1100">
         <img 
           src="image_hero.png" 
@@ -273,7 +232,6 @@
 
   <div class="section-divider"></div>
 
-  <!-- ===== ABORDAGEM ESTRATÉGICA (EFEITO DOMINÓ) ===== -->
   <section id="abordagem" class="py-24 px-6 md:px-12 bg-[#0c1015]">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16" data-aos="fade-up">
@@ -282,48 +240,46 @@
         <p class="text-gray-400 max-w-2xl mx-auto mt-3 text-sm">Duas frentes estratégicas para impulsionar resultados</p>
       </div>
       
-      <!-- IMAGEM DECORATIVA 16 -->
       <div class="flex justify-center mb-12" data-aos="fade-up" data-aos-delay="50">
         <img src="image_16.png" alt="Estratégia tributária" class="deco-image max-w-full h-auto" style="max-height: 120px;" onerror="this.style.display='none'">
       </div>
       
-      <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
-        <!-- Coluna 1 - Fiscal -->
-        <div class="card-solution p-8 md:p-10 relative overflow-hidden" data-aos="fade-right" data-aos-delay="100" data-aos-duration="900">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-stretch">
+        
+        <div class="card-solution p-8 md:p-10 relative overflow-hidden h-full flex flex-col" data-aos="fade-right" data-aos-delay="100" data-aos-duration="900">
           <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl"></div>
           <div class="flex items-center gap-3 mb-5">
-            <div class="w-12 h-12 rounded-full bg-blue-900/30 border border-blue-700/30 flex items-center justify-center text-2xl">📊</div>
+            <div class="w-12 h-12 rounded-full bg-blue-900/30 border border-blue-700/30 flex items-center justify-center text-2xl shrink-0">📊</div>
             <span class="text-blue-300 text-sm font-bold tracking-wide uppercase">Departamento Fiscal</span>
           </div>
           <h3 class="text-2xl font-bold text-white mb-4 leading-tight">Transforme a conformidade em estratégia de caixa.</h3>
-          <p class="text-gray-300 leading-relaxed text-base">Pare de apenas apurar impostos e torne-se o vetor de inovação da empresa. Entregamos a fundamentação técnica e o trabalho pesado para que o seu departamento apresente resultados milionários à diretoria.</p>
+          <p class="text-gray-300 leading-relaxed text-base flex-grow">Pare de apenas apurar impostos e torne-se o vetor de inovação da empresa. Entregamos a fundamentação técnica e o trabalho pesado para que o seu departamento apresente resultados milionários à diretoria.</p>
           <div class="mt-6 flex items-center gap-3">
             <div class="h-1 w-16 bg-blue-600/60 rounded-full"></div>
             <span class="text-blue-400 text-xs font-semibold tracking-wider">Protagonismo fiscal</span>
           </div>
         </div>
         
-        <!-- Coluna 2 - Comercial -->
-        <div class="card-solution p-8 md:p-10 relative overflow-hidden" data-aos="fade-left" data-aos-delay="250" data-aos-duration="900">
+        <div class="card-solution p-8 md:p-10 relative overflow-hidden h-full flex flex-col" data-aos="fade-left" data-aos-delay="250" data-aos-duration="900">
           <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl"></div>
           <div class="flex items-center gap-3 mb-5">
-            <div class="w-12 h-12 rounded-full bg-blue-900/30 border border-blue-700/30 flex items-center justify-center text-2xl">🚀</div>
+            <div class="w-12 h-12 rounded-full bg-blue-900/30 border border-blue-700/30 flex items-center justify-center text-2xl shrink-0">🚀</div>
             <span class="text-blue-300 text-sm font-bold tracking-wide uppercase">Departamento Comercial</span>
           </div>
           <h3 class="text-2xl font-bold text-white mb-4 leading-tight">Margem de lucro é a sua melhor arma em vendas.</h3>
-          <p class="text-gray-300 leading-relaxed text-base">A nossa reestruturação tributária reduz o custo operacional na veia. O resultado? Mais margem para precificação agressiva, ganho de competitividade e metas batidas com facilidade.</p>
+          <p class="text-gray-300 leading-relaxed text-base flex-grow">A nossa reestruturação tributária reduz o custo operacional na veia. O resultado? Mais margem para precificação agressiva, ganho de competitividade e metas batidas com facilidade.</p>
           <div class="mt-6 flex items-center gap-3">
             <div class="h-1 w-16 bg-blue-600/60 rounded-full"></div>
             <span class="text-blue-400 text-xs font-semibold tracking-wider">Vantagem competitiva</span>
           </div>
         </div>
+        
       </div>
     </div>
   </section>
 
   <div class="section-divider"></div>
 
-  <!-- ===== SOLUÇÕES TÉCNICAS ===== -->
   <section id="solucoes" class="py-24 px-6 md:px-12 bg-[#0b0e12]">
     <div class="max-w-7xl mx-auto">
       <div data-aos="fade-up" class="text-center mb-16">
@@ -332,41 +288,46 @@
         <p class="text-gray-400 max-w-2xl mx-auto mt-3 text-sm">Metodologias comprovadas para otimização fiscal e financeira</p>
       </div>
       
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Card 1 -->
-        <div class="card-solution p-6 text-center group" data-aos="fade-up" data-aos-delay="50">
-          <div class="w-16 h-16 rounded-full bg-blue-900/20 border border-blue-700/20 flex items-center justify-center text-3xl mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">🔍</div>
-          <h4 class="text-xl font-semibold text-white mb-3">Recuperação de Créditos Ocultos</h4>
-          <p class="text-gray-400 text-sm leading-relaxed">Rastreamento e monetização do que foi pago a maior nos últimos 5 anos.</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+        
+        <div class="card-solution p-6 text-center group h-full flex flex-col justify-between" data-aos="fade-up" data-aos-delay="50">
+          <div>
+            <div class="w-16 h-16 rounded-full bg-blue-900/20 border border-blue-700/20 flex items-center justify-center text-3xl mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">🔍</div>
+            <h4 class="text-xl font-semibold text-white mb-3">Recuperação de Créditos Ocultos</h4>
+            <p class="text-gray-400 text-sm leading-relaxed">Rastreamento e monetização do que foi pago a maior nos últimos 5 anos.</p>
+          </div>
           <div class="mt-4 h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-blue-600/40 to-blue-400/40 transition-all duration-500 mx-auto rounded-full"></div>
         </div>
         
-        <!-- Card 2 -->
-        <div class="card-solution p-6 text-center group" data-aos="fade-up" data-aos-delay="150">
-          <div class="w-16 h-16 rounded-full bg-blue-900/20 border border-blue-700/20 flex items-center justify-center text-3xl mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">📦</div>
-          <h4 class="text-xl font-semibold text-white mb-3">Estruturação de Benefícios Fiscais</h4>
-          <p class="text-gray-400 text-sm leading-relaxed">Desenho de rotas logísticas e sistemáticas estaduais para reduzir o ICMS na importação e operação.</p>
+        <div class="card-solution p-6 text-center group h-full flex flex-col justify-between" data-aos="fade-up" data-aos-delay="150">
+          <div>
+            <div class="w-16 h-16 rounded-full bg-blue-900/20 border border-blue-700/20 flex items-center justify-center text-3xl mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">📦</div>
+            <h4 class="text-xl font-semibold text-white mb-3">Estruturação de Benefícios Fiscais</h4>
+            <p class="text-gray-400 text-sm leading-relaxed">Desenho de rotas logísticas e sistemáticas estaduais para reduzir o ICMS na importação e operação.</p>
+          </div>
           <div class="mt-4 h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-blue-600/40 to-blue-400/40 transition-all duration-500 mx-auto rounded-full"></div>
         </div>
         
-        <!-- Card 3 -->
-        <div class="card-solution p-6 text-center group" data-aos="fade-up" data-aos-delay="250">
-          <div class="w-16 h-16 rounded-full bg-blue-900/20 border border-blue-700/20 flex items-center justify-center text-3xl mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">⚖️</div>
-          <h4 class="text-xl font-semibold text-white mb-3">Gestão Estratégica de Passivos</h4>
-          <p class="text-gray-400 text-sm leading-relaxed">Laudos de CAPAG para redução de multas, juros e alongamento de dívidas ativas na PGFN.</p>
+        <div class="card-solution p-6 text-center group h-full flex flex-col justify-between" data-aos="fade-up" data-aos-delay="250">
+          <div>
+            <div class="w-16 h-16 rounded-full bg-blue-900/20 border border-blue-700/20 flex items-center justify-center text-3xl mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">⚖️</div>
+            <h4 class="text-xl font-semibold text-white mb-3">Gestão Estratégica de Passivos</h4>
+            <p class="text-gray-400 text-sm leading-relaxed">Laudos de CAPAG para redução de multas, juros e alongamento de dívidas ativas na PGFN.</p>
+          </div>
           <div class="mt-4 h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-blue-600/40 to-blue-400/40 transition-all duration-500 mx-auto rounded-full"></div>
         </div>
         
-        <!-- Card 4 -->
-        <div class="card-solution p-6 text-center group" data-aos="fade-up" data-aos-delay="350">
-          <div class="w-16 h-16 rounded-full bg-blue-900/20 border border-blue-700/20 flex items-center justify-center text-3xl mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">🏛️</div>
-          <h4 class="text-xl font-semibold text-white mb-3">Engenharia de Ativos e Securitização</h4>
-          <p class="text-gray-400 text-sm leading-relaxed">Conexão da economia tributária com linhas de crédito para expansão estruturada.</p>
+        <div class="card-solution p-6 text-center group h-full flex flex-col justify-between" data-aos="fade-up" data-aos-delay="350">
+          <div>
+            <div class="w-16 h-16 rounded-full bg-blue-900/20 border border-blue-700/20 flex items-center justify-center text-3xl mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">🏛️</div>
+            <h4 class="text-xl font-semibold text-white mb-3">Engenharia de Ativos e Securitização</h4>
+            <p class="text-gray-400 text-sm leading-relaxed">Conexão da economia tributária com linhas de crédito para expansão estruturada.</p>
+          </div>
           <div class="mt-4 h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-blue-600/40 to-blue-400/40 transition-all duration-500 mx-auto rounded-full"></div>
         </div>
+        
       </div>
       
-      <!-- IMAGEM DECORATIVA 17 -->
       <div class="flex justify-center mt-12" data-aos="fade-up" data-aos-delay="100">
         <img src="image_17.png" alt="Resultados tributários" class="deco-image max-w-full h-auto" style="max-height: 100px;" onerror="this.style.display='none'">
       </div>
@@ -375,7 +336,6 @@
 
   <div class="section-divider"></div>
 
-  <!-- ===== DIRETORIA (BLOCO DE AUTORIDADE) ===== -->
   <section id="diretoria" class="py-24 px-6 md:px-12 bg-[#0c1015]">
     <div class="max-w-7xl mx-auto">
       <div data-aos="fade-up" class="text-center mb-12">
@@ -388,57 +348,54 @@
         </div>
       </div>
       
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-        <!-- Card 1 -->
-        <div class="executive-card p-5 text-center" data-aos="flip-up" data-aos-delay="50">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 items-stretch">
+        
+        <div class="executive-card p-5 text-center h-full flex flex-col" data-aos="flip-up" data-aos-delay="50">
           <div class="relative">
             <img src="image_12.png" alt="Carlos Mendes" class="executive-img w-28 h-28 mx-auto mb-4" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22 viewBox=%220 0 100 100%22%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22%231a2a2a%22 stroke=%22%232a6b8f%22 stroke-width=%222%22/%3E%3Ctext x=%2250%22 y=%2255%22 text-anchor=%22middle%22 fill=%22%234aa8d4%22 font-size=%2222%22 font-weight=%22bold%22%3E12%3C/text%3E%3C/svg%3E'">
             <div class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-8 h-1 bg-blue-500/40 rounded-full"></div>
           </div>
           <h5 class="text-white font-semibold text-lg mt-2">Carlos Mendes</h5>
           <p class="text-blue-300 text-xs font-medium tracking-wide">Sócio-Diretor</p>
-          <div class="mt-3 h-px w-12 bg-blue-700/30 mx-auto"></div>
+          <div class="mt-auto pt-3"><div class="h-px w-12 bg-blue-700/30 mx-auto"></div></div>
         </div>
         
-        <!-- Card 2 -->
-        <div class="executive-card p-5 text-center" data-aos="flip-up" data-aos-delay="150">
+        <div class="executive-card p-5 text-center h-full flex flex-col" data-aos="flip-up" data-aos-delay="150">
           <div class="relative">
             <img src="image_13.png" alt="Rita Fonseca" class="executive-img w-28 h-28 mx-auto mb-4" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22 viewBox=%220 0 100 100%22%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22%231a2a2a%22 stroke=%22%232a6b8f%22 stroke-width=%222%22/%3E%3Ctext x=%2250%22 y=%2255%22 text-anchor=%22middle%22 fill=%22%234aa8d4%22 font-size=%2222%22 font-weight=%22bold%22%3E13%3C/text%3E%3C/svg%3E'">
             <div class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-8 h-1 bg-blue-500/40 rounded-full"></div>
           </div>
           <h5 class="text-white font-semibold text-lg mt-2">Rita Fonseca</h5>
           <p class="text-blue-300 text-xs font-medium tracking-wide">Diretora Fiscal</p>
-          <div class="mt-3 h-px w-12 bg-blue-700/30 mx-auto"></div>
+          <div class="mt-auto pt-3"><div class="h-px w-12 bg-blue-700/30 mx-auto"></div></div>
         </div>
         
-        <!-- Card 3 -->
-        <div class="executive-card p-5 text-center" data-aos="flip-up" data-aos-delay="250">
+        <div class="executive-card p-5 text-center h-full flex flex-col" data-aos="flip-up" data-aos-delay="250">
           <div class="relative">
             <img src="image_14.png" alt="Eduardo Lemos" class="executive-img w-28 h-28 mx-auto mb-4" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22 viewBox=%220 0 100 100%22%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22%231a2a2a%22 stroke=%22%232a6b8f%22 stroke-width=%222%22/%3E%3Ctext x=%2250%22 y=%2255%22 text-anchor=%22middle%22 fill=%22%234aa8d4%22 font-size=%2222%22 font-weight=%22bold%22%3E14%3C/text%3E%3C/svg%3E'">
             <div class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-8 h-1 bg-blue-500/40 rounded-full"></div>
           </div>
           <h5 class="text-white font-semibold text-lg mt-2">Eduardo Lemos</h5>
           <p class="text-blue-300 text-xs font-medium tracking-wide">Head de Estratégia</p>
-          <div class="mt-3 h-px w-12 bg-blue-700/30 mx-auto"></div>
+          <div class="mt-auto pt-3"><div class="h-px w-12 bg-blue-700/30 mx-auto"></div></div>
         </div>
         
-        <!-- Card 4 -->
-        <div class="executive-card p-5 text-center" data-aos="flip-up" data-aos-delay="350">
+        <div class="executive-card p-5 text-center h-full flex flex-col" data-aos="flip-up" data-aos-delay="350">
           <div class="relative">
             <img src="image_15.png" alt="Camila Rocha" class="executive-img w-28 h-28 mx-auto mb-4" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22 viewBox=%220 0 100 100%22%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22%231a2a2a%22 stroke=%22%232a6b8f%22 stroke-width=%222%22/%3E%3Ctext x=%2250%22 y=%2255%22 text-anchor=%22middle%22 fill=%22%234aa8d4%22 font-size=%2222%22 font-weight=%22bold%22%3E15%3C/text%3E%3C/svg%3E'">
             <div class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-8 h-1 bg-blue-500/40 rounded-full"></div>
           </div>
           <h5 class="text-white font-semibold text-lg mt-2">Camila Rocha</h5>
           <p class="text-blue-300 text-xs font-medium tracking-wide">Diretora Comercial</p>
-          <div class="mt-3 h-px w-12 bg-blue-700/30 mx-auto"></div>
+          <div class="mt-auto pt-3"><div class="h-px w-12 bg-blue-700/30 mx-auto"></div></div>
         </div>
+        
       </div>
     </div>
   </section>
 
   <div class="section-divider"></div>
 
-  <!-- ===== FORMULÁRIO HIGH-TICKET ===== -->
   <section id="contato" class="py-24 px-6 md:px-12 bg-[#0b0e12]">
     <div class="max-w-3xl mx-auto" data-aos="fade-up" data-aos-duration="900">
       <div class="text-center mb-10">
@@ -447,7 +404,6 @@
         <p class="text-gray-400 mt-2 text-sm">Preencha os dados e receba uma análise estratégica reservada.</p>
       </div>
       <form id="leadForm" class="space-y-5 bg-[#10171d] p-8 md:p-12 rounded-3xl border border-blue-900/20 shadow-2xl shadow-blue-900/5">
-        <!-- Indicador de online -->
         <div class="flex justify-end">
           <div class="online-indicator">
             <span class="pulse-dot"></span>
@@ -495,80 +451,50 @@
     </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
   <footer class="bg-[#080b0e] border-t border-blue-900/20 py-6 text-center text-gray-500 text-xs">
     <p>© 2026 Holder & Co · Inteligência Tributária · Todos os direitos reservados.</p>
   </footer>
 
-  <!-- ===== JS + AOS + GSAP + WHATSAPP ===== -->
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
-    // Inicializa AOS
-    AOS.init({
-      duration: 800,
-      once: true,
-      offset: 60,
-      easing: 'ease-out-cubic'
-    });
+    AOS.init({ duration: 800, once: true, offset: 60, easing: 'ease-out-cubic' });
 
-    // GSAP + ScrollTrigger para animações extras
     gsap.registerPlugin(ScrollTrigger);
     
-    // Animações sutis para cards
     document.querySelectorAll('.card-solution, .executive-card').forEach(el => {
       gsap.from(el, {
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 85%',
-          toggleActions: 'play none none none'
-        },
-        opacity: 0,
-        y: 40,
-        duration: 0.9,
-        ease: 'power2.out'
+        scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' },
+        opacity: 0, y: 40, duration: 0.9, ease: 'power2.out'
       });
     });
 
-    // Smooth scroll para links do menu
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-          window.scrollTo({
-            top: target.offsetTop - 80,
-            behavior: 'smooth'
-          });
+          window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
         }
       });
     });
 
-    // === LÓGICA WHATSAPP ===
     const btn = document.getElementById('btnWhats');
-    const nome = document.getElementById('nome');
-    const cargo = document.getElementById('cargo');
-    const empresa = document.getElementById('empresa');
-    const faturamento = document.getElementById('faturamento');
-    const whatsapp = document.getElementById('whatsapp');
-
     btn.addEventListener('click', function() {
-      const nomeVal = nome.value.trim();
-      const empresaVal = empresa.value.trim();
-      const whatsVal = whatsapp.value.trim();
+      const nomeVal = document.getElementById('nome').value.trim();
+      const empresaVal = document.getElementById('empresa').value.trim();
+      const whatsVal = document.getElementById('whatsapp').value.trim();
       if (!nomeVal || !empresaVal || !whatsVal) {
         alert('Preencha Nome, Empresa e WhatsApp para continuar.');
         return;
       }
-      const cargoVal = cargo.value;
-      const fatVal = faturamento.value;
+      const cargoVal = document.getElementById('cargo').value;
+      const fatVal = document.getElementById('faturamento').value;
       const msg = `Olá, equipe Holder & Co!%0A%0A*Diagnóstico Confidencial*%0A%0A📌 Nome: ${nomeVal}%0A📌 Cargo: ${cargoVal}%0A📌 Empresa: ${empresaVal}%0A📌 Faturamento: ${fatVal}%0A📌 WhatsApp: ${whatsVal}%0A%0AGostaria de solicitar uma análise estratégica.`;
       
       const phoneNumber = '55219990650767';
       const url = `https://wa.me/${phoneNumber}?text=${msg}`;
       window.open(url, '_blank');
     });
-
-    console.log('Holder & Co · Landing Page aprimorada carregada com sucesso.');
   </script>
 </body>
 </html>
