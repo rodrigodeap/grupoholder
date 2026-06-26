@@ -94,11 +94,18 @@
       box-shadow: 0 15px 30px -12px rgba(0, 150, 220, 0.2);
       transform: translateY(-6px);
     }
-    .executive-img {
+    .executive-avatar {
+      width: 112px;
+      height: 112px;
       border-radius: 50%;
       border: 2px solid #2a6b8f;
-      object-fit: cover;
-      background: #121a1e;
+      background: linear-gradient(135deg, #1a2a3a, #0f1e2e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      font-size: 2.5rem;
+      color: #4aa8d4;
     }
 
     /* === ESTILOS GERAIS === */
@@ -138,19 +145,18 @@
       transform: scale(1.02);
     }
     
-    /* === ANIMAÇÕES NATIVAS (SEMPRE FUNCIONAM) === */
+    /* === ANIMAÇÕES NATIVAS === */
     @keyframes float {
       0%, 100% { transform: translateY(0px); }
       50% { transform: translateY(-20px); }
     }
     .animate-float { animation: float 5s ease-in-out infinite; }
     
-    .hero-image {
-      border-radius: 24px; transition: all 0.5s ease;
-      max-width: 100%; height: auto;
-      mix-blend-mode: screen; -webkit-mix-blend-mode: screen;
+    .hero-icon {
+      font-size: 12rem;
+      color: rgba(74, 168, 212, 0.15);
+      text-shadow: 0 0 60px rgba(74, 168, 212, 0.05);
     }
-    .hero-image:hover { transform: scale(1.05); filter: drop-shadow(0 0 30px rgba(59, 130, 246, 0.6)); }
     
     @keyframes pulse-green {
       0%, 100% { opacity: 1; transform: scale(1); }
@@ -171,6 +177,12 @@
       font-size: 0.75rem;
       color: #4ade80;
       font-weight: 500;
+    }
+
+    /* === ICONE DECORATIVO === */
+    .deco-icon {
+      font-size: 4rem;
+      color: rgba(74, 168, 212, 0.08);
     }
   </style>
 </head>
@@ -210,7 +222,9 @@
       </div>
 
       <div class="lg:col-span-2 flex justify-center lg:justify-end">
-        <img src="image_hero.png" alt="Inteligência Tributária e Proteção Patrimonial" class="hero-image animate-float w-full max-w-lg mx-auto" onerror="this.style.display='none'">
+        <div class="hero-icon animate-float">
+          <i class="fas fa-shield-alt"></i>
+        </div>
       </div>
     </div>
   </section>
@@ -224,10 +238,11 @@
         <span class="text-blue-400 text-sm font-semibold tracking-widest uppercase border border-blue-800/30 px-4 py-1 rounded-full">Efeito Dominó</span>
         <h2 class="text-3xl md:text-5xl font-bold mt-4 text-white">O que muda no seu negócio</h2>
         <p class="text-gray-400 max-w-2xl mx-auto mt-3 text-sm">Duas frentes estratégicas para impulsionar resultados</p>
-      </div>
-      
-      <div class="flex justify-center mb-12">
-        <img src="image_16.png" alt="Estratégia tributária" class="max-w-full h-auto rounded-xl border border-blue-900/30" style="max-height: 120px;" onerror="this.style.display='none'">
+        
+        <!-- Ícone decorativo -->
+        <div class="deco-icon mt-6">
+          <i class="fas fa-arrow-trend-up"></i>
+        </div>
       </div>
       
       <!-- GRID PERFEITO: 2 COLUNAS -->
@@ -267,6 +282,11 @@
         <span class="text-blue-400 text-sm font-semibold tracking-widest uppercase border border-blue-800/30 px-4 py-1 rounded-full">Soluções técnicas</span>
         <h2 class="text-3xl md:text-5xl font-bold mt-4 text-white">Engenharia tributária de elite</h2>
         <p class="text-gray-400 max-w-2xl mx-auto mt-3 text-sm">Metodologias comprovadas para otimização fiscal e financeira</p>
+        
+        <!-- Ícone decorativo -->
+        <div class="deco-icon mt-6">
+          <i class="fas fa-cogs"></i>
+        </div>
       </div>
       
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
@@ -332,10 +352,6 @@
         </div>
         
       </div>
-      
-      <div class="flex justify-center mt-12">
-        <img src="image_17.png" alt="Resultados tributários" class="max-w-full h-auto rounded-xl border border-blue-900/30" style="max-height: 100px;" onerror="this.style.display='none'">
-      </div>
     </div>
   </section>
 
@@ -355,29 +371,39 @@
       </div>
       
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 items-stretch">
+        
         <div class="executive-card p-5 text-center h-full flex flex-col">
-          <img src="image_12.png" alt="Carlos Mendes" class="executive-img w-28 h-28 mx-auto mb-4" onerror="this.style.display='none'">
+          <div class="executive-avatar">
+            <i class="fas fa-user-tie"></i>
+          </div>
           <h5 class="text-white font-semibold text-lg mt-2">Carlos Mendes</h5>
           <p class="text-blue-300 text-xs font-medium tracking-wide">Sócio-Diretor</p>
         </div>
         
         <div class="executive-card p-5 text-center h-full flex flex-col">
-          <img src="image_13.png" alt="Rita Fonseca" class="executive-img w-28 h-28 mx-auto mb-4" onerror="this.style.display='none'">
+          <div class="executive-avatar">
+            <i class="fas fa-user-tie"></i>
+          </div>
           <h5 class="text-white font-semibold text-lg mt-2">Rita Fonseca</h5>
           <p class="text-blue-300 text-xs font-medium tracking-wide">Diretora Fiscal</p>
         </div>
         
         <div class="executive-card p-5 text-center h-full flex flex-col">
-          <img src="image_14.png" alt="Eduardo Lemos" class="executive-img w-28 h-28 mx-auto mb-4" onerror="this.style.display='none'">
+          <div class="executive-avatar">
+            <i class="fas fa-user-tie"></i>
+          </div>
           <h5 class="text-white font-semibold text-lg mt-2">Eduardo Lemos</h5>
           <p class="text-blue-300 text-xs font-medium tracking-wide">Head de Estratégia</p>
         </div>
         
         <div class="executive-card p-5 text-center h-full flex flex-col">
-          <img src="image_15.png" alt="Camila Rocha" class="executive-img w-28 h-28 mx-auto mb-4" onerror="this.style.display='none'">
+          <div class="executive-avatar">
+            <i class="fas fa-user-tie"></i>
+          </div>
           <h5 class="text-white font-semibold text-lg mt-2">Camila Rocha</h5>
           <p class="text-blue-300 text-xs font-medium tracking-wide">Diretora Comercial</p>
         </div>
+        
       </div>
     </div>
   </section>
