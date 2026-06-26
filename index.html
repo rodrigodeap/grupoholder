@@ -125,17 +125,7 @@
     .text-azul { color: #4aa8d4; }
     .border-azul { border-color: #2a6b8f; }
     .bg-azul-dark { background: rgba(26, 58, 74, 0.3); }
-    .deco-image {
-      border-radius: 20px;
-      border: 1px solid rgba(52, 152, 219, 0.1);
-      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
-      transition: all 0.5s ease;
-    }
-    .deco-image:hover {
-      transform: scale(1.02);
-      border-color: #2a7a9f;
-      box-shadow: 0 20px 40px -12px rgba(0, 150, 220, 0.2);
-    }
+    
     .online-indicator {
       display: inline-flex;
       align-items: center;
@@ -182,6 +172,17 @@
     .hero-image:hover {
       transform: scale(1.05);
       filter: drop-shadow(0 0 30px rgba(59, 130, 246, 0.6));
+    }
+
+    /* ===== ANIMAÇÃO DE ENTRADA DOS CARDS ===== */
+    .card-enter {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.2, 0.9, 0.3, 1.1);
+    }
+    .card-enter.aos-animate {
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
 </head>
@@ -233,7 +234,7 @@
 
   <div class="section-divider"></div>
 
-  <!-- ===== ABORDAGEM ESTRATÉGICA (EFEITO DOMINÓ) ===== -->
+  <!-- ===== ABORDAGEM ESTRATÉGICA (EFEITO DOMINÓ) - SEM IMAGENS ===== -->
   <section id="abordagem" class="py-24 px-6 md:px-12 bg-[#0c1015]">
     <div class="max-w-7xl mx-auto">
       <!-- Cabeçalho da seção -->
@@ -241,20 +242,21 @@
         <span class="text-blue-400 text-sm font-semibold tracking-widest uppercase border border-blue-800/30 px-4 py-1 rounded-full">Efeito Dominó</span>
         <h2 class="text-3xl md:text-5xl font-bold mt-4 text-white">O que muda no seu negócio</h2>
         <p class="text-gray-400 max-w-2xl mx-auto mt-3 text-sm">Duas frentes estratégicas para impulsionar resultados</p>
-      </div>
-      
-      <!-- Imagem decorativa -->
-      <div class="flex justify-center mb-12" data-aos="fade-up" data-aos-delay="50">
-        <img src="image_16.png" alt="Estratégia tributária" class="deco-image max-w-full h-auto" style="max-height: 120px;" onerror="this.style.display='none'">
+        
+        <!-- Linha decorativa animada -->
+        <div class="w-24 h-1 bg-gradient-to-r from-blue-600/60 to-blue-400/40 mx-auto mt-6 rounded-full"></div>
       </div>
       
       <!-- Grid de 2 colunas com altura igual -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-stretch">
         
         <!-- CARD 1 - Departamento Fiscal -->
-        <div class="card-solution p-8 md:p-10 relative overflow-hidden h-full flex flex-col" data-aos="fade-right" data-aos-delay="100" data-aos-duration="900">
+        <div class="card-solution p-8 md:p-10 relative overflow-hidden h-full flex flex-col card-enter" data-aos="fade-right" data-aos-delay="100" data-aos-duration="900">
+          <!-- Elementos decorativos de fundo -->
           <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl"></div>
+          <div class="absolute bottom-0 left-0 w-24 h-24 bg-blue-400/5 rounded-full blur-2xl"></div>
           
+          <!-- Ícone e Título -->
           <div class="flex items-center gap-3 mb-5">
             <div class="w-12 h-12 rounded-full bg-blue-900/30 border border-blue-700/30 flex items-center justify-center text-2xl shrink-0">📊</div>
             <span class="text-blue-300 text-sm font-bold tracking-wide uppercase">Departamento Fiscal</span>
@@ -266,16 +268,26 @@
             Pare de apenas apurar impostos e torne-se o vetor de inovação da empresa. Entregamos a fundamentação técnica e o trabalho pesado para que o seu departamento apresente resultados milionários à diretoria.
           </p>
           
+          <!-- Rodapé do card com linha e tag -->
           <div class="mt-6 flex items-center gap-3">
             <div class="h-1 w-16 bg-blue-600/60 rounded-full"></div>
             <span class="text-blue-400 text-xs font-semibold tracking-wider">Protagonismo fiscal</span>
           </div>
+          
+          <!-- Indicador interativo -->
+          <div class="mt-4 flex items-center gap-2 text-blue-500/40 text-xs">
+            <i class="fas fa-arrow-right"></i>
+            <span class="font-medium">Resultados mensuráveis</span>
+          </div>
         </div>
         
         <!-- CARD 2 - Departamento Comercial -->
-        <div class="card-solution p-8 md:p-10 relative overflow-hidden h-full flex flex-col" data-aos="fade-left" data-aos-delay="250" data-aos-duration="900">
+        <div class="card-solution p-8 md:p-10 relative overflow-hidden h-full flex flex-col card-enter" data-aos="fade-left" data-aos-delay="250" data-aos-duration="900">
+          <!-- Elementos decorativos de fundo -->
           <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl"></div>
+          <div class="absolute bottom-0 left-0 w-24 h-24 bg-blue-400/5 rounded-full blur-2xl"></div>
           
+          <!-- Ícone e Título -->
           <div class="flex items-center gap-3 mb-5">
             <div class="w-12 h-12 rounded-full bg-blue-900/30 border border-blue-700/30 flex items-center justify-center text-2xl shrink-0">🚀</div>
             <span class="text-blue-300 text-sm font-bold tracking-wide uppercase">Departamento Comercial</span>
@@ -287,12 +299,27 @@
             A nossa reestruturação tributária reduz o custo operacional na veia. O resultado? Mais margem para precificação agressiva, ganho de competitividade e metas batidas com facilidade.
           </p>
           
+          <!-- Rodapé do card com linha e tag -->
           <div class="mt-6 flex items-center gap-3">
             <div class="h-1 w-16 bg-blue-600/60 rounded-full"></div>
             <span class="text-blue-400 text-xs font-semibold tracking-wider">Vantagem competitiva</span>
           </div>
+          
+          <!-- Indicador interativo -->
+          <div class="mt-4 flex items-center gap-2 text-blue-500/40 text-xs">
+            <i class="fas fa-arrow-right"></i>
+            <span class="font-medium">Metas batidas com facilidade</span>
+          </div>
         </div>
         
+      </div>
+      
+      <!-- Chamada para ação sutil abaixo dos cards -->
+      <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="350">
+        <p class="text-gray-500 text-sm max-w-2xl mx-auto">
+          <i class="fas fa-chevron-down text-blue-500/40 mr-2"></i>
+          Ambas as frentes trabalham em sinergia para transformar sua operação
+        </p>
       </div>
     </div>
   </section>
@@ -346,10 +373,6 @@
           <div class="mt-4 h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-blue-600/40 to-blue-400/40 transition-all duration-500 mx-auto rounded-full"></div>
         </div>
         
-      </div>
-      
-      <div class="flex justify-center mt-12" data-aos="fade-up" data-aos-delay="100">
-        <img src="image_17.png" alt="Resultados tributários" class="deco-image max-w-full h-auto" style="max-height: 100px;" onerror="this.style.display='none'">
       </div>
     </div>
   </section>
