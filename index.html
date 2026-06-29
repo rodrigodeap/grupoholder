@@ -1081,7 +1081,7 @@
     </div>
   </footer>
 
-  <!-- ===== JS ===== -->
+  <!-- ===== JS ATUALIZADO ===== -->
   <script>
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
@@ -1095,7 +1095,7 @@
 
     const btn = document.getElementById('btnWhats');
     btn.addEventListener('click', function() {
-      // Capturar valores dos campos
+      // 1. Capturar todos os valores
       const nomeVal = document.getElementById('nome').value.trim();
       const empresaVal = document.getElementById('empresa').value.trim();
       const whatsVal = document.getElementById('whatsapp').value.trim();
@@ -1103,31 +1103,34 @@
       const fatVal = document.getElementById('faturamento').value;
       const regimeVal = document.getElementById('regime').value;
       
-      // Validar campos obrigatórios
+      // 2. Validar obrigatórios
       if (!nomeVal || !empresaVal || !whatsVal) {
-        alert('Preencha Nome, Empresa e WhatsApp para continuar.');
+        alert('Por favor, preencha Nome, Empresa e WhatsApp.');
         return;
       }
       
-      // Construir mensagem SEM emojis para evitar caracteres especiais
-      var msg = 'Olá, Rodrigo!' + '%0A%0A';
-      msg += 'Diagnóstico Estratégico - Holder & Co' + '%0A%0A';
-      msg += 'Nome: ' + nomeVal + '%0A';
-      msg += 'Cargo: ' + cargoVal + '%0A';
-      msg += 'Empresa: ' + empresaVal + '%0A';
-      msg += 'Faturamento: ' + fatVal + '%0A';
-      msg += 'Regime Tributário: ' + regimeVal + '%0A';
-      msg += 'WhatsApp: ' + whatsVal + '%0A%0A';
-      msg += 'Gostaria de solicitar uma análise confidencial para destravar margem e otimizar caixa.';
+      // 3. Montar o texto do formulário
+      let texto = `*Diagnóstico Estratégico - Holder & Co*\n\n`;
+      texto += `Olá, Rodrigo! Gostaria de uma análise confidencial.\n\n`;
+      texto += `👤 Nome: ${nomeVal}\n`;
+      texto += `💼 Cargo: ${cargoVal}\n`;
+      texto += `🏢 Empresa: ${empresaVal}\n`;
+      texto += `💰 Faturamento: ${fatVal}\n`;
+      texto += `📊 Regime Tributário: ${regimeVal}\n`;
+      texto += `📱 WhatsApp: ${whatsVal}`;
       
-      // Número do WhatsApp no formato internacional
-      var phoneNumber = '5521990650767';
-      var url = 'https://wa.me/' + phoneNumber + '?text=' + msg;
+      // 4. Codificar para URL
+      const msgCodificada = encodeURIComponent(texto);
       
-      // Abrir WhatsApp em nova janela/aba
+      // 5. Número e link
+      const phoneNumber = '5521990650767';
+      const url = 'https://wa.me/' + phoneNumber + '?text=' + msgCodificada;
+      
+      // 6. Abrir
       window.open(url, '_blank');
     });
 
+    // Animação de scroll
     document.addEventListener('DOMContentLoaded', function() {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -1136,7 +1139,6 @@
           }
         });
       }, { threshold: 0.1 });
-
       document.querySelectorAll('.fade-in-up').forEach(el => {
         observer.observe(el);
       });
