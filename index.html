@@ -47,7 +47,7 @@
       background: rgba(18, 24, 28, 0.7);
       border: 1px solid rgba(52, 152, 219, 0.1);
       border-radius: 24px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
     }
     .card-solution:hover {
       transform: translateY(-8px);
@@ -121,10 +121,10 @@
     
     /* === ANIMAÇÕES === */
     @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-20px) scale(1.02); }
     }
-    .animate-float { animation: float 5s ease-in-out infinite; }
+    .animate-float { animation: float 6s ease-in-out infinite; }
     
     @keyframes pulse-green {
       0%, 100% { opacity: 1; transform: scale(1); }
@@ -145,32 +145,41 @@
     }
     .logo-carousel-track {
       display: flex;
-      animation: scroll-logos 20s linear infinite;
+      animation: scroll-logos 25s linear infinite;
       width: fit-content;
     }
     .logo-carousel-track:hover {
       animation-play-state: paused;
     }
     .logo-item {
-      flex: 0 0 200px;
+      flex: 0 0 160px;
       height: 80px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 20px;
+      margin: 0 15px;
       background: rgba(18, 24, 28, 0.4);
       border: 1px solid rgba(52, 152, 219, 0.08);
       border-radius: 16px;
-      color: #6b7a8a;
-      font-weight: 600;
-      font-size: 0.9rem;
-      letter-spacing: 1px;
       transition: all 0.3s ease;
+      overflow: hidden;
+      padding: 8px;
     }
     .logo-item:hover {
       border-color: #2a7a9f;
-      color: #4aa8d4;
       background: rgba(18, 24, 28, 0.7);
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px -10px rgba(0, 150, 220, 0.15);
+    }
+    .logo-item img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      filter: brightness(0.8) saturate(0.8);
+      transition: filter 0.3s ease;
+    }
+    .logo-item:hover img {
+      filter: brightness(1) saturate(1);
     }
 
     /* === SCROLL PERSONALIZADO === */
@@ -230,9 +239,9 @@
       height: 80%;
       top: 10%;
       left: 10%;
-      background: radial-gradient(ellipse at 30% 40%, rgba(59, 130, 246, 0.06) 0%, transparent 50%),
-                  radial-gradient(ellipse at 70% 60%, rgba(74, 168, 212, 0.04) 0%, transparent 40%),
-                  radial-gradient(ellipse at 50% 80%, rgba(42, 107, 143, 0.03) 0%, transparent 30%);
+      background: radial-gradient(ellipse at 30% 40%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+                  radial-gradient(ellipse at 70% 60%, rgba(74, 168, 212, 0.05) 0%, transparent 40%),
+                  radial-gradient(ellipse at 50% 80%, rgba(42, 107, 143, 0.04) 0%, transparent 30%);
       animation: meshPulse 8s ease-in-out infinite;
       border-radius: 50%;
       filter: blur(80px);
@@ -243,7 +252,7 @@
       height: 60%;
       top: 20%;
       left: 20%;
-      background: radial-gradient(ellipse at 60% 30%, rgba(59, 130, 246, 0.04) 0%, transparent 60%);
+      background: radial-gradient(ellipse at 60% 30%, rgba(59, 130, 246, 0.05) 0%, transparent 60%);
     }
     @keyframes meshPulse {
       0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.6; }
@@ -262,7 +271,7 @@
       position: absolute;
       width: 3px;
       height: 3px;
-      background: rgba(74, 168, 212, 0.15);
+      background: rgba(74, 168, 212, 0.2);
       border-radius: 50%;
       animation: particleFloat linear infinite;
     }
@@ -282,6 +291,52 @@
       100% { transform: translateY(0px) translateX(0px) scale(1); opacity: 0.15; }
     }
 
+    /* === HERO IMAGE WRAPPER COM ANIMAÇÕES === */
+    .hero-image-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    .hero-image-wrapper .glow-effect {
+      position: absolute;
+      inset: -40px;
+      background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.2) 0%, rgba(59, 130, 246, 0.05) 40%, transparent 70%);
+      filter: blur(60px);
+      border-radius: 50%;
+      z-index: 0;
+      animation: pulse-glow 4s ease-in-out infinite;
+    }
+    
+    @keyframes pulse-glow {
+      0%, 100% { opacity: 0.5; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.1); }
+    }
+    
+    .hero-image-wrapper .hero-img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 24px;
+      transition: all 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.1);
+      box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.6);
+      animation: float-hero 6s ease-in-out infinite;
+    }
+    
+    @keyframes float-hero {
+      0%, 100% { transform: translateY(0px) scale(1); box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.6); }
+      50% { transform: translateY(-15px) scale(1.01); box-shadow: 0 30px 80px -10px rgba(59, 130, 246, 0.15); }
+    }
+    
+    .hero-image-wrapper .hero-img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 30px 80px -15px rgba(59, 130, 246, 0.25);
+      animation-play-state: paused;
+    }
+
     /* === IMAGEM NA DOBRA AUTORIDADE === */
     .authority-image-wrapper {
       position: relative;
@@ -298,11 +353,6 @@
       border-radius: 50%;
       z-index: 0;
       animation: pulse-glow 5s ease-in-out infinite;
-    }
-    
-    @keyframes pulse-glow {
-      0%, 100% { opacity: 0.6; transform: scale(1); }
-      50% { opacity: 1; transform: scale(1.05); }
     }
     
     .authority-image-wrapper img {
@@ -345,8 +395,10 @@
 
     /* === RESPONSIVIDADE === */
     @media (max-width: 640px) {
-      .logo-item { flex: 0 0 140px; height: 60px; font-size: 0.7rem; margin: 0 10px; }
+      .logo-item { flex: 0 0 120px; height: 60px; margin: 0 8px; padding: 6px; }
       .logo-img { height: 35px; }
+      .hero-image-wrapper { max-width: 320px; }
+      .hero-image-wrapper .glow-effect { inset: -20px; filter: blur(40px); }
       .authority-image-wrapper { max-width: 280px; }
       .dashboard-card { padding: 16px; }
     }
@@ -356,7 +408,9 @@
     }
 
     @media (min-width: 768px) and (max-width: 1024px) {
+      .hero-image-wrapper { max-width: 400px; }
       .authority-image-wrapper { max-width: 350px; }
+      .logo-item { flex: 0 0 140px; height: 70px; }
     }
 
     /* MOBILE IMAGE FIRST */
@@ -368,20 +422,6 @@
       .mobile-image-first .image-col { order: unset; }
       .mobile-image-first .text-col { order: unset; }
     }
-
-    /* FADE-IN-UP ANIMATION */
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .fade-in-up {
-      animation: fadeInUp 0.8s ease-out forwards;
-    }
-    .fade-in-up-delay-1 { animation-delay: 0.1s; opacity: 0; }
-    .fade-in-up-delay-2 { animation-delay: 0.2s; opacity: 0; }
-    .fade-in-up-delay-3 { animation-delay: 0.3s; opacity: 0; }
-    .fade-in-up-delay-4 { animation-delay: 0.4s; opacity: 0; }
-    .fade-in-up-delay-5 { animation-delay: 0.5s; opacity: 0; }
 
     /* UNIDADES RODAPÉ */
     .footer-unidade {
@@ -397,6 +437,22 @@
       color: #4aa8d4;
       width: 18px;
     }
+
+    /* FADE-IN-UP */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-in-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-in-up-delay-1 { transition-delay: 0.1s; }
+    .fade-in-up-delay-2 { transition-delay: 0.2s; }
+    .fade-in-up-delay-3 { transition-delay: 0.3s; }
+    .fade-in-up-delay-4 { transition-delay: 0.4s; }
+    .fade-in-up-delay-5 { transition-delay: 0.5s; }
   </style>
 </head>
 <body>
@@ -430,7 +486,6 @@
   <!-- ===== 2. HERO SECTION ===== -->
   <section id="conexao" class="min-h-screen flex items-center relative overflow-hidden hero-texture pt-28 pb-16 px-6 md:px-12">
     
-    <!-- Fundo Generativo - Mesh + Partículas -->
     <div class="hero-generative-bg">
       <div class="mesh-gradient"></div>
       <div class="mesh-gradient"></div>
@@ -448,21 +503,33 @@
     
     <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center relative z-10">
       
-      <div class="lg:col-span-5 space-y-8">
-        <div class="flex items-center gap-3 flex-wrap fade-in-up fade-in-up-delay-1">
+      <div class="lg:col-span-3 space-y-8">
+        <div class="flex items-center gap-3 flex-wrap fade-in-up fade-in-up-delay-1 visible">
           <span class="badge-auth">+ R$ 1.2 Bi em ativos recuperados</span>
           <span class="badge-auth">20 anos de estrada</span>
         </div>
-        <h1 class="text-4xl md:text-6xl font-extrabold leading-[1.15] tracking-tight fade-in-up fade-in-up-delay-2">
+        <h1 class="text-4xl md:text-6xl font-extrabold leading-[1.15] tracking-tight fade-in-up fade-in-up-delay-2 visible">
           <span class="text-white">Você já entendeu que a margem de lucro </span><br>
           <span class="text-blue-400">está travada.</span>
         </h1>
-        <p class="text-base md:text-xl text-gray-300 max-w-3xl font-light leading-relaxed fade-in-up fade-in-up-delay-3">
+        <p class="text-base md:text-xl text-gray-300 max-w-2xl font-light leading-relaxed fade-in-up fade-in-up-delay-3 visible">
           Agora vou te mostrar <span class="text-white font-medium">como destravá-la tecnicamente</span>. Não se trata de mais uma consultoria. Trata-se de uma engenharia financeira aplicada que transforma passivos em ativos e reinjeta caixa na operação.
         </p>
-        <div class="flex flex-wrap items-center gap-4 pt-2 fade-in-up fade-in-up-delay-4">
+        <div class="flex flex-wrap items-center gap-4 pt-2 fade-in-up fade-in-up-delay-4 visible">
           <a href="#contato" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold shadow-2xl">Quero entender o nível de soluções estratégicas</a>
           <span class="text-gray-500 text-sm">● Diagnóstico estratégico</span>
+        </div>
+      </div>
+
+      <div class="lg:col-span-2 flex justify-center lg:justify-end fade-in-up fade-in-up-delay-3 visible">
+        <div class="hero-image-wrapper">
+          <div class="glow-effect"></div>
+          <img 
+            src="image_hero.png" 
+            alt="Holder & Co - Inteligência Tributária e Proteção Patrimonial" 
+            class="hero-img"
+            onerror="this.style.display='none'"
+          >
         </div>
       </div>
       
@@ -482,7 +549,7 @@
       
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10 items-stretch">
         
-        <div class="card-solution p-8 relative overflow-hidden h-full flex flex-col transition-all duration-500 hover:translate-y-[-8px]">
+        <div class="card-solution p-8 relative overflow-hidden h-full flex flex-col">
           <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl"></div>
           <div class="flex items-center gap-3 mb-4">
             <div class="w-12 h-12 rounded-full bg-blue-900/30 border border-blue-700/30 flex items-center justify-center text-2xl shrink-0">🎯</div>
@@ -497,7 +564,7 @@
           </div>
         </div>
         
-        <div class="card-solution p-8 relative overflow-hidden h-full flex flex-col transition-all duration-500 hover:translate-y-[-8px]">
+        <div class="card-solution p-8 relative overflow-hidden h-full flex flex-col">
           <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl"></div>
           <div class="flex items-center gap-3 mb-4">
             <div class="w-12 h-12 rounded-full bg-blue-900/30 border border-blue-700/30 flex items-center justify-center text-2xl shrink-0">🏛️</div>
@@ -512,7 +579,7 @@
           </div>
         </div>
         
-        <div class="card-solution p-8 relative overflow-hidden h-full flex flex-col transition-all duration-500 hover:translate-y-[-8px]">
+        <div class="card-solution p-8 relative overflow-hidden h-full flex flex-col">
           <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl"></div>
           <div class="flex items-center gap-3 mb-4">
             <div class="w-12 h-12 rounded-full bg-blue-900/30 border border-blue-700/30 flex items-center justify-center text-2xl shrink-0">🤝</div>
@@ -538,7 +605,6 @@
     <div class="max-w-7xl mx-auto">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mobile-image-first">
         
-        <!-- DASHBOARD - Mobile: aparece primeiro | Desktop: lado direito -->
         <div class="image-col flex justify-center lg:justify-end order-first lg:order-last">
           <div class="dashboard-card w-full max-w-md">
             <div class="flex items-center justify-between mb-4">
@@ -546,7 +612,6 @@
               <span class="text-[10px] text-gray-500"><i class="far fa-calendar-alt mr-1"></i> Projeção 2026</span>
             </div>
             
-            <!-- Métricas resumidas -->
             <div class="grid grid-cols-3 gap-2 mb-4">
               <div class="bg-blue-900/10 rounded-xl p-3 text-center border border-blue-800/10">
                 <span class="text-[10px] text-gray-400 block">Atual</span>
@@ -562,25 +627,23 @@
               </div>
             </div>
             
-            <!-- Gráfico de barras Antes vs Depois -->
             <div class="space-y-2">
               <div class="flex items-center gap-3">
                 <span class="text-[10px] text-gray-500 w-12 text-right">Antes</span>
                 <div class="flex-1 h-6 bg-blue-900/20 rounded-full overflow-hidden">
-                  <div class="chart-bar h-full w-[45%] bg-gradient-to-r from-blue-700 to-blue-500 rounded-full transition-all duration-1000"></div>
+                  <div class="chart-bar h-full w-[45%] bg-gradient-to-r from-blue-700 to-blue-500 rounded-full"></div>
                 </div>
                 <span class="text-[10px] text-gray-400 w-10">45%</span>
               </div>
               <div class="flex items-center gap-3">
                 <span class="text-[10px] text-gray-500 w-12 text-right">Depois</span>
                 <div class="flex-1 h-6 bg-emerald-900/20 rounded-full overflow-hidden">
-                  <div class="chart-bar h-full w-[78%] bg-gradient-to-r from-emerald-600 to-emerald-400 rounded-full transition-all duration-1000"></div>
+                  <div class="chart-bar h-full w-[78%] bg-gradient-to-r from-emerald-600 to-emerald-400 rounded-full"></div>
                 </div>
                 <span class="text-[10px] text-emerald-400 w-10">78%</span>
               </div>
             </div>
             
-            <!-- Indicador de eficiência -->
             <div class="mt-4 pt-3 border-t border-blue-900/10 flex items-center justify-between">
               <span class="text-[10px] text-gray-500"><i class="fas fa-arrow-up text-emerald-400 mr-1"></i> Eficiência operacional</span>
               <span class="text-xs font-semibold text-emerald-400">+73%</span>
@@ -595,7 +658,6 @@
           </div>
         </div>
         
-        <!-- TEXTO - Mobile: aparece depois | Desktop: lado esquerdo -->
         <div class="text-col space-y-6 order-last lg:order-first">
           <span class="text-blue-400 text-sm font-semibold tracking-widest uppercase border border-blue-800/30 px-4 py-1 rounded-full inline-block">Para o CEO</span>
           <h2 class="text-3xl md:text-5xl font-bold text-white leading-[1.15]">
@@ -639,7 +701,7 @@
               src="image_header.png" 
               alt="Rodrigo de Assis - Holder & Co - Inteligência Tributária" 
               class="animate-float"
-              onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22 viewBox=%220 0 400 400%22%3E%3Crect width=%22400%22 height=%22400%22 fill=%22%230b0e12%22/%3E%3Ccircle cx=%22200%22 cy=%22200%22 r=%22150%22 fill=%22%231a2a3a%22 stroke=%22%232a6b8f%22 stroke-width=%222%22/%3E%3Ctext x=%22200%22 y=%22190%22 text-anchor=%22middle%22 fill=%22%234aa8d4%22 font-size=%2232%22 font-family=%22Inter, sans-serif%22 font-weight=%22700%22%3ERodrigo%3C/text%3E%3Ctext x=%22200%22 y=%22230%22 text-anchor=%22middle%22 fill=%22%236b8a9f%22 font-size=%2220%22 font-family=%22Inter, sans-serif%22%3Ede Assis%3C/text%3E%3C/svg%3E'"
+              onerror="this.style.display='none'"
             >
           </div>
         </div>
@@ -691,16 +753,80 @@
       
       <div class="relative overflow-hidden">
         <div class="logo-carousel-track">
-          <div class="logo-item"><i class="fas fa-building mr-2 text-blue-400/40"></i> Grupo XPTO</div>
-          <div class="logo-item"><i class="fas fa-industry mr-2 text-blue-400/40"></i> Indústria Alpha</div>
-          <div class="logo-item"><i class="fas fa-store mr-2 text-blue-400/40"></i> Varejo Beta</div>
-          <div class="logo-item"><i class="fas fa-truck mr-2 text-blue-400/40"></i> Logística Delta</div>
-          <div class="logo-item"><i class="fas fa-hospital mr-2 text-blue-400/40"></i> Saúde Sigma</div>
-          <div class="logo-item"><i class="fas fa-building mr-2 text-blue-400/40"></i> Grupo XPTO</div>
-          <div class="logo-item"><i class="fas fa-industry mr-2 text-blue-400/40"></i> Indústria Alpha</div>
-          <div class="logo-item"><i class="fas fa-store mr-2 text-blue-400/40"></i> Varejo Beta</div>
-          <div class="logo-item"><i class="fas fa-truck mr-2 text-blue-400/40"></i> Logística Delta</div>
-          <div class="logo-item"><i class="fas fa-hospital mr-2 text-blue-400/40"></i> Saúde Sigma</div>
+          <!-- Primeiro grupo de logos -->
+          <div class="logo-item">
+            <img src="avon.jpeg" alt="Avon" onerror="this.style.display='none'">
+          </div>
+          <div class="logo-item">
+            <img src="esmaltec.png" alt="Esmaltec" onerror="this.style.display='none'">
+          </div>
+          <div class="logo-item">
+            <img src="frescato.png" alt="Frescato" onerror="this.style.display='none'">
+          </div>
+          <div class="logo-item">
+            <img src="lenovo.png" alt="Lenovo" onerror="this.style.display='none'">
+          </div>
+          <div class="logo-item">
+            <img src="medley.jpeg" alt="Medley" onerror="this.style.display='none'">
+          </div>
+          <div class="logo-item">
+            <img src="minalba.png" alt="Minalba" onerror="this.style.display='none'">
+          </div>
+          <div class="logo-item">
+            <img src="nacional.png" alt="Nacional" onerror="this.style.display='none'">
+          </div>
+          <div class="logo-item">
+            <img src="natura.png" alt="Natura" onerror="this.style.display='none'">
+          </div>
+          <div class="logo-item">
+            <img src="siqueia campos.png" alt="Siqueia Campos" onerror="this.style.display='none'">
+          </div>
+          <div class="logo-item">
+            <img src="sodexo.png" alt="Sodexo" onerror="this.style.display='none'">
+          </div>
+          <div class="logo-item">
+            <img src="sony.png" alt="Sony" onerror="this.style.display='none'">
+          </div>
+          <div class="logo-item">
+            <img src="tigre.png" alt="Tigre" onerror="this.style.display='none'">
+          </div>
+          <!-- Segundo grupo (duplicado para loop contínuo) -->
+          <div class="logo-item">
+            <img src="avon.jpeg" alt="Avon" onerror="this.style.display='none'">
+          </div>
+          <div class="logo-item">
+            <img src="esmaltec.png" alt="Esmaltec" onerror="this.style.display='none'">
+          </div>
+          <div class="logo-item">
+            <img src="frescato.png" alt="Frescato" onerror="this.style.display='none'">
+          </div>
+          <div class="logo-item">
+            <img src="lenovo.png" alt="Lenovo" onerror="this.style.display='none'">
+          </div>
+          <div class="logo-item">
+            <img src="medley.jpeg" alt="Medley" onerror="this.style.display='none'">
+          </div>
+          <div class="logo-item">
+            <img src="minalba.png" alt="Minalba" onerror="this.style.display='none'">
+          </div>
+          <div class="logo-item">
+            <img src="nacional.png" alt="Nacional" onerror="this.style.display='none'">
+          </div>
+          <div class="logo-item">
+            <img src="natura.png" alt="Natura" onerror="this.style.display='none'">
+          </div>
+          <div class="logo-item">
+            <img src="siqueia campos.png" alt="Siqueia Campos" onerror="this.style.display='none'">
+          </div>
+          <div class="logo-item">
+            <img src="sodexo.png" alt="Sodexo" onerror="this.style.display='none'">
+          </div>
+          <div class="logo-item">
+            <img src="sony.png" alt="Sony" onerror="this.style.display='none'">
+          </div>
+          <div class="logo-item">
+            <img src="tigre.png" alt="Tigre" onerror="this.style.display='none'">
+          </div>
         </div>
       </div>
       
@@ -800,7 +926,7 @@
       </form>
       
       <div class="text-center mt-6 text-xs text-gray-500">
-        <p>Holder & Co. Inteligência Tributária · CNPJ: XX.XXX.XXX/0001-XX</p>
+        <p>Holder & Co. Inteligência Tributária</p>
         <p class="mt-1">Sede: São Paulo - SP | Brasília - DF</p>
       </div>
     </div>
@@ -849,7 +975,7 @@
           <a href="#" class="hover:text-blue-400 transition-colors">Segurança da Informação</a>
         </div>
         <div class="text-xs text-gray-500">
-          <p>CNPJ: XX.XXX.XXX/0001-XX</p>
+          <p><strong class="text-gray-400">CNPJ:</strong> 63.189.436/0001-90</p>
         </div>
       </div>
       
@@ -899,21 +1025,17 @@
       window.open(url, '_blank');
     });
 
-    // Animar elementos ao scroll (Intersection Observer para fade-in-up)
+    // FADE-IN-UP
     document.addEventListener('DOMContentLoaded', function() {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            entry.target.classList.add('visible');
           }
         });
       }, { threshold: 0.1 });
 
       document.querySelectorAll('.fade-in-up').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'all 0.8s ease-out';
         observer.observe(el);
       });
     });
