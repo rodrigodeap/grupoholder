@@ -1,89 +1,625 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Holder & Co | Engenharia de Alavancagem para CEOs</title>
+  <title>Holder & Co · Inteligência Tributária</title>
+  
+  <!-- Tailwind via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+  
+  <!-- Google Fonts (Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome para ícones -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
   <style>
-    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #050709; color: #fff; }
-    .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
-    .gradient-text { background: linear-gradient(90deg, #60a5fa, #34d399); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    * { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+    body { background-color: #0b0e12; color: #e5e9f0; }
+    
+    /* === NAVEGAÇÃO E BOTÕES === */
+    .glass-nav {
+      background: rgba(11, 14, 18, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(52, 152, 219, 0.15);
+    }
+    
+    .btn-primary {
+      background: linear-gradient(145deg, #1a2a3a, #0f1e2e);
+      border: 1px solid #2a6b8f;
+      color: #d4eaf7;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px rgba(0, 150, 220, 0.15);
+    }
+    .btn-primary:hover {
+      background: linear-gradient(145deg, #2a6b8f, #1a4a6b);
+      border-color: #4aa8d4;
+      box-shadow: 0 0 30px rgba(0, 180, 240, 0.3);
+      transform: scale(1.02);
+      color: #fff;
+    }
+    
+    /* === CARDS === */
+    .card-solution {
+      background: rgba(18, 24, 28, 0.7);
+      border: 1px solid rgba(52, 152, 219, 0.1);
+      border-radius: 24px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .card-solution:hover {
+      transform: translateY(-8px);
+      border-color: #2a7a9f;
+      box-shadow: 0 20px 40px -12px rgba(0, 150, 220, 0.25);
+      background: rgba(22, 32, 36, 0.9);
+    }
+    
+    /* === CARDS EXECUTIVOS === */
+    .executive-card {
+      background: rgba(14, 20, 24, 0.6);
+      border: 1px solid rgba(52, 152, 219, 0.08);
+      border-radius: 28px;
+      transition: all 0.3s ease;
+    }
+    .executive-card:hover {
+      border-color: #2a7a9f;
+      box-shadow: 0 15px 30px -12px rgba(0, 150, 220, 0.2);
+      transform: translateY(-6px);
+    }
+    .executive-avatar {
+      width: 112px;
+      height: 112px;
+      border-radius: 50%;
+      border: 2px solid #2a6b8f;
+      background: linear-gradient(135deg, #1a2a3a, #0f1e2e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      font-size: 2.5rem;
+      color: #4aa8d4;
+    }
+
+    /* === ESTILOS GERAIS === */
+    .section-divider {
+      background: linear-gradient(90deg, transparent, #2a6b8f, #4aa8d4, #2a6b8f, transparent);
+      height: 1px; width: 80%; margin: 0 auto;
+    }
+    .hero-texture {
+      background-image: radial-gradient(circle at 30% 40%, rgba(0, 150, 220, 0.03) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 80%, rgba(0, 150, 220, 0.02) 0%, transparent 50%);
+    }
+    
+    /* === FORMULÁRIO === */
+    .input-glass {
+      background: rgba(18, 24, 28, 0.6);
+      border: 1px solid rgba(52, 152, 219, 0.2);
+      color: #e5e9f0;
+      transition: 0.3s;
+    }
+    .input-glass:focus {
+      border-color: #2a7a9f;
+      box-shadow: 0 0 20px rgba(0, 150, 220, 0.15);
+      outline: none;
+      background: rgba(18, 24, 28, 0.8);
+    }
+    .input-glass option { background: #0b0e12; color: #e5e9f0; }
+    
+    .btn-whatsapp {
+      background: linear-gradient(145deg, #1a3a4a, #0f2a3a);
+      border: 1px solid #2a7a8f;
+      transition: all 0.3s ease;
+    }
+    .btn-whatsapp:hover {
+      background: linear-gradient(145deg, #2a6a7a, #1a4a5a);
+      border-color: #4aaac4;
+      box-shadow: 0 0 30px rgba(0, 200, 240, 0.3);
+      transform: scale(1.02);
+    }
+    
+    /* === ANIMAÇÕES === */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    .animate-float { animation: float 5s ease-in-out infinite; }
+    
+    .hero-icon { font-size: 12rem; color: rgba(74, 168, 212, 0.15); text-shadow: 0 0 60px rgba(74, 168, 212, 0.05); }
+    
+    @keyframes pulse-green {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.7); }
+    }
+    .pulse-dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; animation: pulse-green 1.5s ease-in-out infinite; box-shadow: 0 0 8px rgba(34, 197, 94, 0.4); }
+    .online-indicator {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.2);
+      padding: 6px 14px 6px 10px; border-radius: 50px;
+      font-size: 0.75rem; color: #4ade80; font-weight: 500;
+    }
+
+    /* === CARROSSEL DE LOGOS === */
+    @keyframes scroll-logos {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .logo-carousel-track {
+      display: flex;
+      animation: scroll-logos 20s linear infinite;
+      width: fit-content;
+    }
+    .logo-carousel-track:hover {
+      animation-play-state: paused;
+    }
+    .logo-item {
+      flex: 0 0 200px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 20px;
+      background: rgba(18, 24, 28, 0.4);
+      border: 1px solid rgba(52, 152, 219, 0.08);
+      border-radius: 16px;
+      color: #6b7a8a;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+    }
+    .logo-item:hover {
+      border-color: #2a7a9f;
+      color: #4aa8d4;
+      background: rgba(18, 24, 28, 0.7);
+    }
+
+    /* === SCROLL PERSONALIZADO === */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #0b0e12; }
+    ::-webkit-scrollbar-thumb { background: #2a6b8f; border-radius: 8px; }
+
+    /* === BADGE DE AUTORIDADE === */
+    .badge-auth {
+      background: rgba(74, 168, 212, 0.08);
+      border: 1px solid rgba(74, 168, 212, 0.15);
+      border-radius: 50px;
+      padding: 4px 16px;
+      font-size: 0.65rem;
+      color: #4aa8d4;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* === INDICADOR DE VAGAS === */
+    .vagas-indicator {
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+      border-radius: 50px;
+      padding: 6px 18px;
+      font-size: 0.75rem;
+      color: #f87171;
+      font-weight: 600;
+    }
+    .vagas-indicator strong {
+      color: #ef4444;
+    }
+
+    /* === RESPONSIVIDADE === */
+    @media (max-width: 640px) {
+      .hero-icon { font-size: 6rem; }
+      .logo-item { flex: 0 0 140px; height: 60px; font-size: 0.7rem; margin: 0 10px; }
+    }
   </style>
 </head>
 <body>
 
-  <!-- HERO: O FOCO NO CEO -->
-  <header class="pt-24 pb-16 px-6">
-    <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-      <div class="space-y-6">
-        <span class="text-blue-400 font-bold tracking-widest uppercase text-xs">Para CEOs que buscam escala</span>
-        <h1 class="text-5xl lg:text-7xl font-extrabold leading-tight">
-          Destrave a margem do seu negócio com <span class="gradient-text">Inteligência Tributária.</span>
+  <!-- ===== 1. MENU FIXO ===== -->
+  <nav class="glass-nav fixed top-0 left-0 w-full z-50 px-6 md:px-12 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <span class="text-2xl font-bold tracking-tight text-blue-400">Holder & Co</span>
+      <span class="text-xs text-gray-500 hidden sm:inline">| Inteligência Tributária</span>
+    </div>
+    <div class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-300">
+      <a href="#conexao" class="hover:text-blue-300 transition-colors">Conexão</a>
+      <a href="#stakeholders" class="hover:text-blue-300 transition-colors">Stakeholders</a>
+      <a href="#ceo" class="hover:text-blue-300 transition-colors">CEO</a>
+      <a href="#autoridade" class="hover:text-blue-300 transition-colors">Autoridade</a>
+    </div>
+    <div>
+      <a href="#contato" class="btn-primary px-5 py-2.5 rounded-full text-sm font-semibold shadow-xl">Falar com Especialista</a>
+    </div>
+  </nav>
+
+  <!-- ===== 2. DOBRA DE CONEXÃO ===== -->
+  <section id="conexao" class="min-h-screen flex items-center relative overflow-hidden hero-texture pt-28 pb-16 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-5 gap-12 items-center relative z-10">
+      <div class="lg:col-span-3 space-y-8">
+        <div class="flex items-center gap-3 flex-wrap">
+          <span class="badge-auth">+ R$ 1.2 Bi em ativos recuperados</span>
+          <span class="badge-auth">20 anos de estrada</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-extrabold leading-[1.15] tracking-tight">
+          <span class="text-white">Você já entendeu que a margem </span><br>
+          <span class="text-blue-400">está travada.</span>
         </h1>
-        <p class="text-lg text-gray-400">Não somos apenas assessoria. Somos a engenharia financeira que transforma passivos invisíveis em alavancagem para o seu crescimento.</p>
+        <p class="text-base md:text-xl text-gray-300 max-w-2xl font-light leading-relaxed">
+          Agora vou te mostrar <span class="text-white font-medium">como destravá-la tecnicamente</span>. Não se trata de mais uma consultoria. Trata-se de uma engenharia financeira aplicada que transforma passivos em ativos e reinjeta caixa na operação.
+        </p>
+        <div class="flex flex-wrap items-center gap-4 pt-2">
+          <a href="#contato" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold shadow-2xl">Quero entender o nível de profundidade</a>
+          <span class="text-gray-500 text-sm">● Diagnóstico estratégico</span>
+        </div>
+      </div>
+
+      <div class="lg:col-span-2 flex justify-center lg:justify-end">
+        <div class="hero-icon animate-float">
+          <i class="fas fa-layer-group"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===== 3. DOBRA DE STAKEHOLDERS ===== -->
+  <section id="stakeholders" class="py-24 px-6 md:px-12 bg-[#0c1015]">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-blue-400 text-sm font-semibold tracking-widest uppercase border border-blue-800/30 px-4 py-1 rounded-full">Três frentes de impacto</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4 text-white">Para quem essa solução transforma o jogo</h2>
+        <p class="text-gray-400 max-w-2xl mx-auto mt-3 text-sm">Cada stakeholder enxerga um benefício distinto — todos convergem para o mesmo resultado: caixa e margem.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10 items-stretch">
         
-        <div class="flex items-center gap-8 py-4">
-          <div><p class="text-3xl font-bold">1.2BI+</p><p class="text-[10px] text-gray-500 uppercase">Ativos Gerados</p></div>
-          <div class="w-px h-10 bg-gray-800"></div>
-          <div><p class="text-3xl font-bold">20 Anos</p><p class="text-[10px] text-gray-500 uppercase">de expertise</p></div>
+        <!-- COMERCIAL -->
+        <div class="card-solution p-8 relative overflow-hidden h-full flex flex-col">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl"></div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 rounded-full bg-blue-900/30 border border-blue-700/30 flex items-center justify-center text-2xl shrink-0">🎯</div>
+            <span class="text-blue-300 text-xs font-bold tracking-widest uppercase">Comercial</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3 leading-tight">Margem é a sua melhor arma em vendas.</h3>
+          <p class="text-gray-300 leading-relaxed flex-grow text-sm">
+            A redução do custo operacional dá à sua equipe <span class="text-white font-medium">margem para precificação agressiva</span> sem sacrificar rentabilidade. Metas batidas com folga. Competitividade que o mercado não espera.
+          </p>
+          <div class="mt-4 pt-4 border-t border-blue-900/20">
+            <span class="text-blue-400 text-xs font-semibold tracking-wider">→ Resultado: +12% a +18% de margem líquida</span>
+          </div>
         </div>
-        <a href="#contato" class="block w-full text-center bg-blue-600 hover:bg-blue-500 py-4 rounded-xl font-bold text-lg transition-all">Solicitar Diagnóstico</a>
+        
+        <!-- FISCAL/FINAN -->
+        <div class="card-solution p-8 relative overflow-hidden h-full flex flex-col">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl"></div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 rounded-full bg-blue-900/30 border border-blue-700/30 flex items-center justify-center text-2xl shrink-0">🏛️</div>
+            <span class="text-blue-300 text-xs font-bold tracking-widest uppercase">Fiscal / Finanças</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3 leading-tight">O herói que a diretoria precisa.</h3>
+          <p class="text-gray-300 leading-relaxed flex-grow text-sm">
+            Entregue <span class="text-white font-medium">resultados milionários</span> com fundamentação técnica robusta. Deixe de ser visto como o departamento que "só apura" e torne-se o vetor de inovação e otimização de caixa da empresa.
+          </p>
+          <div class="mt-4 pt-4 border-t border-blue-900/20">
+            <span class="text-blue-400 text-xs font-semibold tracking-wider">→ Resultado: Reconhecimento e protagonismo</span>
+          </div>
+        </div>
+        
+        <!-- PARCEIROS -->
+        <div class="card-solution p-8 relative overflow-hidden h-full flex flex-col">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl"></div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 rounded-full bg-blue-900/30 border border-blue-700/30 flex items-center justify-center text-2xl shrink-0">🤝</div>
+            <span class="text-blue-300 text-xs font-bold tracking-widest uppercase">Parceiros Estratégicos</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3 leading-tight">Comissionamento sem concorrência.</h3>
+          <p class="text-gray-300 leading-relaxed flex-grow text-sm">
+            Entregue aos seus clientes uma <span class="text-white font-medium">solução de altíssimo nível</span> que você não precisa operacionalizar. Comissionamento justo, não-concorrência e qualidade de entrega que eleva seu nome.
+          </p>
+          <div class="mt-4 pt-4 border-t border-blue-900/20">
+            <span class="text-blue-400 text-xs font-semibold tracking-wider">→ Resultado: Clientes mais satisfeitos e recorrentes</span>
+          </div>
+        </div>
+        
       </div>
-      <img src="image_16.png" class="rounded-3xl shadow-2xl border border-gray-800" alt="Consultoria Estratégica">
     </div>
-  </header>
+  </section>
 
-  <!-- DOBRA DE LÓGICA (O QUE O CONTADOR NÃO FAZ) -->
-  <section class="py-20 px-6 bg-[#0a0f14]">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-12">Por que a inteligência da Holder é o próximo nível?</h2>
-      <div class="grid md:grid-cols-2 gap-6 text-left">
-        <div class="glass p-6 rounded-xl">
-          <h4 class="font-bold mb-2 text-blue-400">Além da Conformidade</h4>
-          <p class="text-sm text-gray-400">Contabilidade apura o que já aconteceu. Nós redesenhamos a estrutura fiscal para o que vai acontecer.</p>
+  <div class="section-divider"></div>
+
+  <!-- ===== 4. DOBRA DE FOCO NO CEO ===== -->
+  <section id="ceo" class="py-24 px-6 md:px-12 bg-[#0b0e12]">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="space-y-6">
+          <span class="text-blue-400 text-sm font-semibold tracking-widest uppercase border border-blue-800/30 px-4 py-1 rounded-full inline-block">Para o CEO</span>
+          <h2 class="text-3xl md:text-5xl font-bold text-white leading-[1.15]">
+            Você contrata os melhores. <br>
+            <span class="text-blue-400">Por que ainda não vê clareza operacional?</span>
+          </h2>
+          <div class="space-y-4 text-gray-300 leading-relaxed">
+            <p class="text-base">
+              O custo invisível de uma estrutura tributária mal desenhada não aparece no balanço — <span class="text-white font-medium">mas aparece no caixa</span>. 
+            </p>
+            <p class="text-base">
+              Você tem profissionais qualificados. O que falta é uma <span class="text-white font-medium">aplicação estratégica</span> que transforme conhecimento técnico em métricas claras, projeções confiáveis e decisões baseadas em dados.
+            </p>
+            <div class="bg-blue-900/10 border border-blue-800/20 rounded-xl p-6 mt-4">
+              <p class="text-sm text-gray-300 italic">
+                "A reforma tributária, os custos operacionais invisíveis e a falta de projeção confiável mantêm seu negócio refém do passado. <span class="text-white">É hora de mudar isso.</span>"
+              </p>
+            </div>
+          </div>
+          <a href="#contato" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold shadow-2xl inline-flex items-center gap-2">
+            <span>Quero clareza operacional agora</span>
+            <i class="fas fa-arrow-right text-sm"></i>
+          </a>
         </div>
-        <div class="glass p-6 rounded-xl">
-          <h4 class="font-bold mb-2 text-blue-400">Alavancagem Financeira</h4>
-          <p class="text-sm text-gray-400">Cada centavo recuperado de passivos é reinvestido na sua expansão operacional.</p>
+        
+        <div class="flex justify-center lg:justify-end">
+          <div class="relative">
+            <div class="w-64 h-64 md:w-96 md:h-96 rounded-full bg-gradient-to-br from-blue-900/20 to-transparent border border-blue-700/20 flex items-center justify-center backdrop-blur-sm shadow-2xl shadow-blue-900/10">
+              <i class="fas fa-chart-line text-blue-400/20 text-8xl"></i>
+            </div>
+            <div class="absolute -bottom-4 -right-4 bg-blue-900/30 border border-blue-700/30 rounded-2xl p-4 backdrop-blur-sm">
+              <span class="text-blue-400 text-2xl font-bold">1.2B</span>
+              <span class="text-gray-400 text-xs block">em ativos recuperados</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SOLUÇÕES TÉCNICAS -->
-  <section class="py-20 px-6 max-w-6xl mx-auto">
-    <h2 class="text-3xl font-bold mb-12 text-center">Onde atuamos</h2>
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-      <div class="glass p-6 rounded-2xl"><i class="fas fa-chart-line text-blue-400 mb-4"></i><h3 class="font-bold mb-2">Créditos</h3><p class="text-xs text-gray-400">Rastreamento de ativos tributários ocultos.</p></div>
-      <div class="glass p-6 rounded-2xl"><i class="fas fa-globe text-blue-400 mb-4"></i><h3 class="font-bold mb-2">Logística</h3><p class="text-xs text-gray-400">Benefícios fiscais em operações de importação.</p></div>
-      <div class="glass p-6 rounded-2xl"><i class="fas fa-gavel text-blue-400 mb-4"></i><h3 class="font-bold mb-2">Passivos</h3><p class="text-xs text-gray-400">Gestão estratégica junto à PGFN e CAPAG.</p></div>
-      <div class="glass p-6 rounded-2xl"><i class="fas fa-university text-blue-400 mb-4"></i><h3 class="font-bold mb-2">Ativos</h3><p class="text-xs text-gray-400">Securitização para financiar seu crescimento.</p></div>
+  <div class="section-divider"></div>
+
+  <!-- ===== 5. DOBRA DE AUTORIDADE ===== -->
+  <section id="autoridade" class="py-24 px-6 md:px-12 bg-[#0c1015]">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
+        
+        <div class="lg:col-span-2 flex justify-center">
+          <div class="relative">
+            <div class="executive-avatar w-48 h-48 text-6xl border-4">
+              <i class="fas fa-user-tie"></i>
+            </div>
+            <div class="absolute -bottom-2 -right-2 bg-blue-900/40 border border-blue-700/30 rounded-full px-4 py-2 text-xs font-semibold text-blue-300 backdrop-blur-sm">
+              Rodrigo de Assis
+            </div>
+          </div>
+        </div>
+        
+        <div class="lg:col-span-3 space-y-6">
+          <span class="text-blue-400 text-sm font-semibold tracking-widest uppercase border border-blue-800/30 px-4 py-1 rounded-full inline-block">A peça-chave</span>
+          <h2 class="text-3xl md:text-5xl font-bold text-white leading-[1.15]">
+            Você não precisa de uma empresa. <br>
+            <span class="text-blue-400">Você precisa da minha aplicação estratégica.</span>
+          </h2>
+          <div class="space-y-4 text-gray-300 leading-relaxed">
+            <p class="text-base">
+              Eu sou <span class="text-white font-medium">Rodrigo de Assis</span>, sócio e gestor de ativos no Grupo Holder & Co. Em 20 anos de atuação, recuperamos mais de <span class="text-white font-medium">R$ 1.2 bilhão</span> em ativos para nossos clientes.
+            </p>
+            <p class="text-base">
+              Não entrego relatórios. Entrego <span class="text-white font-medium">transformação financeira aplicada</span> — a engenharia tributária que destrava margem, reduz custos e cria caixa real para sua operação.
+            </p>
+            <div class="bg-blue-900/10 border border-blue-800/20 rounded-xl p-6">
+              <p class="text-sm text-blue-300 font-light italic">
+                "O mercado está mudando. As empresas que entenderem isso agora vão liderar a próxima década. As que esperarem, vão sobreviver."
+              </p>
+            </div>
+          </div>
+          <a href="#contato" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold shadow-2xl inline-flex items-center gap-2">
+            <span>Quero falar com Rodrigo agora</span>
+            <i class="fas fa-arrow-right text-sm"></i>
+          </a>
+          <div class="flex flex-wrap gap-6 text-xs text-gray-500">
+            <span><i class="fas fa-check-circle text-blue-400 mr-1"></i> 20 anos de estrada</span>
+            <span><i class="fas fa-check-circle text-blue-400 mr-1"></i> R$ 1.2B recuperados</span>
+            <span><i class="fas fa-check-circle text-blue-400 mr-1"></i> +200 empresas atendidas</span>
+          </div>
+        </div>
+        
+      </div>
     </div>
   </section>
 
-  <!-- FORMULÁRIO DE CONTATO -->
-  <section id="contato" class="py-20 px-6">
-    <div class="max-w-xl mx-auto glass p-10 rounded-3xl">
-      <h2 class="text-2xl font-bold mb-6 text-center">Vamos elevar sua margem?</h2>
-      <form id="leadForm" class="space-y-4">
-        <input type="text" id="nome" placeholder="Nome Completo" class="w-full p-4 rounded-xl bg-gray-900 border border-gray-700 outline-none focus:border-blue-500">
-        <input type="text" id="empresa" placeholder="Sua Empresa" class="w-full p-4 rounded-xl bg-gray-900 border border-gray-700 outline-none focus:border-blue-500">
-        <input type="tel" id="whatsapp" placeholder="WhatsApp" class="w-full p-4 rounded-xl bg-gray-900 border border-gray-700 outline-none focus:border-blue-500">
-        <button type="button" id="btnWhats" class="w-full bg-blue-600 hover:bg-blue-500 py-4 rounded-xl font-bold transition-all">Iniciar Diagnóstico</button>
+  <div class="section-divider"></div>
+
+  <!-- ===== 6. DOBRA DE PROVA (CARROSSEL DE LOGOS) ===== -->
+  <section class="py-16 px-6 md:px-12 bg-[#0b0e12] overflow-hidden">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-10">
+        <span class="text-blue-400 text-sm font-semibold tracking-widest uppercase border border-blue-800/30 px-4 py-1 rounded-full">Empresas que confiam</span>
+        <h3 class="text-2xl md:text-3xl font-bold text-white mt-3">Atendemos líderes de mercado</h3>
+        <p class="text-gray-400 text-sm mt-1">São mais de 200 empresas em 20 anos de atuação</p>
+      </div>
+      
+      <div class="relative overflow-hidden">
+        <div class="logo-carousel-track">
+          <!-- Grupo 1 -->
+          <div class="logo-item"><i class="fas fa-building mr-2 text-blue-400/40"></i> Grupo XPTO</div>
+          <div class="logo-item"><i class="fas fa-industry mr-2 text-blue-400/40"></i> Indústria Alpha</div>
+          <div class="logo-item"><i class="fas fa-store mr-2 text-blue-400/40"></i> Varejo Beta</div>
+          <div class="logo-item"><i class="fas fa-truck mr-2 text-blue-400/40"></i> Logística Delta</div>
+          <div class="logo-item"><i class="fas fa-hospital mr-2 text-blue-400/40"></i> Saúde Sigma</div>
+          <!-- Grupo 2 (duplicado para loop contínuo) -->
+          <div class="logo-item"><i class="fas fa-building mr-2 text-blue-400/40"></i> Grupo XPTO</div>
+          <div class="logo-item"><i class="fas fa-industry mr-2 text-blue-400/40"></i> Indústria Alpha</div>
+          <div class="logo-item"><i class="fas fa-store mr-2 text-blue-400/40"></i> Varejo Beta</div>
+          <div class="logo-item"><i class="fas fa-truck mr-2 text-blue-400/40"></i> Logística Delta</div>
+          <div class="logo-item"><i class="fas fa-hospital mr-2 text-blue-400/40"></i> Saúde Sigma</div>
+        </div>
+      </div>
+      
+      <div class="flex justify-center gap-4 mt-6 text-xs text-gray-500 flex-wrap">
+        <span class="flex items-center gap-1"><i class="fas fa-circle text-blue-400/30 text-[6px]"></i> Confidencialidade</span>
+        <span class="flex items-center gap-1"><i class="fas fa-circle text-blue-400/30 text-[6px]"></i> NDA assinado</span>
+        <span class="flex items-center gap-1"><i class="fas fa-circle text-blue-400/30 text-[6px]"></i> Resultados comprovados</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===== 7. FECHAMENTO (FORMULÁRIO DE ELITE) ===== -->
+  <section id="contato" class="py-24 px-6 md:px-12 bg-[#0b0e12]">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-10">
+        <span class="text-blue-400 text-sm font-semibold tracking-widest uppercase border border-blue-800/30 px-4 py-1 rounded-full">Diagnóstico estratégico</span>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4 text-white">Solicite seu diagnóstico confidencial</h2>
+        <p class="text-gray-400 mt-2 text-sm">Análise preliminar reservada com Rodrigo de Assis</p>
+        
+        <!-- Indicador de vagas -->
+        <div class="vagas-indicator mt-4 inline-flex items-center gap-2">
+          <i class="fas fa-exclamation-circle text-red-500/60"></i>
+          <span>10 vagas iniciais para diagnóstico — <strong>restam apenas 3</strong></span>
+        </div>
+      </div>
+      
+      <form id="leadForm" class="space-y-5 bg-[#10171d] p-8 md:p-12 rounded-3xl border border-blue-900/20 shadow-2xl">
+        <div class="flex justify-between items-center flex-wrap gap-2">
+          <div class="online-indicator">
+            <span class="pulse-dot"></span>
+            <span>Online agora · Atendimento imediato</span>
+          </div>
+          <span class="text-xs text-gray-500"><i class="fas fa-lock text-blue-400/40 mr-1"></i> Dados sigilosos</span>
+        </div>
+        
+        <div>
+          <label class="block text-sm font-medium text-gray-300 mb-1">Nome Completo <span class="text-red-400">*</span></label>
+          <input type="text" id="nome" placeholder="Seu nome completo" class="input-glass w-full px-5 py-3 rounded-xl text-sm" required>
+        </div>
+        
+        <div>
+          <label class="block text-sm font-medium text-gray-300 mb-1">Cargo <span class="text-red-400">*</span></label>
+          <select id="cargo" class="input-glass w-full px-5 py-3 rounded-xl text-sm">
+            <option value="CEO/Sócio">CEO / Sócio</option>
+            <option value="Diretor Financeiro">Diretor Financeiro</option>
+            <option value="Diretor Fiscal/Tributário">Diretor Fiscal / Tributário</option>
+            <option value="Controller">Controller</option>
+            <option value="Sócio de Escritório">Sócio de Escritório (Contador/Advogado)</option>
+            <option value="Outro">Outro</option>
+          </select>
+        </div>
+        
+        <div>
+          <label class="block text-sm font-medium text-gray-300 mb-1">Empresa <span class="text-red-400">*</span></label>
+          <input type="text" id="empresa" placeholder="Razão social da empresa" class="input-glass w-full px-5 py-3 rounded-xl text-sm" required>
+        </div>
+        
+        <div>
+          <label class="block text-sm font-medium text-gray-300 mb-1">WhatsApp (com DDD) <span class="text-red-400">*</span></label>
+          <input type="tel" id="whatsapp" placeholder="(11) 99999-9999" class="input-glass w-full px-5 py-3 rounded-xl text-sm" required>
+        </div>
+        
+        <div>
+          <label class="block text-sm font-medium text-gray-300 mb-1">Faturamento Mensal <span class="text-red-400">*</span></label>
+          <select id="faturamento" class="input-glass w-full px-5 py-3 rounded-xl text-sm">
+            <option value="Até R$ 1 milhão">Até R$ 1 milhão</option>
+            <option value="R$ 1M - R$ 5M">R$ 1M - R$ 5M</option>
+            <option value="R$ 5M - R$ 10M" selected>R$ 5M - R$ 10M</option>
+            <option value="R$ 10M - R$ 25M">R$ 10M - R$ 25M</option>
+            <option value="R$ 25M - R$ 50M">R$ 25M - R$ 50M</option>
+            <option value="Acima de R$ 50M">Acima de R$ 50M</option>
+          </select>
+        </div>
+        
+        <div>
+          <label class="block text-sm font-medium text-gray-300 mb-1">Regime Tributário <span class="text-red-400">*</span></label>
+          <select id="regime" class="input-glass w-full px-5 py-3 rounded-xl text-sm">
+            <option value="Simples Nacional">Simples Nacional</option>
+            <option value="Lucro Presumido" selected>Lucro Presumido</option>
+            <option value="Lucro Real">Lucro Real</option>
+          </select>
+        </div>
+        
+        <button type="button" id="btnWhats" class="btn-whatsapp w-full py-4 rounded-xl text-white font-bold text-lg tracking-wide flex items-center justify-center gap-3">
+          <i class="fab fa-whatsapp text-2xl"></i>
+          <span>Solicitar Análise Confidencial</span>
+        </button>
+        
+        <div class="flex flex-col sm:flex-row justify-between items-center gap-2 pt-2">
+          <p class="text-[10px] text-gray-500 text-center sm:text-left">
+            <i class="fas fa-shield-alt text-blue-400/40 mr-1"></i> 
+            Dados protegidos pela Lei Geral de Proteção de Dados (LGPD)
+          </p>
+          <span class="text-[10px] text-gray-600">Resposta em até 4 horas</span>
+        </div>
       </form>
+      
+      <div class="text-center mt-6 text-xs text-gray-500">
+        <p>Holder & Co. Inteligência Tributária · CNPJ: XX.XXX.XXX/0001-XX</p>
+        <p class="mt-1">Sede: São Paulo - SP | Brasília - DF</p>
+      </div>
     </div>
   </section>
 
+  <!-- ===== 8. RODAPÉ INSTITUCIONAL ===== -->
+  <footer class="bg-[#080b0e] border-t border-blue-900/20 py-8 px-6 md:px-12">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+        <div>
+          <p class="text-white font-semibold text-sm">Holder & Co · Inteligência Tributária</p>
+          <p class="text-gray-500 text-xs mt-1">© 2026 · Todos os direitos reservados</p>
+        </div>
+        <div class="flex flex-wrap justify-center gap-4 text-xs text-gray-500">
+          <a href="#" class="hover:text-blue-400 transition-colors">Política de Privacidade</a>
+          <span class="text-gray-700">|</span>
+          <a href="#" class="hover:text-blue-400 transition-colors">LGPD</a>
+          <span class="text-gray-700">|</span>
+          <a href="#" class="hover:text-blue-400 transition-colors">Segurança da Informação</a>
+        </div>
+        <div class="text-xs text-gray-500">
+          <p>CNPJ: XX.XXX.XXX/0001-XX</p>
+        </div>
+      </div>
+      
+      <div class="mt-4 pt-4 border-t border-blue-900/10 text-center text-[10px] text-gray-600">
+        <p class="max-w-3xl mx-auto">
+          As informações contidas neste site são de caráter institucional e não constituem aconselhamento jurídico ou financeiro. 
+          A Holder & Co. atua em conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei 13.709/2018). 
+          Todos os dados fornecidos serão tratados com sigilo absoluto e utilizados exclusivamente para a finalidade de diagnóstico estratégico.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== JS ===== -->
   <script>
-    document.getElementById('btnWhats').addEventListener('click', function() {
-      const nome = document.getElementById('nome').value;
-      const empresa = document.getElementById('empresa').value;
-      const tel = document.getElementById('whatsapp').value;
-      const msg = `Olá! Meu nome é ${nome}, da empresa ${empresa}. Li sobre a estratégia de alavancagem e quero falar sobre a margem da minha empresa.`;
-      window.open(`https://wa.me/55219990650767?text=${encodeURIComponent(msg)}`, '_blank');
+    // Smooth Scroll Nativo
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Envio WhatsApp
+    const btn = document.getElementById('btnWhats');
+    btn.addEventListener('click', function() {
+      const nomeVal = document.getElementById('nome').value.trim();
+      const empresaVal = document.getElementById('empresa').value.trim();
+      const whatsVal = document.getElementById('whatsapp').value.trim();
+      
+      if (!nomeVal || !empresaVal || !whatsVal) {
+        alert('Preencha Nome, Empresa e WhatsApp para continuar.');
+        return;
+      }
+      
+      const cargoVal = document.getElementById('cargo').value;
+      const fatVal = document.getElementById('faturamento').value;
+      const regimeVal = document.getElementById('regime').value;
+      
+      const msg = `Olá, Rodrigo!%0A%0A*Diagnóstico Estratégico - Holder & Co*%0A%0A📌 Nome: ${nomeVal}%0A📌 Cargo: ${cargoVal}%0A📌 Empresa: ${empresaVal}%0A📌 Faturamento: ${fatVal}%0A📌 Regime Tributário: ${regimeVal}%0A📌 WhatsApp: ${whatsVal}%0A%0AGostaria de solicitar uma análise confidencial para destravar margem e otimizar caixa.%0A%0AAguardo contato.`;
+      
+      const phoneNumber = '55219990650767';
+      const url = `https://wa.me/${phoneNumber}?text=${msg}`;
+      window.open(url, '_blank');
     });
   </script>
 </body>
