@@ -126,8 +126,6 @@
     }
     .animate-float { animation: float 5s ease-in-out infinite; }
     
-    .hero-icon { font-size: 12rem; color: rgba(74, 168, 212, 0.15); text-shadow: 0 0 60px rgba(74, 168, 212, 0.05); }
-    
     @keyframes pulse-green {
       0%, 100% { opacity: 1; transform: scale(1); }
       50% { opacity: 0.4; transform: scale(0.7); }
@@ -218,11 +216,55 @@
       transform: scale(1.05);
     }
 
+    /* === HERO IMAGE === */
+    .hero-image-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    .hero-image-wrapper .glow-effect {
+      position: absolute;
+      inset: -40px;
+      background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+      filter: blur(60px);
+      border-radius: 50%;
+      z-index: 0;
+      animation: pulse-glow 4s ease-in-out infinite;
+    }
+    
+    @keyframes pulse-glow {
+      0%, 100% { opacity: 0.6; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.05); }
+    }
+    
+    .hero-image-wrapper img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 24px;
+      transition: all 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.1);
+      box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.6);
+    }
+    
+    .hero-image-wrapper img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 30px 80px -15px rgba(59, 130, 246, 0.2);
+    }
+
     /* === RESPONSIVIDADE === */
     @media (max-width: 640px) {
-      .hero-icon { font-size: 6rem; }
       .logo-item { flex: 0 0 140px; height: 60px; font-size: 0.7rem; margin: 0 10px; }
       .logo-img { height: 35px; }
+      .hero-image-wrapper { max-width: 320px; }
+      .hero-image-wrapper .glow-effect { inset: -20px; filter: blur(40px); }
+    }
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+      .hero-image-wrapper { max-width: 400px; }
     }
   </style>
 </head>
@@ -231,7 +273,6 @@
   <!-- ===== 1. MENU FIXO ===== -->
   <nav class="glass-nav fixed top-0 left-0 w-full z-50 px-6 md:px-12 py-3 flex items-center justify-between">
     <div class="flex items-center gap-3">
-      <!-- LOGO IMG -->
       <a href="#conexao" class="flex items-center">
         <img 
           src="holdergroupbranco.png" 
@@ -255,9 +296,11 @@
     </div>
   </nav>
 
-  <!-- ===== 2. DOBRA DE CONEXÃO ===== -->
+  <!-- ===== 2. HERO SECTION COM IMAGEM HEADER ===== -->
   <section id="conexao" class="min-h-screen flex items-center relative overflow-hidden hero-texture pt-28 pb-16 px-6 md:px-12">
-    <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-5 gap-12 items-center relative z-10">
+    <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center relative z-10">
+      
+      <!-- Coluna Esquerda - Conteúdo -->
       <div class="lg:col-span-3 space-y-8">
         <div class="flex items-center gap-3 flex-wrap">
           <span class="badge-auth">+ R$ 1.2 Bi em ativos recuperados</span>
@@ -276,11 +319,22 @@
         </div>
       </div>
 
+      <!-- Coluna Direita - Imagem Header com Efeito Glow -->
       <div class="lg:col-span-2 flex justify-center lg:justify-end">
-        <div class="hero-icon animate-float">
-          <i class="fas fa-layer-group"></i>
+        <div class="hero-image-wrapper">
+          <!-- Efeito de glow/brilho atrás da imagem -->
+          <div class="glow-effect"></div>
+          
+          <!-- Imagem profissional -->
+          <img 
+            src="image_header.png" 
+            alt="Rodrigo de Assis - Holder & Co - Inteligência Tributária" 
+            class="animate-float"
+            onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22500%22 height=%22500%22 viewBox=%220 0 500 500%22%3E%3Crect width=%22500%22 height=%22500%22 fill=%22%230b0e12%22/%3E%3Ccircle cx=%22250%22 cy=%22250%22 r=%22180%22 fill=%22%231a2a3a%22 stroke=%22%232a6b8f%22 stroke-width=%222%22/%3E%3Ctext x=%22250%22 y=%22240%22 text-anchor=%22middle%22 fill=%22%234aa8d4%22 font-size=%2232%22 font-family=%22Inter, sans-serif%22 font-weight=%22700%22%3ERodrigo%3C/text%3E%3Ctext x=%22250%22 y=%22280%22 text-anchor=%22middle%22 fill=%22%236b8a9f%22 font-size=%2220%22 font-family=%22Inter, sans-serif%22%3Ede Assis%3C/text%3E%3C/svg%3E'"
+          >
         </div>
       </div>
+      
     </div>
   </section>
 
