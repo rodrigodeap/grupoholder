@@ -216,43 +216,70 @@
       transform: scale(1.05);
     }
 
-    /* === HERO IMAGE === */
-    .hero-image-wrapper {
-      position: relative;
-      width: 100%;
-      max-width: 500px;
-      margin: 0 auto;
-    }
-    
-    .hero-image-wrapper .glow-effect {
+    /* === FUNDO GENERATIVO - HERO === */
+    .hero-generative-bg {
       position: absolute;
-      inset: -40px;
-      background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
-      filter: blur(60px);
-      border-radius: 50%;
+      inset: 0;
+      overflow: hidden;
       z-index: 0;
-      animation: pulse-glow 4s ease-in-out infinite;
+      pointer-events: none;
     }
-    
-    @keyframes pulse-glow {
-      0%, 100% { opacity: 0.6; transform: scale(1); }
-      50% { opacity: 1; transform: scale(1.05); }
+    .hero-generative-bg .mesh-gradient {
+      position: absolute;
+      width: 80%;
+      height: 80%;
+      top: 10%;
+      left: 10%;
+      background: radial-gradient(ellipse at 30% 40%, rgba(59, 130, 246, 0.06) 0%, transparent 50%),
+                  radial-gradient(ellipse at 70% 60%, rgba(74, 168, 212, 0.04) 0%, transparent 40%),
+                  radial-gradient(ellipse at 50% 80%, rgba(42, 107, 143, 0.03) 0%, transparent 30%);
+      animation: meshPulse 8s ease-in-out infinite;
+      border-radius: 50%;
+      filter: blur(80px);
     }
-    
-    .hero-image-wrapper img {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-      border-radius: 24px;
-      transition: all 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.1);
-      box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.6);
+    .hero-generative-bg .mesh-gradient:nth-child(2) {
+      animation-delay: 3s;
+      width: 60%;
+      height: 60%;
+      top: 20%;
+      left: 20%;
+      background: radial-gradient(ellipse at 60% 30%, rgba(59, 130, 246, 0.04) 0%, transparent 60%);
     }
-    
-    .hero-image-wrapper img:hover {
-      transform: scale(1.02);
-      box-shadow: 0 30px 80px -15px rgba(59, 130, 246, 0.2);
+    @keyframes meshPulse {
+      0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.6; }
+      50% { transform: scale(1.1) rotate(5deg); opacity: 1; }
+    }
+
+    /* === PARTÍCULAS SUTIS === */
+    .particles {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .particle {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: rgba(74, 168, 212, 0.15);
+      border-radius: 50%;
+      animation: particleFloat linear infinite;
+    }
+    .particle:nth-child(1) { left: 10%; top: 20%; animation-duration: 12s; animation-delay: 0s; width: 4px; height: 4px; }
+    .particle:nth-child(2) { left: 25%; top: 60%; animation-duration: 15s; animation-delay: 2s; width: 2px; height: 2px; }
+    .particle:nth-child(3) { left: 50%; top: 15%; animation-duration: 10s; animation-delay: 4s; width: 3px; height: 3px; }
+    .particle:nth-child(4) { left: 70%; top: 45%; animation-duration: 14s; animation-delay: 1s; width: 5px; height: 5px; opacity: 0.3; }
+    .particle:nth-child(5) { left: 85%; top: 75%; animation-duration: 11s; animation-delay: 3s; width: 2px; height: 2px; }
+    .particle:nth-child(6) { left: 40%; top: 85%; animation-duration: 13s; animation-delay: 5s; width: 4px; height: 4px; opacity: 0.2; }
+    .particle:nth-child(7) { left: 15%; top: 40%; animation-duration: 16s; animation-delay: 2s; width: 3px; height: 3px; }
+    .particle:nth-child(8) { left: 65%; top: 10%; animation-duration: 9s; animation-delay: 4s; width: 2px; height: 2px; }
+    @keyframes particleFloat {
+      0% { transform: translateY(0px) translateX(0px) scale(1); opacity: 0.15; }
+      25% { transform: translateY(-30px) translateX(10px) scale(1.2); opacity: 0.3; }
+      50% { transform: translateY(-60px) translateX(-5px) scale(0.8); opacity: 0.15; }
+      75% { transform: translateY(-30px) translateX(15px) scale(1.1); opacity: 0.25; }
+      100% { transform: translateY(0px) translateX(0px) scale(1); opacity: 0.15; }
     }
 
     /* === IMAGEM NA DOBRA AUTORIDADE === */
@@ -273,6 +300,11 @@
       animation: pulse-glow 5s ease-in-out infinite;
     }
     
+    @keyframes pulse-glow {
+      0%, 100% { opacity: 0.6; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.05); }
+    }
+    
     .authority-image-wrapper img {
       position: relative;
       z-index: 1;
@@ -289,17 +321,34 @@
       box-shadow: 0 30px 80px -15px rgba(59, 130, 246, 0.2);
     }
 
+    /* === DASHBOARD DE METAS (CEO) === */
+    .dashboard-card {
+      background: rgba(14, 20, 24, 0.6);
+      border: 1px solid rgba(52, 152, 219, 0.08);
+      border-radius: 20px;
+      padding: 24px;
+      backdrop-filter: blur(8px);
+      transition: all 0.4s ease;
+    }
+    .dashboard-card:hover {
+      border-color: #2a7a9f;
+      box-shadow: 0 15px 40px -12px rgba(0, 150, 220, 0.15);
+    }
+    .chart-bar {
+      transition: all 1s cubic-bezier(0.2, 0.9, 0.3, 1.1);
+    }
+    .chart-bar:hover {
+      opacity: 0.8;
+      transform: scaleY(1.02);
+      transform-origin: bottom;
+    }
+
     /* === RESPONSIVIDADE === */
     @media (max-width: 640px) {
       .logo-item { flex: 0 0 140px; height: 60px; font-size: 0.7rem; margin: 0 10px; }
       .logo-img { height: 35px; }
-      .hero-image-wrapper { max-width: 320px; }
-      .hero-image-wrapper .glow-effect { inset: -20px; filter: blur(40px); }
       .authority-image-wrapper { max-width: 280px; }
-      /* Ordem das colunas no mobile - imagem primeiro */
-      .mobile-image-first { display: flex; flex-direction: column; }
-      .mobile-image-first .image-col { order: 0; }
-      .mobile-image-first .text-col { order: 1; }
+      .dashboard-card { padding: 16px; }
     }
 
     @media (min-width: 641px) {
@@ -307,11 +356,34 @@
     }
 
     @media (min-width: 768px) and (max-width: 1024px) {
-      .hero-image-wrapper { max-width: 400px; }
       .authority-image-wrapper { max-width: 350px; }
     }
 
-    /* === RODAPÉ COM UNIDADES === */
+    /* MOBILE IMAGE FIRST */
+    .mobile-image-first { display: flex; flex-direction: column; }
+    .mobile-image-first .image-col { order: 0; }
+    .mobile-image-first .text-col { order: 1; }
+    @media (min-width: 1024px) {
+      .mobile-image-first { display: grid; }
+      .mobile-image-first .image-col { order: unset; }
+      .mobile-image-first .text-col { order: unset; }
+    }
+
+    /* FADE-IN-UP ANIMATION */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    .fade-in-up-delay-1 { animation-delay: 0.1s; opacity: 0; }
+    .fade-in-up-delay-2 { animation-delay: 0.2s; opacity: 0; }
+    .fade-in-up-delay-3 { animation-delay: 0.3s; opacity: 0; }
+    .fade-in-up-delay-4 { animation-delay: 0.4s; opacity: 0; }
+    .fade-in-up-delay-5 { animation-delay: 0.5s; opacity: 0; }
+
+    /* UNIDADES RODAPÉ */
     .footer-unidade {
       color: #8a9aa8;
       font-size: 0.8rem;
@@ -357,22 +429,38 @@
 
   <!-- ===== 2. HERO SECTION ===== -->
   <section id="conexao" class="min-h-screen flex items-center relative overflow-hidden hero-texture pt-28 pb-16 px-6 md:px-12">
+    
+    <!-- Fundo Generativo - Mesh + Partículas -->
+    <div class="hero-generative-bg">
+      <div class="mesh-gradient"></div>
+      <div class="mesh-gradient"></div>
+    </div>
+    <div class="particles">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
+    
     <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center relative z-10">
       
-      <!-- Coluna Esquerda - Conteúdo -->
       <div class="lg:col-span-5 space-y-8">
-        <div class="flex items-center gap-3 flex-wrap">
+        <div class="flex items-center gap-3 flex-wrap fade-in-up fade-in-up-delay-1">
           <span class="badge-auth">+ R$ 1.2 Bi em ativos recuperados</span>
           <span class="badge-auth">20 anos de estrada</span>
         </div>
-        <h1 class="text-4xl md:text-6xl font-extrabold leading-[1.15] tracking-tight">
+        <h1 class="text-4xl md:text-6xl font-extrabold leading-[1.15] tracking-tight fade-in-up fade-in-up-delay-2">
           <span class="text-white">Você já entendeu que a margem de lucro </span><br>
           <span class="text-blue-400">está travada.</span>
         </h1>
-        <p class="text-base md:text-xl text-gray-300 max-w-3xl font-light leading-relaxed">
+        <p class="text-base md:text-xl text-gray-300 max-w-3xl font-light leading-relaxed fade-in-up fade-in-up-delay-3">
           Agora vou te mostrar <span class="text-white font-medium">como destravá-la tecnicamente</span>. Não se trata de mais uma consultoria. Trata-se de uma engenharia financeira aplicada que transforma passivos em ativos e reinjeta caixa na operação.
         </p>
-        <div class="flex flex-wrap items-center gap-4 pt-2">
+        <div class="flex flex-wrap items-center gap-4 pt-2 fade-in-up fade-in-up-delay-4">
           <a href="#contato" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold shadow-2xl">Quero entender o nível de soluções estratégicas</a>
           <span class="text-gray-500 text-sm">● Diagnóstico estratégico</span>
         </div>
@@ -394,8 +482,7 @@
       
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10 items-stretch">
         
-        <!-- COMERCIAL -->
-        <div class="card-solution p-8 relative overflow-hidden h-full flex flex-col">
+        <div class="card-solution p-8 relative overflow-hidden h-full flex flex-col transition-all duration-500 hover:translate-y-[-8px]">
           <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl"></div>
           <div class="flex items-center gap-3 mb-4">
             <div class="w-12 h-12 rounded-full bg-blue-900/30 border border-blue-700/30 flex items-center justify-center text-2xl shrink-0">🎯</div>
@@ -410,8 +497,7 @@
           </div>
         </div>
         
-        <!-- FISCAL/FINAN -->
-        <div class="card-solution p-8 relative overflow-hidden h-full flex flex-col">
+        <div class="card-solution p-8 relative overflow-hidden h-full flex flex-col transition-all duration-500 hover:translate-y-[-8px]">
           <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl"></div>
           <div class="flex items-center gap-3 mb-4">
             <div class="w-12 h-12 rounded-full bg-blue-900/30 border border-blue-700/30 flex items-center justify-center text-2xl shrink-0">🏛️</div>
@@ -426,8 +512,7 @@
           </div>
         </div>
         
-        <!-- PARCEIROS -->
-        <div class="card-solution p-8 relative overflow-hidden h-full flex flex-col">
+        <div class="card-solution p-8 relative overflow-hidden h-full flex flex-col transition-all duration-500 hover:translate-y-[-8px]">
           <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl"></div>
           <div class="flex items-center gap-3 mb-4">
             <div class="w-12 h-12 rounded-full bg-blue-900/30 border border-blue-700/30 flex items-center justify-center text-2xl shrink-0">🤝</div>
@@ -448,25 +533,69 @@
 
   <div class="section-divider"></div>
 
-  <!-- ===== 4. DOBRA DE FOCO NO CEO ===== -->
+  <!-- ===== 4. DOBRA DE FOCO NO CEO (COM DASHBOARD) ===== -->
   <section id="ceo" class="py-24 px-6 md:px-12 bg-[#0b0e12]">
     <div class="max-w-7xl mx-auto">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mobile-image-first">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mobile-image-first">
         
-        <!-- IMAGEM - Mobile: aparece primeiro | Desktop: lado direito -->
+        <!-- DASHBOARD - Mobile: aparece primeiro | Desktop: lado direito -->
         <div class="image-col flex justify-center lg:justify-end order-first lg:order-last">
-          <div class="relative">
-            <div class="w-64 h-64 md:w-96 md:h-96 rounded-full bg-gradient-to-br from-blue-900/20 to-transparent border border-blue-700/20 flex items-center justify-center backdrop-blur-sm shadow-2xl shadow-blue-900/10">
-              <i class="fas fa-chart-line text-blue-400/20 text-8xl"></i>
+          <div class="dashboard-card w-full max-w-md">
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-semibold text-blue-400 tracking-wider">DESTRAVAMENTO DE MARGEM</span>
+              <span class="text-[10px] text-gray-500"><i class="far fa-calendar-alt mr-1"></i> Projeção 2026</span>
             </div>
-            <div class="absolute -bottom-4 -right-4 bg-blue-900/30 border border-blue-700/30 rounded-2xl p-4 backdrop-blur-sm">
-              <span class="text-blue-400 text-2xl font-bold">1.2B</span>
-              <span class="text-gray-400 text-xs block">em ativos recuperados</span>
+            
+            <!-- Métricas resumidas -->
+            <div class="grid grid-cols-3 gap-2 mb-4">
+              <div class="bg-blue-900/10 rounded-xl p-3 text-center border border-blue-800/10">
+                <span class="text-[10px] text-gray-400 block">Atual</span>
+                <span class="text-lg font-bold text-gray-300">18.4%</span>
+              </div>
+              <div class="bg-blue-900/10 rounded-xl p-3 text-center border border-blue-800/10">
+                <span class="text-[10px] text-gray-400 block">Projetado</span>
+                <span class="text-lg font-bold text-blue-400">31.2%</span>
+              </div>
+              <div class="bg-emerald-900/10 rounded-xl p-3 text-center border border-emerald-800/10">
+                <span class="text-[10px] text-gray-400 block">Ganho</span>
+                <span class="text-lg font-bold text-emerald-400">+12.8%</span>
+              </div>
+            </div>
+            
+            <!-- Gráfico de barras Antes vs Depois -->
+            <div class="space-y-2">
+              <div class="flex items-center gap-3">
+                <span class="text-[10px] text-gray-500 w-12 text-right">Antes</span>
+                <div class="flex-1 h-6 bg-blue-900/20 rounded-full overflow-hidden">
+                  <div class="chart-bar h-full w-[45%] bg-gradient-to-r from-blue-700 to-blue-500 rounded-full transition-all duration-1000"></div>
+                </div>
+                <span class="text-[10px] text-gray-400 w-10">45%</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="text-[10px] text-gray-500 w-12 text-right">Depois</span>
+                <div class="flex-1 h-6 bg-emerald-900/20 rounded-full overflow-hidden">
+                  <div class="chart-bar h-full w-[78%] bg-gradient-to-r from-emerald-600 to-emerald-400 rounded-full transition-all duration-1000"></div>
+                </div>
+                <span class="text-[10px] text-emerald-400 w-10">78%</span>
+              </div>
+            </div>
+            
+            <!-- Indicador de eficiência -->
+            <div class="mt-4 pt-3 border-t border-blue-900/10 flex items-center justify-between">
+              <span class="text-[10px] text-gray-500"><i class="fas fa-arrow-up text-emerald-400 mr-1"></i> Eficiência operacional</span>
+              <span class="text-xs font-semibold text-emerald-400">+73%</span>
+            </div>
+            
+            <div class="mt-3 flex items-center gap-2 text-[10px] text-gray-500">
+              <i class="fas fa-circle text-emerald-400/40 text-[6px]"></i>
+              <span>Projeção baseada em casos reais</span>
+              <i class="fas fa-circle text-blue-400/40 text-[6px] ml-2"></i>
+              <span>Fundamentação técnica</span>
             </div>
           </div>
         </div>
         
-        <!-- TEXTO - Mobile: aparece depois da imagem | Desktop: lado esquerdo -->
+        <!-- TEXTO - Mobile: aparece depois | Desktop: lado esquerdo -->
         <div class="text-col space-y-6 order-last lg:order-first">
           <span class="text-blue-400 text-sm font-semibold tracking-widest uppercase border border-blue-800/30 px-4 py-1 rounded-full inline-block">Para o CEO</span>
           <h2 class="text-3xl md:text-5xl font-bold text-white leading-[1.15]">
@@ -498,12 +627,11 @@
 
   <div class="section-divider"></div>
 
-  <!-- ===== 5. DOBRA DE AUTORIDADE (COM IMAGEM HEADER) ===== -->
+  <!-- ===== 5. DOBRA DE AUTORIDADE ===== -->
   <section id="autoridade" class="py-24 px-6 md:px-12 bg-[#0c1015]">
     <div class="max-w-7xl mx-auto">
       <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center mobile-image-first">
         
-        <!-- IMAGEM - Mobile: aparece primeiro | Desktop: lado esquerdo -->
         <div class="image-col lg:col-span-2 flex justify-center order-first lg:order-first">
           <div class="authority-image-wrapper">
             <div class="glow-effect"></div>
@@ -516,7 +644,6 @@
           </div>
         </div>
         
-        <!-- TEXTO - Mobile: aparece depois da imagem | Desktop: lado direito -->
         <div class="text-col lg:col-span-3 space-y-6 order-last lg:order-last">
           <span class="text-blue-400 text-sm font-semibold tracking-widest uppercase border border-blue-800/30 px-4 py-1 rounded-full inline-block">A peça-chave</span>
           <h2 class="text-3xl md:text-5xl font-bold text-white leading-[1.15]">
@@ -564,13 +691,11 @@
       
       <div class="relative overflow-hidden">
         <div class="logo-carousel-track">
-          <!-- Grupo 1 -->
           <div class="logo-item"><i class="fas fa-building mr-2 text-blue-400/40"></i> Grupo XPTO</div>
           <div class="logo-item"><i class="fas fa-industry mr-2 text-blue-400/40"></i> Indústria Alpha</div>
           <div class="logo-item"><i class="fas fa-store mr-2 text-blue-400/40"></i> Varejo Beta</div>
           <div class="logo-item"><i class="fas fa-truck mr-2 text-blue-400/40"></i> Logística Delta</div>
           <div class="logo-item"><i class="fas fa-hospital mr-2 text-blue-400/40"></i> Saúde Sigma</div>
-          <!-- Grupo 2 (duplicado para loop contínuo) -->
           <div class="logo-item"><i class="fas fa-building mr-2 text-blue-400/40"></i> Grupo XPTO</div>
           <div class="logo-item"><i class="fas fa-industry mr-2 text-blue-400/40"></i> Indústria Alpha</div>
           <div class="logo-item"><i class="fas fa-store mr-2 text-blue-400/40"></i> Varejo Beta</div>
@@ -597,7 +722,6 @@
         <h2 class="text-3xl md:text-5xl font-bold mt-4 text-white">Solicite seu diagnóstico confidencial</h2>
         <p class="text-gray-400 mt-2 text-sm">Análise preliminar reservada com Rodrigo de Assis</p>
         
-        <!-- Indicador de vagas -->
         <div class="vagas-indicator mt-4 inline-flex items-center gap-2">
           <i class="fas fa-exclamation-circle text-red-500/60"></i>
           <span>10 vagas iniciais para diagnóstico — <strong>restam apenas 3</strong></span>
@@ -686,14 +810,12 @@
   <footer class="bg-[#080b0e] border-t border-blue-900/20 py-8 px-6 md:px-12">
     <div class="max-w-7xl mx-auto">
       
-      <!-- Descrição institucional -->
       <div class="text-center mb-8">
         <p class="text-gray-400 text-sm max-w-2xl mx-auto leading-relaxed">
           Boutique de soluções corporativas especializada em desenvolvimento financeiro e empresarial.
         </p>
       </div>
       
-      <!-- Unidades -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         <div class="footer-unidade text-center md:text-left">
           <p><strong><i class="fas fa-building"></i> São Paulo (Matriz)</strong></p>
@@ -743,7 +865,7 @@
 
   <!-- ===== JS ===== -->
   <script>
-    // Smooth Scroll Nativo
+    // Smooth Scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -754,7 +876,7 @@
       });
     });
 
-    // Envio WhatsApp
+    // WhatsApp
     const btn = document.getElementById('btnWhats');
     btn.addEventListener('click', function() {
       const nomeVal = document.getElementById('nome').value.trim();
@@ -775,6 +897,25 @@
       const phoneNumber = '55219990650767';
       const url = `https://wa.me/${phoneNumber}?text=${msg}`;
       window.open(url, '_blank');
+    });
+
+    // Animar elementos ao scroll (Intersection Observer para fade-in-up)
+    document.addEventListener('DOMContentLoaded', function() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.fade-in-up').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'all 0.8s ease-out';
+        observer.observe(el);
+      });
     });
   </script>
 </body>
