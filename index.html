@@ -572,22 +572,18 @@
     
     <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center relative z-10">
       <div class="lg:col-span-3 space-y-6">
-        <!-- Destaques -->
         <div class="flex items-center gap-3 flex-wrap fade-in-up fade-in-up-delay-1 visible">
           <span class="badge-auth">+ R$ 1.2 Bi em ativos recuperados</span>
           <span class="badge-auth">20 anos de estrada</span>
           <span class="badge-auth">+200 empresas atendidas</span>
         </div>
-        <!-- Título -->
         <h1 class="text-4xl md:text-6xl font-extrabold leading-[1.15] tracking-tight fade-in-up fade-in-up-delay-2 visible">
           <span class="text-white">Você já entendeu que a margem de lucro </span><br>
           <span class="text-blue-400">está travada.</span>
         </h1>
-        <!-- Complemento do título -->
         <p class="text-base md:text-xl text-gray-300 max-w-2xl font-light leading-relaxed fade-in-up fade-in-up-delay-3 visible">
           Agora vou te mostrar <span class="text-white font-medium">como destravá-la tecnicamente</span>. Não se trata de mais uma consultoria. Trata-se de uma engenharia financeira aplicada que transforma passivos em ativos e reinjeta caixa na operação.
         </p>
-        <!-- Botão centralizado mobile -->
         <div class="flex flex-wrap items-center gap-4 pt-2 fade-in-up fade-in-up-delay-4 visible">
           <a href="#contato" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold shadow-2xl w-full sm:w-auto">Quero entender o nível de soluções estratégicas</a>
           <span class="text-gray-500 text-sm hidden sm:inline">● Diagnóstico estratégico</span>
@@ -616,7 +612,6 @@
       
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10 items-stretch">
         
-        <!-- COMERCIAL -->
         <div class="card-solution p-8 relative overflow-hidden h-full flex flex-col">
           <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl"></div>
           <div class="flex items-center gap-3 mb-4">
@@ -632,7 +627,6 @@
           </div>
         </div>
         
-        <!-- FISCAL/FINAN -->
         <div class="card-solution p-8 relative overflow-hidden h-full flex flex-col">
           <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl"></div>
           <div class="flex items-center gap-3 mb-4">
@@ -648,7 +642,6 @@
           </div>
         </div>
         
-        <!-- PARCEIROS -->
         <div class="card-solution p-8 relative overflow-hidden h-full flex flex-col">
           <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl"></div>
           <div class="flex items-center gap-3 mb-4">
@@ -675,10 +668,8 @@
     <div class="max-w-7xl mx-auto">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mobile-image-first">
         
-        <!-- Coluna Direita - Dashboard -->
         <div class="image-col flex justify-center lg:justify-end order-first lg:order-last">
           <div class="w-full max-w-md mx-auto bg-transparent">
-            <!-- Destaques do Dashboard -->
             <div class="flex items-center justify-between mb-4">
               <div>
                 <span class="text-[10px] font-semibold text-blue-400 tracking-widest uppercase">Recuperação de Ativos</span>
@@ -695,7 +686,6 @@
               </div>
             </div>
             
-            <!-- SVG Gráfico -->
             <div class="relative w-full" style="height: 220px;">
               <svg viewBox="0 0 400 200" class="w-full h-full" preserveAspectRatio="xMidYMid meet">
                 <g opacity="0">
@@ -793,7 +783,6 @@
               </svg>
             </div>
             
-            <!-- Legenda e Indicador -->
             <div class="flex items-center justify-between mt-2 px-2">
               <div class="flex items-center gap-4">
                 <div class="flex items-center gap-1.5">
@@ -819,7 +808,6 @@
           </div>
         </div>
         
-        <!-- Coluna Esquerda - Texto -->
         <div class="text-col space-y-6 order-last lg:order-first">
           <span class="text-blue-400 text-sm font-semibold tracking-widest uppercase border border-blue-800/30 px-4 py-1 rounded-full inline-block">Para o CEO</span>
           <h2 class="text-3xl md:text-5xl font-bold text-white leading-[1.15]">
@@ -1107,24 +1095,28 @@
 
     const btn = document.getElementById('btnWhats');
     btn.addEventListener('click', function() {
+      // Capturar valores dos campos
       const nomeVal = document.getElementById('nome').value.trim();
       const empresaVal = document.getElementById('empresa').value.trim();
       const whatsVal = document.getElementById('whatsapp').value.trim();
-      
-      if (!nomeVal || !empresaVal || !whatsVal) {
-        alert('Preencha Nome, Empresa e WhatsApp para continuar.');
-        return;
-      }
-      
       const cargoVal = document.getElementById('cargo').value;
       const fatVal = document.getElementById('faturamento').value;
       const regimeVal = document.getElementById('regime').value;
       
-      // Número corrigido: (21) 99065-0767
-      const msg = `Olá, Rodrigo!%0A%0A*Diagnóstico Estratégico - Holder & Co*%0A%0A📌 Nome: ${nomeVal}%0A📌 Cargo: ${cargoVal}%0A📌 Empresa: ${empresaVal}%0A📌 Faturamento: ${fatVal}%0A📌 Regime Tributário: ${regimeVal}%0A📌 WhatsApp: ${whatsVal}%0A%0AGostaria de solicitar uma análise confidencial para destravar margem e otimizar caixa.%0A%0AAguardo contato.`;
+      // Validar campos obrigatórios
+      if (!nomeVal || !empresaVal || !whatsVal) {
+        alert('⚠️ Preencha Nome, Empresa e WhatsApp para continuar.');
+        return;
+      }
       
+      // Construir mensagem formatada para WhatsApp
+      const msg = `Olá, Rodrigo! 👋%0A%0A📋 *Diagnóstico Estratégico - Holder & Co*%0A%0A👤 *Nome:* ${nomeVal}%0A💼 *Cargo:* ${cargoVal}%0A🏢 *Empresa:* ${empresaVal}%0A💰 *Faturamento:* ${fatVal}%0A📊 *Regime Tributário:* ${regimeVal}%0A📱 *WhatsApp:* ${whatsVal}%0A%0A📌 *Mensagem:* Gostaria de solicitar uma análise confidencial para destravar margem e otimizar caixa.%0A%0AAguardo contato.`;
+      
+      // Número do WhatsApp no formato internacional
       const phoneNumber = '5521990650767';
       const url = `https://wa.me/${phoneNumber}?text=${msg}`;
+      
+      // Abrir WhatsApp em nova janela/aba
       window.open(url, '_blank');
     });
 
