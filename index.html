@@ -994,7 +994,7 @@
         
         <div>
           <label class="block text-sm font-medium text-gray-300 mb-1">WhatsApp (com DDD) <span class="text-red-400">*</span></label>
-          <input type="tel" id="whatsapp" placeholder="(11) 99999-9999" class="input-glass w-full px-5 py-3 rounded-xl text-sm" required>
+          <input type="tel" id="whatsapp" placeholder="(21) 99065-0767" class="input-glass w-full px-5 py-3 rounded-xl text-sm" required>
         </div>
         
         <div>
@@ -1120,9 +1120,10 @@
       const fatVal = document.getElementById('faturamento').value;
       const regimeVal = document.getElementById('regime').value;
       
+      // Número corrigido: (21) 99065-0767
       const msg = `Olá, Rodrigo!%0A%0A*Diagnóstico Estratégico - Holder & Co*%0A%0A📌 Nome: ${nomeVal}%0A📌 Cargo: ${cargoVal}%0A📌 Empresa: ${empresaVal}%0A📌 Faturamento: ${fatVal}%0A📌 Regime Tributário: ${regimeVal}%0A📌 WhatsApp: ${whatsVal}%0A%0AGostaria de solicitar uma análise confidencial para destravar margem e otimizar caixa.%0A%0AAguardo contato.`;
       
-      const phoneNumber = '55219990650767';
+      const phoneNumber = '5521990650767';
       const url = `https://wa.me/${phoneNumber}?text=${msg}`;
       window.open(url, '_blank');
     });
