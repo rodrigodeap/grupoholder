@@ -207,10 +207,22 @@
       color: #ef4444;
     }
 
+    /* === LOGO IMG === */
+    .logo-img {
+      height: 45px;
+      width: auto;
+      transition: transform 0.3s ease;
+      object-fit: contain;
+    }
+    .logo-img:hover {
+      transform: scale(1.05);
+    }
+
     /* === RESPONSIVIDADE === */
     @media (max-width: 640px) {
       .hero-icon { font-size: 6rem; }
       .logo-item { flex: 0 0 140px; height: 60px; font-size: 0.7rem; margin: 0 10px; }
+      .logo-img { height: 35px; }
     }
   </style>
 </head>
@@ -218,16 +230,26 @@
 
   <!-- ===== 1. MENU FIXO ===== -->
   <nav class="glass-nav fixed top-0 left-0 w-full z-50 px-6 md:px-12 py-3 flex items-center justify-between">
-    <div class="flex items-center gap-2">
-      <span class="text-2xl font-bold tracking-tight text-blue-400">Holder & Co</span>
+    <div class="flex items-center gap-3">
+      <!-- LOGO IMG -->
+      <a href="#conexao" class="flex items-center">
+        <img 
+          src="holdergroupbranco.png" 
+          alt="Holder Group - Inteligência Tributária" 
+          class="logo-img"
+          onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%2250%22 viewBox=%220 0 200 50%22%3E%3Ctext x=%225%22 y=%2235%22 font-family=%22Inter, sans-serif%22 font-weight=%22800%22 font-size=%2224%22 fill=%22white%22%3EHolder%3C/text%3E%3Ctext x=%22110%22 y=%2235%22 font-family=%22Inter, sans-serif%22 font-weight=%22300%22 font-size=%2220%22 fill=%22%234aa8d4%22%3EGroup%3C/text%3E%3C/svg%3E'"
+        >
+      </a>
       <span class="text-xs text-gray-500 hidden sm:inline">| Inteligência Tributária</span>
     </div>
+    
     <div class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-300">
       <a href="#conexao" class="hover:text-blue-300 transition-colors">Conexão</a>
       <a href="#stakeholders" class="hover:text-blue-300 transition-colors">Stakeholders</a>
       <a href="#ceo" class="hover:text-blue-300 transition-colors">CEO</a>
       <a href="#autoridade" class="hover:text-blue-300 transition-colors">Autoridade</a>
     </div>
+    
     <div>
       <a href="#contato" class="btn-primary px-5 py-2.5 rounded-full text-sm font-semibold shadow-xl">Falar com Especialista</a>
     </div>
