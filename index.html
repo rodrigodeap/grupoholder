@@ -1,507 +1,102 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Holder & Co · Inteligência Tributária</title>
-  
-  <!-- Tailwind via CDN -->
+  <title>Holder & Co | Inteligência Tributária e Gestão de Ativos</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Google Fonts (Inter) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- Font Awesome para ícones -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  
   <style>
-    * { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-    body { background-color: #0b0e12; color: #e5e9f0; }
-    
-    /* === NAVEGAÇÃO E BOTÕES === */
-    .glass-nav {
-      background: rgba(11, 14, 18, 0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(52, 152, 219, 0.15);
-    }
-    
-    .btn-primary {
-      background: linear-gradient(145deg, #1a2a3a, #0f1e2e);
-      border: 1px solid #2a6b8f;
-      color: #d4eaf7;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 15px rgba(0, 150, 220, 0.15);
-    }
-    .btn-primary:hover {
-      background: linear-gradient(145deg, #2a6b8f, #1a4a6b);
-      border-color: #4aa8d4;
-      box-shadow: 0 0 30px rgba(0, 180, 240, 0.3);
-      transform: scale(1.02);
-      color: #fff;
-    }
-    
-    /* === CARDS DE SOLUÇÕES (CSS PURO) === */
-    .card-solution {
-      background: rgba(18, 24, 28, 0.7);
-      border: 1px solid rgba(52, 152, 219, 0.1);
-      border-radius: 24px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    }
-    .card-solution:hover {
-      transform: translateY(-8px);
-      border-color: #2a7a9f;
-      box-shadow: 0 20px 40px -12px rgba(0, 150, 220, 0.25);
-      background: rgba(22, 32, 36, 0.9);
-    }
-    
-    /* === BOTÃO PDF === */
-    .btn-pdf {
-      background: rgba(42, 107, 143, 0.15);
-      border: 1px solid rgba(42, 107, 143, 0.3);
-      color: #4aa8d4;
-      transition: all 0.3s ease;
-      font-size: 0.7rem;
-      padding: 6px 14px;
-      border-radius: 50px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-weight: 500;
-      letter-spacing: 0.3px;
-    }
-    .btn-pdf:hover {
-      background: rgba(42, 107, 143, 0.25);
-      border-color: #4aa8d4;
-      box-shadow: 0 0 20px rgba(74, 168, 212, 0.15);
-      transform: translateY(-2px);
-      color: #7ac4e8;
-    }
-    .btn-pdf .fa-file-pdf {
-      font-size: 0.85rem;
-    }
-    
-    /* === CARDS EXECUTIVOS === */
-    .executive-card {
-      background: rgba(14, 20, 24, 0.6);
-      border: 1px solid rgba(52, 152, 219, 0.08);
-      border-radius: 28px;
-      transition: all 0.3s ease;
-    }
-    .executive-card:hover {
-      border-color: #2a7a9f;
-      box-shadow: 0 15px 30px -12px rgba(0, 150, 220, 0.2);
-      transform: translateY(-6px);
-    }
-    .executive-avatar {
-      width: 112px;
-      height: 112px;
-      border-radius: 50%;
-      border: 2px solid #2a6b8f;
-      background: linear-gradient(135deg, #1a2a3a, #0f1e2e);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 16px;
-      font-size: 2.5rem;
-      color: #4aa8d4;
-    }
-
-    /* === ESTILOS GERAIS === */
-    .section-divider {
-      background: linear-gradient(90deg, transparent, #2a6b8f, #4aa8d4, #2a6b8f, transparent);
-      height: 1px; width: 80%; margin: 0 auto;
-    }
-    .hero-texture {
-      background-image: radial-gradient(circle at 30% 40%, rgba(0, 150, 220, 0.03) 0%, transparent 60%),
-                        radial-gradient(circle at 70% 80%, rgba(0, 150, 220, 0.02) 0%, transparent 50%);
-    }
-    
-    /* === FORMULÁRIO === */
-    .input-glass {
-      background: rgba(18, 24, 28, 0.6);
-      border: 1px solid rgba(52, 152, 219, 0.2);
-      color: #e5e9f0;
-      transition: 0.3s;
-    }
-    .input-glass:focus {
-      border-color: #2a7a9f;
-      box-shadow: 0 0 20px rgba(0, 150, 220, 0.15);
-      outline: none;
-      background: rgba(18, 24, 28, 0.8);
-    }
-    .input-glass option { background: #0b0e12; color: #e5e9f0; }
-    
-    .btn-whatsapp {
-      background: linear-gradient(145deg, #1a3a4a, #0f2a3a);
-      border: 1px solid #2a7a8f;
-      transition: all 0.3s ease;
-    }
-    .btn-whatsapp:hover {
-      background: linear-gradient(145deg, #2a6a7a, #1a4a5a);
-      border-color: #4aaac4;
-      box-shadow: 0 0 30px rgba(0, 200, 240, 0.3);
-      transform: scale(1.02);
-    }
-    
-    /* === ANIMAÇÕES NATIVAS === */
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
-    }
-    .animate-float { animation: float 5s ease-in-out infinite; }
-    
-    .hero-icon {
-      font-size: 12rem;
-      color: rgba(74, 168, 212, 0.15);
-      text-shadow: 0 0 60px rgba(74, 168, 212, 0.05);
-    }
-    
-    @keyframes pulse-green {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.7); }
-    }
-    .pulse-dot {
-      width: 8px; height: 8px; background: #22c55e; border-radius: 50%;
-      animation: pulse-green 1.5s ease-in-out infinite; box-shadow: 0 0 8px rgba(34, 197, 94, 0.4);
-    }
-    .online-indicator {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(34, 197, 94, 0.1);
-      border: 1px solid rgba(34, 197, 94, 0.2);
-      padding: 6px 14px 6px 10px;
-      border-radius: 50px;
-      font-size: 0.75rem;
-      color: #4ade80;
-      font-weight: 500;
-    }
-
-    /* === ICONE DECORATIVO === */
-    .deco-icon {
-      font-size: 4rem;
-      color: rgba(74, 168, 212, 0.08);
-    }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #050709; color: #fff; }
+    .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+    .gradient-text { background: linear-gradient(90deg, #60a5fa, #34d399); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
   </style>
 </head>
 <body>
 
-  <!-- ===== 1. MENU FIXO ===== -->
-  <nav class="glass-nav fixed top-0 left-0 w-full z-50 px-6 md:px-12 py-3 flex items-center justify-between">
-    <div class="flex items-center gap-2">
-      <span class="text-2xl font-bold tracking-tight text-blue-400">Inteligência Tributária</span>
-    </div>
-    <div class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-300">
-      <a href="#inicio" class="hover:text-blue-300 transition-colors">Início</a>
-      <a href="#abordagem" class="hover:text-blue-300 transition-colors">Abordagem Estratégica</a>
-      <a href="#solucoes" class="hover:text-blue-300 transition-colors">Soluções Técnicas</a>
-      <a href="#diretoria" class="hover:text-blue-300 transition-colors">Nossa Diretoria</a>
-    </div>
-    <div>
-      <a href="#contato" class="btn-primary px-5 py-2.5 rounded-full text-sm font-semibold shadow-xl">Falar com Especialista</a>
+  <!-- HEADER -->
+  <nav class="fixed w-full z-50 glass border-b border-white/10 px-6 py-4">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <span class="text-xl font-bold tracking-tighter">HOLDER & CO.</span>
+      <a href="#contato" class="bg-blue-600 hover:bg-blue-500 px-6 py-2 rounded-lg text-sm font-semibold transition">Consultoria</a>
     </div>
   </nav>
 
-  <!-- ===== 2. HERO SECTION ===== -->
-  <section id="inicio" class="min-h-screen flex items-center relative overflow-hidden hero-texture pt-28 pb-16 px-6 md:px-12">
-    <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-5 gap-12 items-center relative z-10">
-      <div class="lg:col-span-3 space-y-8">
-        <div class="inline-block bg-blue-900/30 border border-blue-700/30 rounded-full px-4 py-1.5 text-xs font-semibold text-blue-300 uppercase">Estratégia de alto impacto</div>
-        <h1 class="text-4xl md:text-6xl font-extrabold leading-[1.15] tracking-tight">
-          <span class="text-white">O lucro que a sua empresa gera </span><br>
-          <span class="text-blue-400">está sendo corroído na base.</span>
+  <!-- HERO SECTION -->
+  <header class="pt-32 pb-20 px-6">
+    <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+      <div class="space-y-6">
+        <div class="inline-flex items-center gap-2 bg-blue-900/20 px-4 py-2 rounded-full border border-blue-500/20">
+          <span class="text-[10px] text-blue-200 uppercase tracking-widest font-bold">Estratégia Tributária p/ CEOs</span>
+        </div>
+        <h1 class="text-5xl lg:text-7xl font-extrabold leading-tight">
+          Destrave a margem do seu negócio com <span class="gradient-text">Inteligência Tributária.</span>
         </h1>
-        <p class="text-base md:text-xl text-gray-300 max-w-2xl font-light leading-relaxed">
-          Inteligência Tributária e Engenharia de Ativos para empresas no Lucro Real. Injetamos caixa direto na sua operação, sem mágica, com fundamentação técnica e segurança jurídica.
-        </p>
-        <div class="flex flex-wrap gap-4 pt-2">
-          <a href="#contato" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold shadow-2xl">Agendar Reunião de Diretoria</a>
+        <p class="text-lg text-gray-400">Atuamos onde a contabilidade tradicional não chega. Transforme passivos em ativos e alavanque seu crescimento.</p>
+        
+        <div class="flex items-center gap-6 py-4">
+          <div><p class="text-3xl font-bold">1.2BI+</p><p class="text-[10px] text-gray-500 uppercase">Ativos Recuperados</p></div>
+          <div class="w-px h-10 bg-gray-800"></div>
+          <div><p class="text-3xl font-bold">20 anos</p><p class="text-[10px] text-gray-500 uppercase">de Experiência</p></div>
         </div>
+
+        <a href="#contato" class="block w-full text-center bg-blue-600 hover:bg-blue-500 py-4 rounded-xl font-bold text-lg transition-all">
+          Solicitar Diagnóstico Estratégico
+        </a>
+      </div>
+      
+      <!-- IMAGEM DINÂMICA -->
+      <div class="relative">
+        <div class="absolute inset-0 bg-blue-500/20 blur-3xl rounded-full"></div>
+        <img src="image_16.png" 
+             alt="Inteligência Tributária" 
+             onerror="this.src='https://images.unsplash.com/photo-1560250097-0b93528c31e1?auto=format&fit=crop&q=80&w=800'"
+             class="relative rounded-3xl shadow-2xl border border-gray-800">
+      </div>
+    </div>
+  </header>
+
+  <!-- SOLUÇÕES -->
+  <section class="py-20 px-6 max-w-6xl mx-auto" id="solucoes">
+    <h2 class="text-3xl font-bold mb-12 text-center">Soluções Estratégicas</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      
+      <!-- CARD MODELO -->
+      <div class="glass p-8 rounded-2xl hover:border-blue-500/50 transition-all">
+        <i class="fas fa-search-dollar text-2xl text-blue-400 mb-4"></i>
+        <h3 class="text-lg font-bold mb-2">Recuperação de Créditos</h3>
+        <p class="text-gray-400 text-sm mb-4">Monetização do que foi pago a maior nos últimos 5 anos.</p>
+        <a href="#contato" class="text-blue-400 font-semibold text-xs hover:underline">Solicitar Análise →</a>
       </div>
 
-      <div class="lg:col-span-2 flex justify-center lg:justify-end">
-        <div class="hero-icon animate-float">
-          <i class="fas fa-shield-alt"></i>
-        </div>
-      </div>
+      <!-- Você pode replicar este card para os outros produtos -->
+      
     </div>
   </section>
 
-  <div class="section-divider"></div>
-
-  <!-- ===== 3. ABORDAGEM ESTRATÉGICA (EFEITO DOMINÓ) ===== -->
-  <section id="abordagem" class="py-24 px-6 md:px-12 bg-[#0c1015]">
-    <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-16">
-        <span class="text-blue-400 text-sm font-semibold tracking-widest uppercase border border-blue-800/30 px-4 py-1 rounded-full">Efeito Dominó</span>
-        <h2 class="text-3xl md:text-5xl font-bold mt-4 text-white">O que muda no seu negócio</h2>
-        <p class="text-gray-400 max-w-2xl mx-auto mt-3 text-sm">Duas frentes estratégicas para impulsionar resultados</p>
-        
-        <!-- Ícone decorativo -->
-        <div class="deco-icon mt-6">
-          <i class="fas fa-arrow-trend-up"></i>
-        </div>
-      </div>
-      
-      <!-- GRID PERFEITO: 2 COLUNAS -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-stretch">
-        
-        <!-- FISCAL -->
-        <div class="card-solution p-8 md:p-10 relative overflow-hidden h-full flex flex-col">
-          <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl"></div>
-          <div class="flex items-center gap-3 mb-5">
-            <div class="w-12 h-12 rounded-full bg-blue-900/30 border border-blue-700/30 flex items-center justify-center text-2xl shrink-0">📊</div>
-            <span class="text-blue-300 text-sm font-bold uppercase">Departamento Fiscal</span>
-          </div>
-          <h3 class="text-2xl font-bold text-white mb-4 leading-tight">Transforme a conformidade em estratégia de caixa.</h3>
-          <p class="text-gray-300 leading-relaxed flex-grow">Pare de apenas apurar impostos e torne-se o vetor de inovação da empresa. Entregamos a fundamentação técnica e o trabalho pesado para que o seu departamento apresente resultados milionários à diretoria.</p>
-        </div>
-        
-        <!-- COMERCIAL -->
-        <div class="card-solution p-8 md:p-10 relative overflow-hidden h-full flex flex-col">
-          <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl"></div>
-          <div class="flex items-center gap-3 mb-5">
-            <div class="w-12 h-12 rounded-full bg-blue-900/30 border border-blue-700/30 flex items-center justify-center text-2xl shrink-0">🚀</div>
-            <span class="text-blue-300 text-sm font-bold uppercase">Departamento Comercial</span>
-          </div>
-          <h3 class="text-2xl font-bold text-white mb-4 leading-tight">Margem de lucro é a sua melhor arma em vendas.</h3>
-          <p class="text-gray-300 leading-relaxed flex-grow">A nossa reestruturação tributária reduz o custo operacional na veia. O resultado? Mais margem para precificação agressiva, ganho de competitividade e metas batidas com facilidade.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="section-divider"></div>
-
-  <!-- ===== 4. SOLUÇÕES TÉCNICAS COM BOTÕES PDF ===== -->
-  <section id="solucoes" class="py-24 px-6 md:px-12 bg-[#0b0e12]">
-    <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-16">
-        <span class="text-blue-400 text-sm font-semibold tracking-widest uppercase border border-blue-800/30 px-4 py-1 rounded-full">Soluções técnicas</span>
-        <h2 class="text-3xl md:text-5xl font-bold mt-4 text-white">Engenharia tributária de elite</h2>
-        <p class="text-gray-400 max-w-2xl mx-auto mt-3 text-sm">Metodologias comprovadas para otimização fiscal e financeira</p>
-        
-        <!-- Ícone decorativo -->
-        <div class="deco-icon mt-6">
-          <i class="fas fa-cogs"></i>
-        </div>
-      </div>
-      
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
-        
-        <!-- Card 1 -->
-        <div class="card-solution p-6 text-center h-full flex flex-col justify-between">
-          <div>
-            <div class="w-16 h-16 rounded-full bg-blue-900/20 border border-blue-700/20 flex items-center justify-center text-3xl mx-auto mb-4">🔍</div>
-            <h4 class="text-xl font-semibold text-white mb-3">Recuperação de Créditos Ocultos</h4>
-            <p class="text-gray-400 text-sm leading-relaxed">Rastreamento e monetização do que foi pago a maior nos últimos 5 anos.</p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-blue-900/20">
-            <a href="#" class="btn-pdf">
-              <i class="fas fa-file-pdf"></i>
-              Acesse o material em PDF aqui
-            </a>
-          </div>
-        </div>
-        
-        <!-- Card 2 -->
-        <div class="card-solution p-6 text-center h-full flex flex-col justify-between">
-          <div>
-            <div class="w-16 h-16 rounded-full bg-blue-900/20 border border-blue-700/20 flex items-center justify-center text-3xl mx-auto mb-4">📦</div>
-            <h4 class="text-xl font-semibold text-white mb-3">Estruturação de Benefícios Fiscais</h4>
-            <p class="text-gray-400 text-sm leading-relaxed">Desenho de rotas logísticas e sistemáticas estaduais para reduzir o ICMS na importação e operação.</p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-blue-900/20">
-            <a href="#" class="btn-pdf">
-              <i class="fas fa-file-pdf"></i>
-              Acesse o material em PDF aqui
-            </a>
-          </div>
-        </div>
-        
-        <!-- Card 3 -->
-        <div class="card-solution p-6 text-center h-full flex flex-col justify-between">
-          <div>
-            <div class="w-16 h-16 rounded-full bg-blue-900/20 border border-blue-700/20 flex items-center justify-center text-3xl mx-auto mb-4">⚖️</div>
-            <h4 class="text-xl font-semibold text-white mb-3">Gestão Estratégica de Passivos</h4>
-            <p class="text-gray-400 text-sm leading-relaxed">Laudos de CAPAG para redução de multas, juros e alongamento de dívidas ativas na PGFN.</p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-blue-900/20">
-            <a href="#" class="btn-pdf">
-              <i class="fas fa-file-pdf"></i>
-              Acesse o material em PDF aqui
-            </a>
-          </div>
-        </div>
-        
-        <!-- Card 4 -->
-        <div class="card-solution p-6 text-center h-full flex flex-col justify-between">
-          <div>
-            <div class="w-16 h-16 rounded-full bg-blue-900/20 border border-blue-700/20 flex items-center justify-center text-3xl mx-auto mb-4">🏛️</div>
-            <h4 class="text-xl font-semibold text-white mb-3">Engenharia de Ativos e Securitização</h4>
-            <p class="text-gray-400 text-sm leading-relaxed">Conexão da economia tributária com linhas de crédito para expansão estruturada.</p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-blue-900/20">
-            <a href="#" class="btn-pdf">
-              <i class="fas fa-file-pdf"></i>
-              Acesse o material em PDF aqui
-            </a>
-          </div>
-        </div>
-        
-      </div>
-    </div>
-  </section>
-
-  <div class="section-divider"></div>
-
-  <!-- ===== 5. DIRETORIA (AUTORIDADE) ===== -->
-  <section id="diretoria" class="py-24 px-6 md:px-12 bg-[#0c1015]">
-    <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-12">
-        <span class="text-blue-400 text-sm font-semibold tracking-widest uppercase border border-blue-800/30 px-4 py-1 rounded-full">Quem está por trás</span>
-        <h2 class="text-3xl md:text-5xl font-bold mt-4 text-white">Diretoria Holder & Co</h2>
-        <div class="max-w-3xl mx-auto mt-4 p-6 bg-blue-900/10 border border-blue-800/20 rounded-2xl">
-          <p class="text-gray-300 text-base leading-relaxed italic">
-            "Sólida experiência em gestão de ativos e reestruturação corporativa. Não somos apenas consultores; somos parceiros estratégicos sentados ao lado do CEO para garantir que o crescimento da empresa não esbarre em uma carga tributária asfixiante."
-          </p>
-        </div>
-      </div>
-      
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 items-stretch">
-        
-        <div class="executive-card p-5 text-center h-full flex flex-col">
-          <div class="executive-avatar">
-            <i class="fas fa-user-tie"></i>
-          </div>
-          <h5 class="text-white font-semibold text-lg mt-2">Carlos Mendes</h5>
-          <p class="text-blue-300 text-xs font-medium tracking-wide">Sócio-Diretor</p>
-        </div>
-        
-        <div class="executive-card p-5 text-center h-full flex flex-col">
-          <div class="executive-avatar">
-            <i class="fas fa-user-tie"></i>
-          </div>
-          <h5 class="text-white font-semibold text-lg mt-2">Rita Fonseca</h5>
-          <p class="text-blue-300 text-xs font-medium tracking-wide">Diretora Fiscal</p>
-        </div>
-        
-        <div class="executive-card p-5 text-center h-full flex flex-col">
-          <div class="executive-avatar">
-            <i class="fas fa-user-tie"></i>
-          </div>
-          <h5 class="text-white font-semibold text-lg mt-2">Eduardo Lemos</h5>
-          <p class="text-blue-300 text-xs font-medium tracking-wide">Head de Estratégia</p>
-        </div>
-        
-        <div class="executive-card p-5 text-center h-full flex flex-col">
-          <div class="executive-avatar">
-            <i class="fas fa-user-tie"></i>
-          </div>
-          <h5 class="text-white font-semibold text-lg mt-2">Camila Rocha</h5>
-          <p class="text-blue-300 text-xs font-medium tracking-wide">Diretora Comercial</p>
-        </div>
-        
-      </div>
-    </div>
-  </section>
-
-  <div class="section-divider"></div>
-
-  <!-- ===== 6. FORMULÁRIO (CAPTAÇÃO) ===== -->
-  <section id="contato" class="py-24 px-6 md:px-12 bg-[#0b0e12]">
-    <div class="max-w-3xl mx-auto">
-      <div class="text-center mb-10">
-        <span class="text-blue-400 text-sm font-semibold tracking-widest uppercase border border-blue-800/30 px-4 py-1 rounded-full">Diagnóstico confidencial</span>
-        <h2 class="text-3xl md:text-5xl font-bold mt-4 text-white">Solicite um diagnóstico preliminar e confidencial</h2>
-        <p class="text-gray-400 mt-2 text-sm">Preencha os dados e receba uma análise estratégica reservada.</p>
-      </div>
-      
-      <form id="leadForm" class="space-y-5 bg-[#10171d] p-8 md:p-12 rounded-3xl border border-blue-900/20 shadow-2xl">
-        <div class="flex justify-end">
-          <div class="online-indicator">
-            <span class="pulse-dot"></span>
-            <span>Online agora · Atendimento imediato</span>
-          </div>
-        </div>
-        
-        <div>
-          <label class="block text-sm font-medium text-gray-300 mb-1">Nome Completo</label>
-          <input type="text" id="nome" placeholder="Seu nome" class="input-glass w-full px-5 py-3 rounded-xl text-sm" required>
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-gray-300 mb-1">Cargo</label>
-          <select id="cargo" class="input-glass w-full px-5 py-3 rounded-xl text-sm">
-            <option value="CEO/Sócio">CEO/Sócio</option>
-            <option value="Diretor/Gerente Fiscal">Diretor/Gerente Fiscal</option>
-            <option value="Diretor/Gerente Comercial">Diretor/Gerente Comercial</option>
-            <option value="Outro">Outro</option>
-          </select>
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-gray-300 mb-1">Empresa</label>
-          <input type="text" id="empresa" placeholder="Razão social" class="input-glass w-full px-5 py-3 rounded-xl text-sm" required>
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-gray-300 mb-1">Faturamento Mensal</label>
-          <select id="faturamento" class="input-glass w-full px-5 py-3 rounded-xl text-sm">
-            <option value="Abaixo de 5 milhões">Abaixo de 5 milhões</option>
-            <option value="R$ 5M - R$ 10M">R$ 5M - R$ 10M</option>
-            <option value="R$ 10M - R$ 25M">R$ 10M - R$ 25M</option>
-            <option value="R$ 25M - R$ 50M">R$ 25M - R$ 50M</option>
-            <option value="Acima de R$ 50M">Acima de R$ 50M</option>
-          </select>
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-gray-300 mb-1">WhatsApp (com DDD)</label>
-          <input type="tel" id="whatsapp" placeholder="(21) 99999-9999" class="input-glass w-full px-5 py-3 rounded-xl text-sm" required>
-        </div>
-        <button type="button" id="btnWhats" class="btn-whatsapp w-full py-4 rounded-xl text-white font-bold text-lg tracking-wide flex items-center justify-center gap-3">
-          <i class="fab fa-whatsapp text-2xl"></i>
-          <span>Solicitar Análise Confidencial</span>
+  <!-- FORMULÁRIO DE CONTATO -->
+  <section id="contato" class="py-20 px-6">
+    <div class="max-w-xl mx-auto glass p-10 rounded-3xl">
+      <h2 class="text-2xl font-bold mb-6 text-center">Vamos conversar?</h2>
+      <form id="leadForm" class="space-y-4">
+        <input type="text" id="nome" placeholder="Nome Completo" class="w-full p-4 rounded-xl bg-gray-900 border border-gray-700 outline-none focus:border-blue-500">
+        <input type="text" id="empresa" placeholder="Sua Empresa" class="w-full p-4 rounded-xl bg-gray-900 border border-gray-700 outline-none focus:border-blue-500">
+        <input type="tel" id="whatsapp" placeholder="WhatsApp com DDD" class="w-full p-4 rounded-xl bg-gray-900 border border-gray-700 outline-none focus:border-blue-500">
+        <button type="button" id="btnWhats" class="w-full bg-green-600 hover:bg-green-500 py-4 rounded-xl font-bold transition-all">
+          <i class="fab fa-whatsapp"></i> Iniciar Atendimento
         </button>
       </form>
     </div>
   </section>
 
-  <!-- ===== 7. FOOTER ===== -->
-  <footer class="bg-[#080b0e] border-t border-blue-900/20 py-6 text-center text-gray-500 text-xs">
-    <p>© 2026 Holder & Co · Inteligência Tributária · Todos os direitos reservados.</p>
-  </footer>
-
-  <!-- ===== JS APENAS PARA LÓGICA DE CLIQUE ===== -->
   <script>
-    // Smooth Scroll Nativo
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
-        }
-      });
-    });
-
-    // Envio WhatsApp
-    const btn = document.getElementById('btnWhats');
-    btn.addEventListener('click', function() {
-      const nomeVal = document.getElementById('nome').value.trim();
-      const empresaVal = document.getElementById('empresa').value.trim();
-      const whatsVal = document.getElementById('whatsapp').value.trim();
-      if (!nomeVal || !empresaVal || !whatsVal) {
-        alert('Preencha Nome, Empresa e WhatsApp para continuar.');
-        return;
-      }
-      const cargoVal = document.getElementById('cargo').value;
-      const fatVal = document.getElementById('faturamento').value;
-      
-      const msg = `Olá, equipe Holder & Co!%0A%0A*Diagnóstico Confidencial*%0A%0A📌 Nome: ${nomeVal}%0A📌 Cargo: ${cargoVal}%0A📌 Empresa: ${empresaVal}%0A📌 Faturamento: ${fatVal}%0A📌 WhatsApp: ${whatsVal}%0A%0AGostaria de solicitar uma análise estratégica.`;
-      
-      const phoneNumber = '55219990650767';
-      const url = `https://wa.me/${phoneNumber}?text=${msg}`;
-      window.open(url, '_blank');
+    document.getElementById('btnWhats').addEventListener('click', function() {
+      const nome = document.getElementById('nome').value;
+      const empresa = document.getElementById('empresa').value;
+      const tel = document.getElementById('whatsapp').value;
+      const msg = `Olá! Meu nome é ${nome}, da empresa ${empresa}. Gostaria de solicitar uma consultoria.`;
+      window.open(`https://wa.me/55219990650767?text=${encodeURIComponent(msg)}`, '_blank');
     });
   </script>
 </body>
