@@ -33,6 +33,10 @@
       color: #d4eaf7;
       transition: all 0.3s ease;
       box-shadow: 0 0 15px rgba(0, 150, 220, 0.15);
+      text-align: center;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
     .btn-primary:hover {
       background: linear-gradient(145deg, #2a6b8f, #1a4a6b);
@@ -146,8 +150,14 @@
         font-size: 1.3rem;
       }
       .btn-whatsapp span {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         white-space: normal;
+        text-align: center;
+      }
+      .btn-primary {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
       }
     }
 
@@ -406,6 +416,7 @@
       .hero-image-wrapper { max-width: 320px; }
       .hero-image-wrapper .glow-effect { inset: -20px; filter: blur(40px); }
       .authority-image-wrapper { max-width: 280px; }
+      .btn-primary { width: 100%; justify-content: center; }
     }
 
     @media (min-width: 641px) {
@@ -544,7 +555,6 @@
 
   <!-- ===== 2. HERO SECTION ===== -->
   <section id="conexao" class="min-h-screen flex items-center relative overflow-hidden hero-texture pt-28 pb-16 px-6 md:px-12">
-    
     <div class="hero-generative-bg">
       <div class="mesh-gradient"></div>
       <div class="mesh-gradient"></div>
@@ -561,37 +571,35 @@
     </div>
     
     <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center relative z-10">
-      
-      <div class="lg:col-span-3 space-y-8">
+      <div class="lg:col-span-3 space-y-6">
+        <!-- Destaques -->
         <div class="flex items-center gap-3 flex-wrap fade-in-up fade-in-up-delay-1 visible">
           <span class="badge-auth">+ R$ 1.2 Bi em ativos recuperados</span>
           <span class="badge-auth">20 anos de estrada</span>
+          <span class="badge-auth">+200 empresas atendidas</span>
         </div>
+        <!-- Título -->
         <h1 class="text-4xl md:text-6xl font-extrabold leading-[1.15] tracking-tight fade-in-up fade-in-up-delay-2 visible">
           <span class="text-white">Você já entendeu que a margem de lucro </span><br>
           <span class="text-blue-400">está travada.</span>
         </h1>
+        <!-- Complemento do título -->
         <p class="text-base md:text-xl text-gray-300 max-w-2xl font-light leading-relaxed fade-in-up fade-in-up-delay-3 visible">
           Agora vou te mostrar <span class="text-white font-medium">como destravá-la tecnicamente</span>. Não se trata de mais uma consultoria. Trata-se de uma engenharia financeira aplicada que transforma passivos em ativos e reinjeta caixa na operação.
         </p>
+        <!-- Botão centralizado mobile -->
         <div class="flex flex-wrap items-center gap-4 pt-2 fade-in-up fade-in-up-delay-4 visible">
-          <a href="#contato" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold shadow-2xl">Quero entender o nível de soluções estratégicas</a>
-          <span class="text-gray-500 text-sm">● Diagnóstico estratégico</span>
+          <a href="#contato" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold shadow-2xl w-full sm:w-auto">Quero entender o nível de soluções estratégicas</a>
+          <span class="text-gray-500 text-sm hidden sm:inline">● Diagnóstico estratégico</span>
         </div>
       </div>
 
       <div class="lg:col-span-2 flex justify-center lg:justify-end fade-in-up fade-in-up-delay-3 visible">
         <div class="hero-image-wrapper">
           <div class="glow-effect"></div>
-          <img 
-            src="image_hero.png" 
-            alt="Holder & Co - Inteligência Tributária e Proteção Patrimonial" 
-            class="hero-img"
-            onerror="this.style.display='none'"
-          >
+          <img src="image_hero.png" alt="Holder & Co - Inteligência Tributária e Proteção Patrimonial" class="hero-img" onerror="this.style.display='none'">
         </div>
       </div>
-      
     </div>
   </section>
 
@@ -608,6 +616,7 @@
       
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10 items-stretch">
         
+        <!-- COMERCIAL -->
         <div class="card-solution p-8 relative overflow-hidden h-full flex flex-col">
           <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl"></div>
           <div class="flex items-center gap-3 mb-4">
@@ -623,6 +632,7 @@
           </div>
         </div>
         
+        <!-- FISCAL/FINAN -->
         <div class="card-solution p-8 relative overflow-hidden h-full flex flex-col">
           <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl"></div>
           <div class="flex items-center gap-3 mb-4">
@@ -638,6 +648,7 @@
           </div>
         </div>
         
+        <!-- PARCEIROS -->
         <div class="card-solution p-8 relative overflow-hidden h-full flex flex-col">
           <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl"></div>
           <div class="flex items-center gap-3 mb-4">
@@ -664,9 +675,10 @@
     <div class="max-w-7xl mx-auto">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mobile-image-first">
         
+        <!-- Coluna Direita - Dashboard -->
         <div class="image-col flex justify-center lg:justify-end order-first lg:order-last">
           <div class="w-full max-w-md mx-auto bg-transparent">
-            
+            <!-- Destaques do Dashboard -->
             <div class="flex items-center justify-between mb-4">
               <div>
                 <span class="text-[10px] font-semibold text-blue-400 tracking-widest uppercase">Recuperação de Ativos</span>
@@ -683,9 +695,9 @@
               </div>
             </div>
             
+            <!-- SVG Gráfico -->
             <div class="relative w-full" style="height: 220px;">
               <svg viewBox="0 0 400 200" class="w-full h-full" preserveAspectRatio="xMidYMid meet">
-                
                 <g opacity="0">
                   <animate attributeName="opacity" from="0" to="1" dur="0.8s" begin="0.2s" fill="freeze" />
                   <line x1="40" y1="20" x2="380" y2="20" stroke="rgba(74, 168, 212, 0.05)" stroke-width="0.5" stroke-dasharray="4 4" />
@@ -694,7 +706,6 @@
                   <line x1="40" y1="125" x2="380" y2="125" stroke="rgba(74, 168, 212, 0.05)" stroke-width="0.5" stroke-dasharray="4 4" />
                   <line x1="40" y1="160" x2="380" y2="160" stroke="rgba(74, 168, 212, 0.05)" stroke-width="0.5" stroke-dasharray="4 4" />
                 </g>
-                
                 <g opacity="0">
                   <animate attributeName="opacity" from="0" to="1" dur="0.8s" begin="0.4s" fill="freeze" />
                   <text x="30" y="24" class="text-[8px] fill-gray-500 font-medium text-right" text-anchor="end">100%</text>
@@ -703,9 +714,7 @@
                   <text x="30" y="129" class="text-[8px] fill-gray-500 font-medium text-right" text-anchor="end">25%</text>
                   <text x="30" y="164" class="text-[8px] fill-gray-500 font-medium text-right" text-anchor="end">0%</text>
                 </g>
-                
                 <g transform="translate(50, 0)">
-                  
                   <g transform="translate(20, 0)">
                     <rect x="0" y="0" width="36" height="52" rx="4" fill="url(#gradAtual)" opacity="0.3" class="bar-animate">
                       <animate attributeName="height" from="0" to="52" dur="1.2s" begin="0.2s" fill="freeze" calcMode="spline" keySplines="0.2 0.9 0.3 1.1" />
@@ -714,7 +723,6 @@
                     <text x="18" y="70" class="text-[8px] fill-gray-500 text-center" text-anchor="middle">2022</text>
                     <text x="18" y="50" class="text-[8px] fill-gray-400 text-center font-medium text-fade-in" text-anchor="middle" opacity="0">26%</text>
                   </g>
-                  
                   <g transform="translate(85, 0)">
                     <rect x="0" y="0" width="36" height="68" rx="4" fill="url(#gradAtual)" opacity="0.4" class="bar-animate">
                       <animate attributeName="height" from="0" to="68" dur="1.2s" begin="0.5s" fill="freeze" calcMode="spline" keySplines="0.2 0.9 0.3 1.1" />
@@ -723,7 +731,6 @@
                     <text x="18" y="70" class="text-[8px] fill-gray-500 text-center" text-anchor="middle">2023</text>
                     <text x="18" y="66" class="text-[8px] fill-gray-400 text-center font-medium text-fade-in" text-anchor="middle" opacity="0">34%</text>
                   </g>
-                  
                   <g transform="translate(150, 0)">
                     <rect x="0" y="0" width="36" height="84" rx="4" fill="url(#gradAtual)" opacity="0.5" class="bar-animate">
                       <animate attributeName="height" from="0" to="84" dur="1.2s" begin="0.8s" fill="freeze" calcMode="spline" keySplines="0.2 0.9 0.3 1.1" />
@@ -732,7 +739,6 @@
                     <text x="18" y="70" class="text-[8px] fill-gray-500 text-center" text-anchor="middle">2024</text>
                     <text x="18" y="82" class="text-[8px] fill-gray-400 text-center font-medium text-fade-in" text-anchor="middle" opacity="0">42%</text>
                   </g>
-                  
                   <g transform="translate(215, 0)">
                     <rect x="0" y="0" width="36" height="120" rx="4" fill="url(#gradProjetado)" class="bar-animate bar-pulse bar-glow">
                       <animate attributeName="height" from="0" to="120" dur="1.2s" begin="1.1s" fill="freeze" calcMode="spline" keySplines="0.2 0.9 0.3 1.1" />
@@ -744,7 +750,6 @@
                     <text x="18" y="70" class="text-[8px] fill-gray-500 text-center" text-anchor="middle">2025</text>
                     <text x="18" y="118" class="text-[8px] fill-cyan-400 text-center font-bold text-fade-in" text-anchor="middle" opacity="0">60%</text>
                   </g>
-                  
                   <g transform="translate(280, 0)">
                     <rect x="0" y="0" width="36" height="156" rx="4" fill="url(#gradMeta)" class="bar-animate bar-pulse bar-glow-meta">
                       <animate attributeName="height" from="0" to="156" dur="1.2s" begin="1.4s" fill="freeze" calcMode="spline" keySplines="0.2 0.9 0.3 1.1" />
@@ -756,22 +761,13 @@
                     <text x="18" y="70" class="text-[8px] fill-gray-500 text-center" text-anchor="middle">2026</text>
                     <text x="18" y="154" class="text-[8px] fill-emerald-400 text-center font-bold text-fade-in" text-anchor="middle" opacity="0">78%</text>
                   </g>
-                  
-                  <path d="M 38 128 L 103 112 L 168 96 L 233 60 L 298 24" 
-                        stroke="rgba(34, 211, 238, 0.2)" 
-                        stroke-width="1.5" 
-                        fill="none" 
-                        class="trend-line"
-                        stroke-dashoffset="300" />
-                  
+                  <path d="M 38 128 L 103 112 L 168 96 L 233 60 L 298 24" stroke="rgba(34, 211, 238, 0.2)" stroke-width="1.5" fill="none" class="trend-line" stroke-dashoffset="300" />
                   <circle cx="38" cy="128" r="3" fill="rgba(74, 168, 212, 0.3)" />
                   <circle cx="103" cy="112" r="3" fill="rgba(74, 168, 212, 0.3)" />
                   <circle cx="168" cy="96" r="3" fill="rgba(74, 168, 212, 0.3)" />
                   <circle cx="233" cy="60" r="4" fill="rgba(34, 211, 238, 0.6)" class="dot-pulse" />
                   <circle cx="298" cy="24" r="4" fill="rgba(22, 163, 74, 0.8)" class="dot-pulse" />
-                  
                 </g>
-                
                 <defs>
                   <linearGradient id="gradAtual" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.6"/>
@@ -794,10 +790,10 @@
                     <stop offset="100%" stop-color="#22c55e" stop-opacity="0"/>
                   </linearGradient>
                 </defs>
-                
               </svg>
             </div>
             
+            <!-- Legenda e Indicador -->
             <div class="flex items-center justify-between mt-2 px-2">
               <div class="flex items-center gap-4">
                 <div class="flex items-center gap-1.5">
@@ -820,10 +816,10 @@
               <span class="text-[10px] text-gray-500"><i class="fas fa-arrow-up text-emerald-400 mr-1 animate-bounce"></i> Crescimento projetado</span>
               <span class="text-xs font-bold text-emerald-400 animate-pulse">+73%</span>
             </div>
-            
           </div>
         </div>
         
+        <!-- Coluna Esquerda - Texto -->
         <div class="text-col space-y-6 order-last lg:order-first">
           <span class="text-blue-400 text-sm font-semibold tracking-widest uppercase border border-blue-800/30 px-4 py-1 rounded-full inline-block">Para o CEO</span>
           <h2 class="text-3xl md:text-5xl font-bold text-white leading-[1.15]">
@@ -843,7 +839,7 @@
               </p>
             </div>
           </div>
-          <a href="#contato" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold shadow-2xl inline-flex items-center gap-2">
+          <a href="#contato" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold shadow-2xl inline-flex items-center gap-2 w-full sm:w-auto justify-center">
             <span>Quero clareza operacional agora</span>
             <i class="fas fa-arrow-right text-sm"></i>
           </a>
@@ -863,12 +859,7 @@
         <div class="image-col lg:col-span-2 flex justify-center order-first lg:order-first">
           <div class="authority-image-wrapper">
             <div class="glow-effect"></div>
-            <img 
-              src="image_header.png" 
-              alt="Rodrigo de Assis - Holder & Co - Inteligência Tributária" 
-              class="animate-float"
-              onerror="this.style.display='none'"
-            >
+            <img src="image_header.png" alt="Rodrigo de Assis - Holder & Co - Inteligência Tributária" class="animate-float" onerror="this.style.display='none'">
           </div>
         </div>
         
@@ -891,7 +882,7 @@
               </p>
             </div>
           </div>
-          <a href="#contato" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold shadow-2xl inline-flex items-center gap-2">
+          <a href="#contato" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold shadow-2xl inline-flex items-center gap-2 w-full sm:w-auto justify-center">
             <span>Quero falar com Rodrigo agora</span>
             <i class="fas fa-arrow-right text-sm"></i>
           </a>
@@ -919,80 +910,30 @@
       
       <div class="relative overflow-hidden">
         <div class="logo-carousel-track">
-          <!-- Primeiro grupo de logos -->
-          <div class="logo-item">
-            <img src="tigre.jpeg" alt="Tigre" onerror="this.style.display='none'">
-          </div>
-          <div class="logo-item">
-            <img src="sony.png" alt="Sony" onerror="this.style.display='none'">
-          </div>
-          <div class="logo-item">
-            <img src="sodexo.png" alt="Sodexo" onerror="this.style.display='none'">
-          </div>
-          <div class="logo-item">
-            <img src="siqueira campos.jpeg" alt="Siqueira Campos" onerror="this.style.display='none'">
-          </div>
-          <div class="logo-item">
-            <img src="natura.png" alt="Natura" onerror="this.style.display='none'">
-          </div>
-          <div class="logo-item">
-            <img src="nacional.png" alt="Nacional" onerror="this.style.display='none'">
-          </div>
-          <div class="logo-item">
-            <img src="minalba.jpeg" alt="Minalba" onerror="this.style.display='none'">
-          </div>
-          <div class="logo-item">
-            <img src="medley.png" alt="Medley" onerror="this.style.display='none'">
-          </div>
-          <div class="logo-item">
-            <img src="lenovo.png" alt="Lenovo" onerror="this.style.display='none'">
-          </div>
-          <div class="logo-item">
-            <img src="frescato.png" alt="Frescato" onerror="this.style.display='none'">
-          </div>
-          <div class="logo-item">
-            <img src="esmaltec.jpeg" alt="Esmaltec" onerror="this.style.display='none'">
-          </div>
-          <div class="logo-item">
-            <img src="avon.jpeg" alt="Avon" onerror="this.style.display='none'">
-          </div>
-          <!-- Segundo grupo (duplicado para loop contínuo) -->
-          <div class="logo-item">
-            <img src="tigre.jpeg" alt="Tigre" onerror="this.style.display='none'">
-          </div>
-          <div class="logo-item">
-            <img src="sony.png" alt="Sony" onerror="this.style.display='none'">
-          </div>
-          <div class="logo-item">
-            <img src="sodexo.png" alt="Sodexo" onerror="this.style.display='none'">
-          </div>
-          <div class="logo-item">
-            <img src="siqueira campos.jpeg" alt="Siqueira Campos" onerror="this.style.display='none'">
-          </div>
-          <div class="logo-item">
-            <img src="natura.png" alt="Natura" onerror="this.style.display='none'">
-          </div>
-          <div class="logo-item">
-            <img src="nacional.png" alt="Nacional" onerror="this.style.display='none'">
-          </div>
-          <div class="logo-item">
-            <img src="minalba.jpeg" alt="Minalba" onerror="this.style.display='none'">
-          </div>
-          <div class="logo-item">
-            <img src="medley.png" alt="Medley" onerror="this.style.display='none'">
-          </div>
-          <div class="logo-item">
-            <img src="lenovo.png" alt="Lenovo" onerror="this.style.display='none'">
-          </div>
-          <div class="logo-item">
-            <img src="frescato.png" alt="Frescato" onerror="this.style.display='none'">
-          </div>
-          <div class="logo-item">
-            <img src="esmaltec.jpeg" alt="Esmaltec" onerror="this.style.display='none'">
-          </div>
-          <div class="logo-item">
-            <img src="avon.jpeg" alt="Avon" onerror="this.style.display='none'">
-          </div>
+          <div class="logo-item"><img src="tigre.jpeg" alt="Tigre" onerror="this.style.display='none'"></div>
+          <div class="logo-item"><img src="sony.png" alt="Sony" onerror="this.style.display='none'"></div>
+          <div class="logo-item"><img src="sodexo.png" alt="Sodexo" onerror="this.style.display='none'"></div>
+          <div class="logo-item"><img src="siqueira campos.jpeg" alt="Siqueira Campos" onerror="this.style.display='none'"></div>
+          <div class="logo-item"><img src="natura.png" alt="Natura" onerror="this.style.display='none'"></div>
+          <div class="logo-item"><img src="nacional.png" alt="Nacional" onerror="this.style.display='none'"></div>
+          <div class="logo-item"><img src="minalba.jpeg" alt="Minalba" onerror="this.style.display='none'"></div>
+          <div class="logo-item"><img src="medley.png" alt="Medley" onerror="this.style.display='none'"></div>
+          <div class="logo-item"><img src="lenovo.png" alt="Lenovo" onerror="this.style.display='none'"></div>
+          <div class="logo-item"><img src="frescato.png" alt="Frescato" onerror="this.style.display='none'"></div>
+          <div class="logo-item"><img src="esmaltec.jpeg" alt="Esmaltec" onerror="this.style.display='none'"></div>
+          <div class="logo-item"><img src="avon.jpeg" alt="Avon" onerror="this.style.display='none'"></div>
+          <div class="logo-item"><img src="tigre.jpeg" alt="Tigre" onerror="this.style.display='none'"></div>
+          <div class="logo-item"><img src="sony.png" alt="Sony" onerror="this.style.display='none'"></div>
+          <div class="logo-item"><img src="sodexo.png" alt="Sodexo" onerror="this.style.display='none'"></div>
+          <div class="logo-item"><img src="siqueira campos.jpeg" alt="Siqueira Campos" onerror="this.style.display='none'"></div>
+          <div class="logo-item"><img src="natura.png" alt="Natura" onerror="this.style.display='none'"></div>
+          <div class="logo-item"><img src="nacional.png" alt="Nacional" onerror="this.style.display='none'"></div>
+          <div class="logo-item"><img src="minalba.jpeg" alt="Minalba" onerror="this.style.display='none'"></div>
+          <div class="logo-item"><img src="medley.png" alt="Medley" onerror="this.style.display='none'"></div>
+          <div class="logo-item"><img src="lenovo.png" alt="Lenovo" onerror="this.style.display='none'"></div>
+          <div class="logo-item"><img src="frescato.png" alt="Frescato" onerror="this.style.display='none'"></div>
+          <div class="logo-item"><img src="esmaltec.jpeg" alt="Esmaltec" onerror="this.style.display='none'"></div>
+          <div class="logo-item"><img src="avon.jpeg" alt="Avon" onerror="this.style.display='none'"></div>
         </div>
       </div>
       
@@ -1077,10 +1018,9 @@
           </select>
         </div>
         
-        <!-- Botão WhatsApp Centralizado -->
         <button type="button" id="btnWhats" class="btn-whatsapp">
           <i class="fab fa-whatsapp"></i>
-          <span>Solicitar Análise Confidencial</span>
+          <span>Enviar formulário para análise gratuita (3/10)</span>
         </button>
         
         <div class="flex flex-col sm:flex-row justify-between items-center gap-2 pt-2">
@@ -1102,7 +1042,6 @@
   <!-- ===== 8. RODAPÉ INSTITUCIONAL ===== -->
   <footer class="bg-[#080b0e] border-t border-blue-900/20 py-8 px-6 md:px-12">
     <div class="max-w-7xl mx-auto">
-      
       <div class="text-center mb-8">
         <p class="text-gray-400 text-sm max-w-2xl mx-auto leading-relaxed">
           Boutique de soluções corporativas especializada em desenvolvimento financeiro e empresarial.
