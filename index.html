@@ -175,9 +175,32 @@
     .pulse-dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; animation: pulse-green 1.5s ease-in-out infinite; box-shadow: 0 0 8px rgba(34, 197, 94, 0.4); }
     .online-indicator {
       display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.2);
-      padding: 6px 14px 6px 10px; border-radius: 50px;
-      font-size: 0.75rem; color: #4ade80; font-weight: 500;
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.2);
+      padding: 6px 14px 6px 10px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      color: #4ade80;
+      font-weight: 500;
+    }
+    .diagnostic-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(74, 168, 212, 0.08);
+      border: 1px solid rgba(74, 168, 212, 0.15);
+      padding: 4px 14px 4px 10px;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      color: #4aa8d4;
+      font-weight: 500;
+    }
+    .diagnostic-indicator .dot {
+      width: 6px;
+      height: 6px;
+      background: #4aa8d4;
+      border-radius: 50%;
+      opacity: 0.6;
     }
 
     /* === CARROSSEL DE LOGOS === */
@@ -247,9 +270,16 @@
       font-size: 0.75rem;
       color: #f87171;
       font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
     .vagas-indicator strong {
       color: #ef4444;
+    }
+    .vagas-indicator i {
+      color: #ef4444;
+      opacity: 0.6;
     }
 
     /* === LOGO IMG === */
@@ -417,6 +447,8 @@
       .hero-image-wrapper .glow-effect { inset: -20px; filter: blur(40px); }
       .authority-image-wrapper { max-width: 280px; }
       .btn-primary { width: 100%; justify-content: center; }
+      .diagnostic-indicator { font-size: 0.6rem; padding: 3px 10px 3px 8px; }
+      .vagas-indicator { font-size: 0.65rem; padding: 4px 12px; flex-wrap: wrap; justify-content: center; }
     }
 
     @media (min-width: 641px) {
@@ -572,21 +604,28 @@
     
     <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center relative z-10">
       <div class="lg:col-span-3 space-y-6">
+        <!-- Destaques -->
         <div class="flex items-center gap-3 flex-wrap fade-in-up fade-in-up-delay-1 visible">
           <span class="badge-auth">+ R$ 1.2 Bi em ativos recuperados</span>
           <span class="badge-auth">20 anos de estrada</span>
           <span class="badge-auth">+200 empresas atendidas</span>
+          <span class="diagnostic-indicator">
+            <span class="dot"></span>
+            Diagnóstico estratégico
+          </span>
         </div>
+        <!-- Título atualizado -->
         <h1 class="text-4xl md:text-6xl font-extrabold leading-[1.15] tracking-tight fade-in-up fade-in-up-delay-2 visible">
           <span class="text-white">Você já entendeu que a margem de lucro da empresa </span><br>
           <span class="text-blue-400">está travada.</span>
         </h1>
+        <!-- Complemento do título -->
         <p class="text-base md:text-xl text-gray-300 max-w-2xl font-light leading-relaxed fade-in-up fade-in-up-delay-3 visible">
           Agora vou te mostrar <span class="text-white font-medium">como destravá-la tecnicamente</span>. Não se trata de mais uma consultoria. Trata-se de uma engenharia financeira aplicada que transforma passivos em ativos e reinjeta caixa na operação.
         </p>
+        <!-- Botão centralizado mobile -->
         <div class="flex flex-wrap items-center gap-4 pt-2 fade-in-up fade-in-up-delay-4 visible">
           <a href="#contato" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold shadow-2xl w-full sm:w-auto">Quero entender o nível de soluções estratégicas</a>
-          <span class="text-gray-500 text-sm hidden sm:inline">● Diagnóstico estratégico</span>
         </div>
       </div>
 
@@ -940,12 +979,13 @@
     <div class="max-w-3xl mx-auto">
       <div class="text-center mb-10">
         <span class="text-blue-400 text-sm font-semibold tracking-widest uppercase border border-blue-800/30 px-4 py-1 rounded-full">Diagnóstico estratégico</span>
-        <h2 class="text-3xl md:text-5xl font-bold mt-4 text-white">Solicite seu diagnóstico confidencial</h2>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4 text-white">Solicite seu diagnóstico abaixo:</h2>
         <p class="text-gray-400 mt-2 text-sm">Análise preliminar reservada com Rodrigo de Assis</p>
         
-        <div class="vagas-indicator mt-4 inline-flex items-center gap-2">
-          <i class="fas fa-exclamation-circle text-red-500/60"></i>
-          <span>10 vagas iniciais para diagnóstico — <strong>restam apenas 3</strong></span>
+        <!-- Indicador de vagas atualizado -->
+        <div class="vagas-indicator mt-4">
+          <i class="fas fa-exclamation-circle"></i>
+          <span>Apenas 10 formulários liberados para diagnósticos gratuitos — <strong>restam apenas 3 vagas</strong></span>
         </div>
       </div>
       
@@ -1081,7 +1121,7 @@
     </div>
   </footer>
 
-  <!-- ===== JS ATUALIZADO ===== -->
+  <!-- ===== JS ===== -->
   <script>
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
