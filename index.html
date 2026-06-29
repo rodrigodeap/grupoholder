@@ -1105,16 +1105,24 @@
       
       // Validar campos obrigatórios
       if (!nomeVal || !empresaVal || !whatsVal) {
-        alert('⚠️ Preencha Nome, Empresa e WhatsApp para continuar.');
+        alert('Preencha Nome, Empresa e WhatsApp para continuar.');
         return;
       }
       
-      // Construir mensagem formatada para WhatsApp
-      const msg = `Olá, Rodrigo! 👋%0A%0A📋 *Diagnóstico Estratégico - Holder & Co*%0A%0A👤 *Nome:* ${nomeVal}%0A💼 *Cargo:* ${cargoVal}%0A🏢 *Empresa:* ${empresaVal}%0A💰 *Faturamento:* ${fatVal}%0A📊 *Regime Tributário:* ${regimeVal}%0A📱 *WhatsApp:* ${whatsVal}%0A%0A📌 *Mensagem:* Gostaria de solicitar uma análise confidencial para destravar margem e otimizar caixa.%0A%0AAguardo contato.`;
+      // Construir mensagem SEM emojis para evitar caracteres especiais
+      var msg = 'Olá, Rodrigo!' + '%0A%0A';
+      msg += 'Diagnóstico Estratégico - Holder & Co' + '%0A%0A';
+      msg += 'Nome: ' + nomeVal + '%0A';
+      msg += 'Cargo: ' + cargoVal + '%0A';
+      msg += 'Empresa: ' + empresaVal + '%0A';
+      msg += 'Faturamento: ' + fatVal + '%0A';
+      msg += 'Regime Tributário: ' + regimeVal + '%0A';
+      msg += 'WhatsApp: ' + whatsVal + '%0A%0A';
+      msg += 'Gostaria de solicitar uma análise confidencial para destravar margem e otimizar caixa.';
       
       // Número do WhatsApp no formato internacional
-      const phoneNumber = '5521990650767';
-      const url = `https://wa.me/${phoneNumber}?text=${msg}`;
+      var phoneNumber = '5521990650767';
+      var url = 'https://wa.me/' + phoneNumber + '?text=' + msg;
       
       // Abrir WhatsApp em nova janela/aba
       window.open(url, '_blank');
