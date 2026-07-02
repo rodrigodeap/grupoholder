@@ -60,6 +60,19 @@
       background: rgba(22, 32, 36, 0.9);
     }
     
+    .glass {
+      background: rgba(18, 24, 28, 0.5);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    
+    .gradient-text {
+      background: linear-gradient(135deg, #4aa8d4, #22d3ee);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
     /* === CARDS EXECUTIVOS === */
     .executive-card {
       background: rgba(14, 20, 24, 0.6);
@@ -449,6 +462,7 @@
       .btn-primary { width: 100%; justify-content: center; }
       .diagnostic-indicator { font-size: 0.6rem; padding: 3px 10px 3px 8px; }
       .vagas-indicator { font-size: 0.65rem; padding: 4px 12px; flex-wrap: wrap; justify-content: center; }
+      .glass { padding: 20px !important; }
     }
 
     @media (min-width: 641px) {
@@ -576,6 +590,7 @@
     <div class="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-300">
       <a href="#conexao" class="hover:text-blue-300 transition-colors">Conexão</a>
       <a href="#stakeholders" class="hover:text-blue-300 transition-colors">Stakeholders</a>
+      <a href="#ativos-federais" class="hover:text-blue-300 transition-colors">Ativos Federais</a>
       <a href="#ceo" class="hover:text-blue-300 transition-colors">CEO</a>
       <a href="#autoridade" class="hover:text-blue-300 transition-colors">Autoridade</a>
     </div>
@@ -604,7 +619,6 @@
     
     <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center relative z-10">
       <div class="lg:col-span-3 space-y-6">
-        <!-- Destaques -->
         <div class="flex items-center gap-3 flex-wrap fade-in-up fade-in-up-delay-1 visible">
           <span class="badge-auth">+ R$ 1.2 Bi em ativos recuperados</span>
           <span class="badge-auth">20 anos de estrada</span>
@@ -614,16 +628,13 @@
             Diagnóstico estratégico
           </span>
         </div>
-        <!-- Título atualizado -->
         <h1 class="text-4xl md:text-6xl font-extrabold leading-[1.15] tracking-tight fade-in-up fade-in-up-delay-2 visible">
           <span class="text-white">Você já entendeu que a margem de lucro da empresa </span><br>
           <span class="text-blue-400">está travada.</span>
         </h1>
-        <!-- Complemento do título -->
         <p class="text-base md:text-xl text-gray-300 max-w-2xl font-light leading-relaxed fade-in-up fade-in-up-delay-3 visible">
           Agora vou te mostrar <span class="text-white font-medium">como destravá-la tecnicamente</span>. Não se trata de mais uma consultoria. Trata-se de uma engenharia financeira aplicada que transforma passivos em ativos e reinjeta caixa na operação.
         </p>
-        <!-- Botão centralizado mobile -->
         <div class="flex flex-wrap items-center gap-4 pt-2 fade-in-up fade-in-up-delay-4 visible">
           <a href="#contato" class="btn-primary px-8 py-4 rounded-full text-lg font-semibold shadow-2xl w-full sm:w-auto">Quero entender o nível de soluções estratégicas</a>
         </div>
@@ -702,7 +713,48 @@
 
   <div class="section-divider"></div>
 
-  <!-- ===== 4. DOBRA DE FOCO NO CEO ===== -->
+  <!-- ===== 4. DOBRA: ATIVOS FEDERAIS ===== -->
+  <section id="ativos-federais" class="py-24 px-6 md:px-12 bg-[#080b10]">
+    <div class="max-w-5xl mx-auto glass p-10 md:p-16 rounded-3xl border border-blue-900/30 shadow-2xl">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Lado Esquerdo: Copy -->
+        <div class="space-y-6">
+          <span class="text-blue-400 font-bold tracking-widest uppercase text-xs">Estruturação de Ativos</span>
+          <h2 class="text-3xl md:text-4xl font-bold leading-tight">
+            Oportunidade de Aquisição de <br><span class="gradient-text">Ativos Federais de Alta Performance</span>
+          </h2>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Transforme créditos judiciais de natureza indenizatória em estratégias reais para o seu negócio. Atuamos na estruturação jurídica, financeira e operacional, garantindo a liquidez e segurança da sua aquisição.
+          </p>
+          <ul class="space-y-3 text-sm text-gray-300">
+            <li><i class="fas fa-check text-blue-500 mr-2"></i> Quitação de tributos federais vincendos</li>
+            <li><i class="fas fa-check text-blue-500 mr-2"></i> Integralização de capital e reorganização patrimonial</li>
+            <li><i class="fas fa-check text-blue-500 mr-2"></i> Segurança de ponta a ponta: da due diligence ao closing</li>
+          </ul>
+          
+          <!-- Botão com Link do Google Drive -->
+          <a href="https://drive.google.com/file/d/1WW2Nf2nKNhl1B_PQhRSsqdbt-jfQiUET/view?usp=drivesdk" 
+             target="_blank"
+             class="inline-block bg-blue-600 hover:bg-blue-500 px-8 py-4 rounded-xl font-bold text-sm transition-all shadow-lg shadow-blue-900/20">
+            <i class="fas fa-file-pdf mr-2"></i> Acessar Apresentação Institucional
+          </a>
+        </div>
+
+        <!-- Lado Direito: Elemento visual de confiança -->
+        <div class="glass p-8 rounded-2xl border border-blue-500/10 flex flex-col items-center text-center">
+          <div class="w-20 h-20 bg-blue-900/20 rounded-full flex items-center justify-center mb-6">
+            <i class="fas fa-handshake text-4xl text-blue-400"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4">Assessoria de Ponta a Ponta</h3>
+          <p class="text-xs text-gray-400">Suporte integral a titulares e adquirentes, coordenando toda a habilitação judicial e liquidação financeira com suporte jurídico especializado durante toda a operação.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ===== 5. DOBRA DE FOCO NO CEO ===== -->
   <section id="ceo" class="py-24 px-6 md:px-12 bg-[#0b0e12]">
     <div class="max-w-7xl mx-auto">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mobile-image-first">
@@ -878,7 +930,7 @@
 
   <div class="section-divider"></div>
 
-  <!-- ===== 5. DOBRA DE AUTORIDADE ===== -->
+  <!-- ===== 6. DOBRA DE AUTORIDADE ===== -->
   <section id="autoridade" class="py-24 px-6 md:px-12 bg-[#0c1015]">
     <div class="max-w-7xl mx-auto">
       <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center mobile-image-first">
@@ -926,7 +978,7 @@
 
   <div class="section-divider"></div>
 
-  <!-- ===== 6. DOBRA DE PROVA (CARROSSEL DE LOGOS) ===== -->
+  <!-- ===== 7. DOBRA DE PROVA (CARROSSEL DE LOGOS) ===== -->
   <section class="py-16 px-6 md:px-12 bg-[#0b0e12] overflow-hidden">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-10">
@@ -974,7 +1026,7 @@
 
   <div class="section-divider"></div>
 
-  <!-- ===== 7. FECHAMENTO (FORMULÁRIO DE ELITE) ===== -->
+  <!-- ===== 8. FECHAMENTO (FORMULÁRIO DE ELITE) ===== -->
   <section id="contato" class="py-24 px-6 md:px-12 bg-[#0b0e12]">
     <div class="max-w-3xl mx-auto">
       <div class="text-center mb-10">
@@ -982,7 +1034,6 @@
         <h2 class="text-3xl md:text-5xl font-bold mt-4 text-white">Solicite seu diagnóstico abaixo:</h2>
         <p class="text-gray-400 mt-2 text-sm">Análise preliminar reservada com Rodrigo de Assis</p>
         
-        <!-- Indicador de vagas atualizado -->
         <div class="vagas-indicator mt-4">
           <i class="fas fa-exclamation-circle"></i>
           <span>Apenas 10 formulários liberados para diagnósticos gratuitos — <strong>restam apenas 3 vagas</strong></span>
@@ -1067,7 +1118,7 @@
     </div>
   </section>
 
-  <!-- ===== 8. RODAPÉ INSTITUCIONAL ===== -->
+  <!-- ===== 9. RODAPÉ INSTITUCIONAL ===== -->
   <footer class="bg-[#080b0e] border-t border-blue-900/20 py-8 px-6 md:px-12">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-8">
